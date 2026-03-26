@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Léo Carvalho</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.contact-page { padding: clamp(3rem,8vh,6rem) clamp(1.2rem,6vw,6rem); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.contact-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem,4.5vw,3.5rem); font-weight: 800; line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.contact-intro { font-size: 1rem; color: var(--muted); line-height: 1.8; margin-bottom: 3rem; max-width: 480px; }
+.contact-intro strong { color: var(--text); }
+.contact-items { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; }
+.contact-item {
+  display: flex; align-items: center; gap: 1.2rem;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.2rem 1.5rem;
+  transition: var(--trans); text-decoration: none; color: inherit;
+}
+.contact-item:hover { border-color: var(--accent); transform: translateX(5px); box-shadow: 0 8px 24px var(--glow); }
+.contact-item-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: var(--bg3); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.contact-item-label { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .15rem; }
+.contact-item-value { font-size: .95rem; font-weight: 500; }
+
+.contact-social { display: flex; gap: 1rem; flex-wrap: wrap; }
+.social-btn {
+  display: flex; align-items: center; gap: .6rem;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: .75rem 1.2rem;
+  font-size: .85rem; font-weight: 600;
+  transition: var(--trans); text-decoration: none; color: inherit;
+}
+.social-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+/* Visual side */
+.contact-visual { }
+.contact-photo {
+  width: 100%; border-radius: 20px; border: 1px solid var(--border);
+  object-fit: cover; object-position: center top;
+  height: 420px;
+  box-shadow: 0 24px 64px var(--shadow);
+  margin-bottom: 1.5rem;
+}
+.contact-info-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.5rem;
+}
+.contact-info-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); margin-bottom: 1rem; }
+.contact-info-rows { display: flex; flex-direction: column; gap: .6rem; }
+.contact-info-row { display: flex; justify-content: space-between; font-size: .87rem; }
+.contact-info-key { color: var(--muted); }
+.contact-info-val { font-weight: 500; }
+
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-photo { height: 280px; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">LC<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="profil.html">Profil</a></li>
+    <li><a href="projets.html">Projets</a></li>
+    <li><a href="apprentissage.html">Apprentissage</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle"><span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span></button>
+  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+<div id="mobileMenu" class="mobile-menu">
+  <a href="index.html" onclick="closeMobile()">Accueil</a>
+  <a href="profil.html" onclick="closeMobile()">Profil</a>
+  <a href="projets.html" onclick="closeMobile()">Projets</a>
+  <a href="apprentissage.html" onclick="closeMobile()">Apprentissage</a>
+  <a href="contact.html" onclick="closeMobile()">Contact</a>
+</div>
+
+<div class="page-content">
+  <div class="contact-page">
+    <div class="contact-grid">
+
+      <div>
+        <div class="section-eyebrow fade-up">Restons en contact</div>
+        <h1 class="contact-title fade-up">Me <span style="color:var(--accent)">Contacter</span></h1>
+        <p class="contact-intro fade-up">
+          Je réponds principalement <strong>par mail</strong> et éventuellement par message. N'hésitez pas à me contacter pour toute question relative à mon parcours ou à mon alternance.
+        </p>
+
+        <div class="contact-items fade-up">
+          <a href="tel:+33768390244" class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div>
+              <div class="contact-item-label">Téléphone</div>
+              <div class="contact-item-value">+33 7 68 39 02 44</div>
+            </div>
+          </a>
+          <a href="mailto:leo.carvalho@guerven.eu" class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div>
+              <div class="contact-item-label">E-mail (préféré)</div>
+              <div class="contact-item-value">leo.carvalho@guerven.eu</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" class="contact-item">
+            <div class="contact-item-icon">💼</div>
+            <div>
+              <div class="contact-item-label">LinkedIn</div>
+              <div class="contact-item-value">linkedin.com/in/léo-carvalho29</div>
+            </div>
+          </a>
+          <div class="contact-item" style="cursor:default">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Localisation</div>
+              <div class="contact-item-value">Carquefou (44) · Guilers (29)</div>
+            </div>
+          </div>
+          <div class="contact-item" style="cursor:default">
+            <div class="contact-item-icon">🚗</div>
+            <div>
+              <div class="contact-item-label">Mobilité</div>
+              <div class="contact-item-value">Permis B · Véhiculé</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-social fade-up">
+          <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" class="social-btn">💼 LinkedIn</a>
+          <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_5103bc47c7a04f2eaef83886b93a42c3.pdf" target="_blank" class="social-btn">📄 Télécharger CV</a>
+        </div>
+      </div>
+
+      <div class="fade-up" style="transition-delay:.15s">
+        <img src="photo.png" alt="Léo Carvalho" class="contact-photo">
+        <div class="contact-info-card">
+          <div class="contact-info-title">Informations rapides</div>
+          <div class="contact-info-rows">
+            <div class="contact-info-row">
+              <span class="contact-info-key">Nom</span>
+              <span class="contact-info-val">Léo CARVALHO</span>
+            </div>
+            <div class="contact-info-row">
+              <span class="contact-info-key">Âge</span>
+              <span class="contact-info-val">21 ans</span>
+            </div>
+            <div class="contact-info-row">
+              <span class="contact-info-key">Statut</span>
+              <span class="contact-info-val">Apprenti Automaticien</span>
+            </div>
+            <div class="contact-info-row">
+              <span class="contact-info-key">Entreprise</span>
+              <span class="contact-info-val">SPIE Industrie</span>
+            </div>
+            <div class="contact-info-row">
+              <span class="contact-info-key">Formation</span>
+              <span class="contact-info-val">BUT GEII — IUT Nantes</span>
+            </div>
+            <div class="contact-info-row">
+              <span class="contact-info-key">Disponible</span>
+              <span class="contact-info-val">Jusqu'à août 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">LC.</span>
+  <span>© 2025 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">LinkedIn</a>
+    <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_5103bc47c7a04f2eaef83886b93a42c3.pdf" target="_blank">CV PDF</a>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

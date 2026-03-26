@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alerte SMS Ewon Flexy — Léo Carvalho</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.proj-detail-hero { padding: clamp(3rem,7vh,5rem) clamp(1.2rem,6vw,6rem) clamp(2rem,4vh,3rem); background: var(--bg2); border-bottom: 1px solid var(--border); }
+.proj-breadcrumb { font-size: .78rem; color: var(--muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: .5rem; }
+.proj-breadcrumb a { color: var(--accent); }
+.proj-detail-title { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem,4vw,3.2rem); font-weight: 800; line-height: 1.1; margin-bottom: .5rem; }
+.proj-detail-sub { font-size: .9rem; color: var(--accent2); margin-bottom: 1.5rem; }
+.proj-meta { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+.proj-summary-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 2rem; }
+.proj-summary-cell { background: var(--card); padding: 1.2rem; }
+.proj-summary-cell-label { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: .3rem; }
+.proj-summary-cell-val { font-size: .9rem; font-weight: 500; }
+.proj-detail-body { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: start; }
+.proj-section-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--accent); margin-bottom: .8rem; margin-top: 2.5rem; display: flex; align-items: center; gap: .5rem; }
+.proj-section-title:first-child { margin-top: 0; }
+.proj-text { font-size: .92rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+.proj-text strong { color: var(--text); }
+.proj-list { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.2rem; }
+.proj-list li { display: flex; gap: .6rem; font-size: .9rem; color: var(--muted); line-height: 1.5; }
+.proj-list li::before { content: '▸'; color: var(--accent); flex-shrink: 0; margin-top: .05rem; }
+.proj-sidebar-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; margin-bottom: 1.5rem; position: sticky; top: calc(var(--nav-h) + 2rem); }
+.proj-sidebar-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .14em; color: var(--accent); margin-bottom: 1rem; }
+.proj-sidebar-stack { display: flex; flex-wrap: wrap; gap: .4rem; }
+.result-block { background: linear-gradient(135deg, rgba(193,123,63,.08), rgba(212,149,106,.04)); border: 1px solid rgba(193,123,63,.3); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+.result-block-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--accent); margin-bottom: 1rem; }
+.proj-gallery { padding: 0 clamp(1.2rem,6vw,6rem) clamp(3rem,6vh,5rem); }
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.gallery-img { border-radius: 10px; border: 1px solid var(--border); overflow: hidden; aspect-ratio: 16/10; background: var(--bg3); }
+.gallery-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.gallery-img:hover img { transform: scale(1.04); }
+@media (max-width: 900px) { .proj-detail-body { grid-template-columns: 1fr; } .proj-sidebar-card { position: static; } .proj-summary-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">LC<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="profil.html">Profil</a></li>
+    <li><a href="projets.html">Projets</a></li>
+    <li><a href="apprentissage.html">Apprentissage</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle"><span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span></button>
+  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+<div id="mobileMenu" class="mobile-menu">
+  <a href="index.html" onclick="closeMobile()">Accueil</a>
+  <a href="profil.html" onclick="closeMobile()">Profil</a>
+  <a href="projets.html" onclick="closeMobile()">Projets</a>
+  <a href="apprentissage.html" onclick="closeMobile()">Apprentissage</a>
+  <a href="contact.html" onclick="closeMobile()">Contact</a>
+</div>
+
+<div class="page-content">
+  <section class="proj-detail-hero">
+    <div class="proj-breadcrumb fade-up"><a href="projets.html">← Tous les projets</a><span>/</span><span>Alerte SMS Ewon Flexy</span></div>
+    <div class="section-eyebrow fade-up">Alternance · SPIE Industrie</div>
+    <h1 class="proj-detail-title fade-up">Alerte SMS via <span style="color:var(--accent)">Ewon Flexy</span></h1>
+    <p class="proj-detail-sub fade-up">📲 Alerte préventive industrielle · OPC-UA · Talk2M</p>
+    <div class="proj-meta fade-up">
+      <span class="badge">Ewon Flexy</span>
+      <span class="badge">OPC-UA</span>
+      <span class="badge">Talk2M</span>
+      <span class="badge">Siemens TIA Portal</span>
+      <span class="badge badge-accent">Maintenance industrielle</span>
+    </div>
+    <div class="proj-summary-grid fade-up">
+      <div class="proj-summary-cell"><div class="proj-summary-cell-label">Passerelle</div><div class="proj-summary-cell-val">Ewon Flexy</div></div>
+      <div class="proj-summary-cell"><div class="proj-summary-cell-label">Protocole</div><div class="proj-summary-cell-val">OPC-UA</div></div>
+      <div class="proj-summary-cell"><div class="proj-summary-cell-label">SMS via</div><div class="proj-summary-cell-val">Talk2M</div></div>
+      <div class="proj-summary-cell"><div class="proj-summary-cell-label">Automate</div><div class="proj-summary-cell-val">Siemens</div></div>
+    </div>
+  </section>
+
+  <div class="proj-detail-body">
+    <div class="proj-detail-main">
+      <div class="proj-section-title fade-up">📋 Contexte du projet</div>
+      <p class="proj-text fade-up">En milieu industriel, les dérives machines (températures, pressions, niveaux hors seuil) peuvent causer des arrêts coûteux si elles ne sont pas détectées rapidement. L'objectif était de mettre en place un système d'<strong>alerte préventive par SMS</strong> permettant aux équipes de maintenance d'intervenir <strong>avant</strong> qu'une dérive ne devienne critique.</p>
+      <p class="proj-text fade-up">La solution repose sur la passerelle industrielle <strong>Ewon Flexy</strong>, connectée à l'automate Siemens via <strong>OPC-UA</strong>, et envoyant des SMS via la plateforme cloud <strong>Talk2M</strong>.</p>
+
+      <div class="proj-section-title fade-up">🎯 Objectifs</div>
+      <ul class="proj-list fade-up">
+        <li>Connecter l'automate Siemens à l'<strong>Ewon Flexy en OPC-UA</strong></li>
+        <li>Créer les <strong>tags</strong>, seuils et scénarios d'alerte dans l'Ewon</li>
+        <li>Configurer les <strong>SMS via Talk2M</strong> (déclenchement, acquit, désactivation)</li>
+        <li>Valider la chaîne complète bout-en-bout</li>
+      </ul>
+
+      <div class="proj-section-title fade-up">🔧 Ce que j'ai réalisé</div>
+      <ul class="proj-list fade-up">
+        <li><strong>Configuration OPC-UA</strong> côté automate Siemens et côté Ewon Flexy</li>
+        <li><strong>Création des tags</strong> dans l'Ewon correspondant aux variables automate à surveiller</li>
+        <li><strong>Définition des seuils d'alarme</strong> (haute priorité, basse priorité)</li>
+        <li><strong>Scénarios SMS complets</strong> : déclenchement lors du franchissement du seuil → acquit par opérateur → désactivation lors du retour à la normale</li>
+        <li><strong>Protocole de tests</strong> : simulation des dérives, vérification réception SMS, validation acquit</li>
+        <li>Validation <strong>bout-en-bout</strong> de la chaîne de communication</li>
+      </ul>
+
+      <div class="result-block fade-up">
+        <div class="result-block-title">✅ Résultats obtenus</div>
+        <ul class="proj-list" style="margin-bottom:0">
+          <li>Alerte préventive <strong>pleinement opérationnelle</strong> en production</li>
+          <li>Gains de réactivité mesurables pour la <strong>maintenance industrielle</strong></li>
+          <li>Réduction du risque d'arrêts non planifiés grâce aux alertes anticipées</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="proj-sidebar">
+      <div class="proj-sidebar-card fade-up">
+        <div class="proj-sidebar-title">Technologies utilisées</div>
+        <div class="proj-sidebar-stack">
+          <span class="badge">Ewon Flexy</span>
+          <span class="badge">OPC-UA</span>
+          <span class="badge">Talk2M</span>
+          <span class="badge">TIA Portal</span>
+        </div>
+      </div>
+      <div class="proj-sidebar-card fade-up">
+        <div class="proj-sidebar-title">Compétences développées</div>
+        <div class="proj-sidebar-stack">
+          <span class="badge badge-accent">Protocoles industriels</span>
+          <span class="badge badge-accent">OPC-UA</span>
+          <span class="badge badge-accent">Passerelles IoT</span>
+          <span class="badge badge-accent">Alerte & supervision</span>
+          <span class="badge badge-accent">Tests validation</span>
+        </div>
+      </div>
+      <div class="proj-sidebar-card fade-up">
+        <div class="proj-sidebar-title">Navigation projets</div>
+        <div style="display:flex;flex-direction:column;gap:.6rem;">
+          <a href="projet-epenons.html" class="btn btn-outline btn-sm" style="width:100%;justify-content:space-between;">← ePenons Neoline</a>
+          <a href="projet-sae.html" class="btn btn-primary btn-sm" style="width:100%;justify-content:space-between;">SAé IUT <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="proj-gallery">
+    <div class="section-eyebrow fade-up">Illustrations</div>
+    <h2 class="section-title fade-up">Visuels du <span>Projet</span></h2>
+    <div class="gallery-grid">
+      <div class="gallery-img fade-up">
+        <img src="https://static.wixstatic.com/media/d6252f_74ac391551594a9587469d54120f230c~mv2.png/v1/fill/w_500,h_440,q_90,enc_avif,quality_auto/d6252f_74ac391551594a9587469d54120f230c~mv2.png" alt="Ewon Flexy SMS">
+      </div>
+      <div class="gallery-img fade-up" style="display:flex;align-items:center;justify-content:center;">
+        <div style="text-align:center;color:var(--muted);font-size:.85rem;padding:1rem;">
+          <div style="font-size:2rem;margin-bottom:.5rem">📊</div>
+          Schéma architecture OPC-UA → Talk2M
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="padding: 0 clamp(1.2rem,6vw,6rem) clamp(3rem,6vh,5rem); display:flex; gap:1rem; flex-wrap:wrap;">
+    <a href="projet-epenons.html" class="btn btn-outline">← Projet précédent</a>
+    <a href="projet-sae.html" class="btn btn-primary">Projets académiques →</a>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">LC.</span>
+  <span>© 2025 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">LinkedIn</a>
+    <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_5103bc47c7a04f2eaef83886b93a42c3.pdf" target="_blank">CV PDF</a>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

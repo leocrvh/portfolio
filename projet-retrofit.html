@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retrofit Mecanolav — Léo Carvalho</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.proj-detail-hero {
+  padding: clamp(3rem,7vh,5rem) clamp(1.2rem,6vw,6rem) clamp(2rem,4vh,3rem);
+  background: var(--bg2); border-bottom: 1px solid var(--border);
+}
+.proj-breadcrumb {
+  font-size: .78rem; color: var(--muted); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: .5rem;
+}
+.proj-breadcrumb a { color: var(--accent); }
+.proj-breadcrumb a:hover { text-decoration: underline; }
+.proj-detail-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem,4vw,3.2rem); font-weight: 800; line-height: 1.1;
+  margin-bottom: .5rem;
+}
+.proj-detail-sub { font-size: .9rem; color: var(--accent2); margin-bottom: 1.5rem; }
+.proj-meta { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+.proj-summary-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 1px;
+  background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+  margin-top: 2rem;
+}
+.proj-summary-cell { background: var(--card); padding: 1.2rem; }
+.proj-summary-cell-label { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: .3rem; }
+.proj-summary-cell-val { font-size: .9rem; font-weight: 500; }
+
+/* Content */
+.proj-detail-body {
+  padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem);
+  display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: start;
+}
+.proj-detail-main { }
+.proj-section-title {
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem;
+  color: var(--accent); margin-bottom: .8rem; margin-top: 2.5rem;
+  display: flex; align-items: center; gap: .5rem;
+}
+.proj-section-title:first-child { margin-top: 0; }
+.proj-text { font-size: .92rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+.proj-text strong { color: var(--text); }
+.proj-list { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.2rem; }
+.proj-list li { display: flex; gap: .6rem; font-size: .9rem; color: var(--muted); line-height: 1.5; }
+.proj-list li::before { content: '▸'; color: var(--accent); flex-shrink: 0; margin-top: .05rem; }
+
+/* Sidebar */
+.proj-sidebar { }
+.proj-sidebar-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.5rem; margin-bottom: 1.5rem;
+  position: sticky; top: calc(var(--nav-h) + 2rem);
+}
+.proj-sidebar-title {
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: .78rem;
+  text-transform: uppercase; letter-spacing: .14em; color: var(--accent);
+  margin-bottom: 1rem;
+}
+.proj-sidebar-stack { display: flex; flex-wrap: wrap; gap: .4rem; }
+
+/* Gallery */
+.proj-gallery {
+  padding: 0 clamp(1.2rem,6vw,6rem) clamp(3rem,6vh,5rem);
+}
+.gallery-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
+}
+.gallery-img {
+  border-radius: 10px; border: 1px solid var(--border);
+  overflow: hidden; aspect-ratio: 16/10;
+  background: var(--bg3);
+}
+.gallery-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.gallery-img:hover img { transform: scale(1.04); }
+
+/* Result block */
+.result-block {
+  background: linear-gradient(135deg, rgba(193,123,63,.08), rgba(212,149,106,.04));
+  border: 1px solid rgba(193,123,63,.3);
+  border-radius: 16px; padding: 2rem;
+  margin: 2rem 0;
+}
+.result-block-title {
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
+  color: var(--accent); margin-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+  .proj-detail-body { grid-template-columns: 1fr; }
+  .proj-sidebar-card { position: static; }
+  .proj-summary-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .proj-summary-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">LC<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="profil.html">Profil</a></li>
+    <li><a href="projets.html">Projets</a></li>
+    <li><a href="apprentissage.html">Apprentissage</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle"><span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span></button>
+  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+<div id="mobileMenu" class="mobile-menu">
+  <a href="index.html" onclick="closeMobile()">Accueil</a>
+  <a href="profil.html" onclick="closeMobile()">Profil</a>
+  <a href="projets.html" onclick="closeMobile()">Projets</a>
+  <a href="apprentissage.html" onclick="closeMobile()">Apprentissage</a>
+  <a href="contact.html" onclick="closeMobile()">Contact</a>
+</div>
+
+<div class="page-content">
+
+  <section class="proj-detail-hero">
+    <div class="proj-breadcrumb fade-up">
+      <a href="projets.html">← Tous les projets</a>
+      <span>/</span>
+      <span>Retrofit Mecanolav</span>
+    </div>
+    <div class="section-eyebrow fade-up">Alternance · SPIE Industrie</div>
+    <h1 class="proj-detail-title fade-up">Retrofit Mecanolav <span style="color:var(--accent)">— Airbus</span></h1>
+    <p class="proj-detail-sub fade-up">⚙️ Modernisation automate & IHM · Machine de lavage industrielle</p>
+    <div class="proj-meta fade-up">
+      <span class="badge">Schneider M340</span>
+      <span class="badge">Control Expert</span>
+      <span class="badge">Op. Terminal Expert</span>
+      <span class="badge">HMIST6500</span>
+      <span class="badge">Modbus TCP</span>
+      <span class="badge badge-accent">Client : Airbus</span>
+    </div>
+    <div class="proj-summary-grid fade-up">
+      <div class="proj-summary-cell">
+        <div class="proj-summary-cell-label">Contexte</div>
+        <div class="proj-summary-cell-val">Modernisation machine</div>
+      </div>
+      <div class="proj-summary-cell">
+        <div class="proj-summary-cell-label">Automate</div>
+        <div class="proj-summary-cell-val">Schneider M340</div>
+      </div>
+      <div class="proj-summary-cell">
+        <div class="proj-summary-cell-label">IHM</div>
+        <div class="proj-summary-cell-val">HMIST6500</div>
+      </div>
+      <div class="proj-summary-cell">
+        <div class="proj-summary-cell-label">Protocole</div>
+        <div class="proj-summary-cell-val">Modbus TCP</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="proj-detail-body">
+    <div class="proj-detail-main">
+
+      <div class="proj-section-title fade-up">📋 Contexte du projet</div>
+      <p class="proj-text fade-up">
+        La machine de lavage <strong>Mecanolav</strong> utilisée chez <strong>Airbus</strong> fonctionnait avec un automate et une IHM devenus <strong>obsolètes</strong> : plus de support technique, pièces de remplacement introuvables, risque croissant de panne bloquante en production.
+      </p>
+      <p class="proj-text fade-up">
+        SPIE Industrie a été mandaté pour réaliser un <strong>retrofit complet</strong> (modernisation sans remplacement de la machine) : conserver le process existant tout en remplaçant uniquement les composants informatiques défaillants.
+      </p>
+
+      <div class="proj-section-title fade-up">🎯 Objectifs</div>
+      <ul class="proj-list fade-up">
+        <li>Remplacer l'API obsolète par un <strong>Schneider M340</strong></li>
+        <li>Remplacer l'IHM par un <strong>HMIST6500</strong> (Op. Terminal Expert)</li>
+        <li>Conserver l'intégralité des <strong>fonctions existantes</strong></li>
+        <li>Fiabiliser la <strong>sécurité machine</strong> et améliorer la maintenabilité</li>
+        <li>Produire une documentation complète (DOE + sauvegardes)</li>
+      </ul>
+
+      <div class="proj-section-title fade-up">🔧 Ce que j'ai réalisé</div>
+      <ul class="proj-list fade-up">
+        <li><strong>Reprise du programme</strong> existant et adaptation à la nouvelle architecture M340</li>
+        <li><strong>Adressage complet des entrées/sorties</strong> (E/S) de la nouvelle carte</li>
+        <li><strong>Création des écrans IHM</strong> sous Operator Terminal Expert : navigation, alarmes, recettes</li>
+        <li><strong>Tests en simulation</strong> (banc de test) avant intervention sur site</li>
+        <li><strong>Réception sur site</strong> : vérification E/S, communications Modbus TCP, sécurité machine, cycles de lavage complets</li>
+        <li><strong>Formation des opérateurs</strong> à la nouvelle interface</li>
+        <li>Rédaction du <strong>DOE (Dossier des Ouvrages Exécutés)</strong> et archivage des sauvegardes</li>
+      </ul>
+
+      <div class="result-block fade-up">
+        <div class="result-block-title">✅ Résultats obtenus</div>
+        <ul class="proj-list" style="margin-bottom:0">
+          <li>Mise en service <strong>validée</strong> et machine de retour en production</li>
+          <li>Exploitation plus claire grâce à la nouvelle IHM (navigation améliorée, meilleure lisibilité alarmes)</li>
+          <li>Documentation complète remise au client (DOE + sauvegardes programme + IHM)</li>
+          <li>Opérateurs formés et autonomes sur la nouvelle installation</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="proj-sidebar">
+      <div class="proj-sidebar-card fade-up">
+        <div class="proj-sidebar-title">Technologies utilisées</div>
+        <div class="proj-sidebar-stack">
+          <span class="badge">Control Expert</span>
+          <span class="badge">Op. Terminal Expert</span>
+          <span class="badge">Schneider M340</span>
+          <span class="badge">HMIST6500</span>
+          <span class="badge">Modbus TCP</span>
+        </div>
+      </div>
+      <div class="proj-sidebar-card fade-up">
+        <div class="proj-sidebar-title">Compétences développées</div>
+        <div class="proj-sidebar-stack">
+          <span class="badge badge-accent">Retrofit industriel</span>
+          <span class="badge badge-accent">Adressage E/S</span>
+          <span class="badge badge-accent">Création IHM</span>
+          <span class="badge badge-accent">Tests en simulation</span>
+          <span class="badge badge-accent">Réception site</span>
+          <span class="badge badge-accent">Documentation DOE</span>
+          <span class="badge badge-accent">Formation opérateurs</span>
+        </div>
+      </div>
+      <div class="proj-sidebar-card fade-up">
+        <div class="proj-sidebar-title">Navigation projets</div>
+        <div style="display:flex; flex-direction:column; gap:.6rem;">
+          <a href="projet-epenons.html" class="btn btn-outline btn-sm" style="width:100%;justify-content:space-between;">ePenons Neoline <span>→</span></a>
+          <a href="projet-sms.html" class="btn btn-outline btn-sm" style="width:100%;justify-content:space-between;">Alerte SMS <span>→</span></a>
+          <a href="projet-sae.html" class="btn btn-outline btn-sm" style="width:100%;justify-content:space-between;">SAé IUT <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <section class="proj-gallery">
+    <div class="section-eyebrow fade-up">Illustrations</div>
+    <h2 class="section-title fade-up">Visuels du <span>Projet</span></h2>
+    <div class="gallery-grid">
+      <div class="gallery-img fade-up">
+        <img src="https://static.wixstatic.com/media/d6252f_f87d0688dce5408088848e831e174c41~mv2.jpg/v1/fill/w_667,h_575,q_90,enc_avif,quality_auto/d6252f_f87d0688dce5408088848e831e174c41~mv2.jpg" alt="Retrofit Mecanolav">
+      </div>
+      <div class="gallery-img fade-up" style="background:var(--bg3); display:flex; align-items:center; justify-content:center;">
+        <div style="text-align:center; color:var(--muted); font-size:.85rem; padding:1rem;">
+          <div style="font-size:2rem; margin-bottom:.5rem">🖥️</div>
+          Screenshot IHM HMIST6500
+        </div>
+      </div>
+      <div class="gallery-img fade-up" style="background:var(--bg3); display:flex; align-items:center; justify-content:center;">
+        <div style="text-align:center; color:var(--muted); font-size:.85rem; padding:1rem;">
+          <div style="font-size:2rem; margin-bottom:.5rem">📋</div>
+          Schéma adressage E/S
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="padding: 0 clamp(1.2rem,6vw,6rem) clamp(3rem,6vh,5rem); display:flex; gap:1rem; flex-wrap:wrap;">
+    <a href="projets.html" class="btn btn-outline">← Retour aux projets</a>
+    <a href="projet-epenons.html" class="btn btn-primary">Projet suivant →</a>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-logo">LC.</span>
+  <span>© 2025 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">LinkedIn</a>
+    <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_5103bc47c7a04f2eaef83886b93a42c3.pdf" target="_blank">CV PDF</a>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projets Académiques — Léo Carvalho</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero { padding: clamp(3rem,7vh,5rem) clamp(1.2rem,6vw,6rem) clamp(2rem,4vh,3rem); background: var(--bg2); border-bottom: 1px solid var(--border); }
+.proj-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); }
+.proj-section + .proj-section { border-top: 1px solid var(--border); }
+.proj-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.proj-academic-title { font-family: 'Syne', sans-serif; font-size: clamp(1.4rem,2.5vw,2rem); font-weight: 800; margin-bottom: .4rem; }
+.proj-academic-sub { font-size: .85rem; color: var(--accent2); margin-bottom: 1.5rem; }
+.proj-text { font-size: .92rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+.proj-text strong { color: var(--text); }
+.proj-list { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.2rem; }
+.proj-list li { display: flex; gap: .6rem; font-size: .9rem; color: var(--muted); line-height: 1.5; }
+.proj-list li::before { content: '▸'; color: var(--accent); flex-shrink: 0; }
+.proj-gallery-4 { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.proj-gallery-4 .g-img { border-radius: 8px; border: 1px solid var(--border); overflow: hidden; aspect-ratio: 4/3; background: var(--bg3); }
+.proj-gallery-4 .g-img img { width:100%; height:100%; object-fit:cover; transition: transform .4s; }
+.proj-gallery-4 .g-img:hover img { transform: scale(1.05); }
+.result-block { background: linear-gradient(135deg, rgba(193,123,63,.08), rgba(212,149,106,.04)); border: 1px solid rgba(193,123,63,.3); border-radius: 14px; padding: 1.5rem; margin-top: 1.5rem; }
+.result-block-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--accent); margin-bottom: .8rem; }
+.breadcrumb { font-size: .78rem; color: var(--muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: .5rem; }
+.breadcrumb a { color: var(--accent); }
+@media (max-width: 800px) { .proj-layout { grid-template-columns: 1fr; gap: 2rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">LC<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="profil.html">Profil</a></li>
+    <li><a href="projets.html">Projets</a></li>
+    <li><a href="apprentissage.html">Apprentissage</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle"><span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span></button>
+  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+<div id="mobileMenu" class="mobile-menu">
+  <a href="index.html" onclick="closeMobile()">Accueil</a>
+  <a href="profil.html" onclick="closeMobile()">Profil</a>
+  <a href="projets.html" onclick="closeMobile()">Projets</a>
+  <a href="apprentissage.html" onclick="closeMobile()">Apprentissage</a>
+  <a href="contact.html" onclick="closeMobile()">Contact</a>
+</div>
+
+<div class="page-content">
+  <section class="page-hero">
+    <div class="breadcrumb fade-up"><a href="projets.html">← Tous les projets</a><span>/</span><span>Projets Académiques</span></div>
+    <div class="section-eyebrow fade-up">BUT GEII · IUT de Nantes</div>
+    <h1 style="font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;line-height:1.1;" class="fade-up">Projets <span style="color:var(--accent)">Académiques</span></h1>
+    <p style="font-size:.95rem;color:var(--muted);max-width:560px;line-height:1.7;margin-top:.8rem;" class="fade-up">SAé et Projets Personnels réalisés dans le cadre du BUT GEII à l'IUT de Nantes.</p>
+  </section>
+
+  <!-- SAé 1 -->
+  <section class="proj-section" id="sae1">
+    <div class="section-eyebrow fade-up">SAé 1 · Semestre 1</div>
+    <div class="proj-layout">
+      <div class="fade-up">
+        <h2 class="proj-academic-title">🔌 Barrière de Passage à Niveau</h2>
+        <p class="proj-academic-sub">Conception d'une carte électronique pour train miniature</p>
+        <p class="proj-text">Ce projet a pour objectif de <strong>concevoir, fabriquer et tester une carte électronique</strong> permettant de commander une barrière de passage à niveau pour un train miniature.</p>
+        <p class="proj-text"><strong>Objectifs pédagogiques :</strong></p>
+        <ul class="proj-list">
+          <li>Découvrir les outils de <strong>CAO Electronique</strong> pour la conception de circuits imprimés (schéma et routage)</li>
+          <li>Décrire les moyens de fabrication d'une carte imprimée (film, gravure…)</li>
+          <li>Câbler et tester une carte électronique réelle</li>
+          <li>Élaborer un dossier technique complet</li>
+        </ul>
+        <div class="result-block">
+          <div class="result-block-title">Compétences acquises</div>
+          <ul class="proj-list" style="margin-bottom:0">
+            <li>Schéma électronique sous KiCad</li>
+            <li>Routage PCB et génération des fichiers Gerber</li>
+            <li>Câblage et soudure sur carte réelle</li>
+            <li>Tests fonctionnels et débogage</li>
+            <li>Rédaction dossier technique complet</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fade-up" style="transition-delay:.1s">
+        <div class="proj-gallery-4">
+          <div class="g-img"><img src="https://static.wixstatic.com/media/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png" alt="SAé1 schéma"></div>
+          <div class="g-img"><img src="https://static.wixstatic.com/media/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png" alt="SAé1 routage"></div>
+          <div class="g-img"><img src="https://static.wixstatic.com/media/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg" alt="SAé1 carte"></div>
+          <div class="g-img"><img src="https://static.wixstatic.com/media/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png" alt="SAé1 résultat"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PPP -->
+  <section class="proj-section" id="ppp">
+    <div class="section-eyebrow fade-up">PPP · Projet Personnel et Professionnel</div>
+    <div class="proj-layout">
+      <div class="fade-up">
+        <h2 class="proj-academic-title">🎓 Projet Personnel et Professionnel</h2>
+        <p class="proj-academic-sub">Semestre 1 · BUT GEII · IUT de Nantes</p>
+        <p class="proj-text">Le PPP vise à construire un <strong>projet professionnel réfléchi</strong> à travers des activités de découverte des métiers du GEII et des rencontres avec des professionnels.</p>
+        <p class="proj-text"><strong>Activité 1 — Présentation orale d'un métier GEII :</strong></p>
+        <ul class="proj-list">
+          <li>Recherche et étude du métier de <strong>Technicien en électronique automobile</strong></li>
+          <li>Présentation orale réalisée avec un camarade devant le groupe</li>
+          <li>Analyse des compétences requises, des débouchés et des formations associées</li>
+        </ul>
+        <p class="proj-text"><strong>Activité 2 — Interview d'un alternant :</strong></p>
+        <ul class="proj-list">
+          <li>Interview de <strong>Marwan</strong>, alternant chez <strong>Naval Group</strong> (3ème année BUT GEII)</li>
+          <li>Questions sur son quotidien en entreprise, ses missions, ses conseils pour l'alternance</li>
+          <li>Rédaction d'un compte rendu complet de l'interview</li>
+        </ul>
+        <div class="result-block">
+          <div class="result-block-title">Compétences acquises</div>
+          <ul class="proj-list" style="margin-bottom:0">
+            <li>Communication orale professionnelle</li>
+            <li>Recherche et synthèse sur les métiers du GEII</li>
+            <li>Conduite d'entretien professionnel</li>
+            <li>Construction du projet professionnel</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fade-up" style="transition-delay:.1s">
+        <div class="proj-gallery-4">
+          <div class="g-img"><img src="https://static.wixstatic.com/media/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png/v1/fill/w_333,h_288,q_90,enc_avif,quality_auto/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png" alt="PPP diaporama"></div>
+          <div class="g-img" style="display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;color:var(--muted);font-size:.82rem;padding:1rem;">
+              <div style="font-size:2rem;margin-bottom:.4rem">🏭</div>
+              Naval Group<br>Interview alternant
+            </div>
+          </div>
+          <div class="g-img" style="display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;color:var(--muted);font-size:.82rem;padding:1rem;">
+              <div style="font-size:2rem;margin-bottom:.4rem">🚗</div>
+              Technicien électronique automobile
+            </div>
+          </div>
+          <div class="g-img" style="display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;color:var(--muted);font-size:.82rem;padding:1rem;">
+              <div style="font-size:2rem;margin-bottom:.4rem">📄</div>
+              Compte rendu PPP1
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="padding: 0 clamp(1.2rem,6vw,6rem) clamp(3rem,6vh,5rem); display:flex; gap:1rem; flex-wrap:wrap;">
+    <a href="projet-sms.html" class="btn btn-outline">← Projet précédent</a>
+    <a href="projets.html" class="btn btn-primary">Tous les projets →</a>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">LC.</span>
+  <span>© 2025 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">LinkedIn</a>
+    <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_5103bc47c7a04f2eaef83886b93a42c3.pdf" target="_blank">CV PDF</a>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
