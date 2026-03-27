@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ePenons Trimcontrol — Léo Carvalho</title>
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.dataset.theme=localStorage.getItem("lc-theme")||"light";</script>
 <style>
 .proj-detail-hero { padding: clamp(3rem,7vh,5rem) clamp(1.2rem,6vw,6rem) clamp(2rem,4vh,3rem); background: var(--bg2); border-bottom: 1px solid var(--border); }
 .proj-breadcrumb { font-size: .78rem; color: var(--muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: .5rem; }
@@ -157,8 +158,11 @@
       <div class="gallery-img fade-up">
         <img src="https://static.wixstatic.com/media/d6252f_f908fbd05dd5496d8733239dc526897a~mv2.jpg/v1/fill/w_667,h_575,q_90,enc_avif,quality_auto/d6252f_f908fbd05dd5496d8733239dc526897a~mv2.jpg" alt="ePenons Neoline">
       </div>
-      <div class="gallery-img fade-up">
-          <img src="epenon.png" alt="epenon">
+      <div class="gallery-img fade-up" style="display:flex;align-items:center;justify-content:center;">
+        <div style="text-align:center;color:var(--muted);font-size:.85rem;padding:1rem;">
+          <div style="font-size:2rem;margin-bottom:.5rem">🌊</div>
+          Schéma architecture réseau UDP
+        </div>
       </div>
     </div>
   </section>

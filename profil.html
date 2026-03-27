@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profil — Léo Carvalho</title>
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.dataset.theme=localStorage.getItem("lc-theme")||"light";</script>
 <style>
 .profil-hero {
   padding: clamp(3rem,7vh,5rem) clamp(1.2rem,6vw,6rem);
-  display: grid; grid-template-columns: auto 1fr; gap: 4rem; align-items: start;
   background: var(--bg2);
   border-bottom: 1px solid var(--border);
+}
+.profil-hero-inner {
+  max-width: 960px; margin: 0 auto;
+  display: grid; grid-template-columns: auto 1fr; gap: 4rem; align-items: start;
 }
 .profil-photo-wrap { position: relative; }
 .profil-photo {
@@ -46,6 +50,7 @@
 
 /* Skills section */
 .skills-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); }
+.section-inner { max-width: 960px; margin: 0 auto; }
 .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
 .skill-group { }
 .skill-group-label {
@@ -123,7 +128,7 @@
 .interest-sub { font-size: .78rem; color: var(--muted); margin-top: .1rem; }
 
 @media (max-width: 900px) {
-  .profil-hero { grid-template-columns: 1fr; gap: 2rem; }
+  .profil-hero-inner { grid-template-columns: 1fr; gap: 2rem; }
   .profil-photo { width: 160px; height: 200px; }
   .skills-grid { grid-template-columns: 1fr; }
   .tl-item { grid-template-columns: 1fr; }
@@ -159,6 +164,7 @@
 
   <!-- HERO PROFIL -->
   <section class="profil-hero">
+    <div class="profil-hero-inner">
     <div class="profil-photo-wrap fade-up">
       <img src="photo.png" alt="Léo Carvalho" class="profil-photo">
       <div class="profil-photo-ring"></div>
@@ -183,10 +189,12 @@
         <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" class="btn btn-outline">LinkedIn →</a>
       </div>
     </div>
+    </div>
   </section>
 
   <!-- SKILLS -->
   <section class="skills-section">
+    <div class="section-inner">
     <div class="section-eyebrow fade-up">Compétences</div>
     <h2 class="section-title fade-up">Mes <span>Skills</span></h2>
     <div class="skills-grid">
@@ -228,10 +236,12 @@
         </div>
       </div>
     </div>
+    </div>
   </section>
 
   <!-- LANGUAGES -->
   <section class="lang-section">
+    <div class="section-inner">
     <div class="section-eyebrow fade-up">Langues</div>
     <h2 class="section-title fade-up">Communication</h2>
     <div class="langs fade-up">
@@ -248,10 +258,12 @@
         <div class="lang-bar"><div class="lang-fill" style="width:15%"></div></div>
       </div>
     </div>
+    </div>
   </section>
 
   <!-- TIMELINE -->
   <section class="timeline-section">
+    <div class="section-inner">
     <div class="section-eyebrow fade-up">Formation & Expériences</div>
     <h2 class="section-title fade-up">Mon <span>Parcours</span></h2>
     <div class="timeline">
@@ -332,10 +344,42 @@
       </div>
 
     </div>
+    </div>
+  </section>
+
+  <!-- ÉCOLE D'INGÉNIEUR -->
+  <section class="interests-section" id="ingenieur" style="background:var(--bg);">
+    <div class="section-inner">
+    <div class="section-eyebrow fade-up">Projet 2026</div>
+    <h2 class="section-title fade-up">Objectif <span>École d'Ingénieur</span></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;" class="fade-up">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;border-top:3px solid var(--accent);">
+        <div style="font-size:1.5rem;margin-bottom:.8rem">🎯</div>
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.6rem;">Un profil technique solide</div>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.75;">Mon BUT GEII en alternance m'a permis d'acquérir une <strong style="color:var(--text)">expertise terrain concrète</strong> : programmation d'automates industriels, mise en service sur sites clients (Airbus, Neoline), rédaction de DOE. Une base rare pour intégrer une école d'ingénieur.</p>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;border-top:3px solid var(--accent2);">
+        <div style="font-size:1.5rem;margin-bottom:.8rem">🏀</div>
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.6rem;">Leadership & gestion d'équipe</div>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.75;">11 ans de basket m'ont forgé en tant que <strong style="color:var(--text)">meneur</strong> : gestion du collectif sous pression, prise de décision rapide, communication dans l'adversité. Des qualités directement transposables au management de projet en école d'ingénieur.</p>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;border-top:3px solid var(--accent);">
+        <div style="font-size:1.5rem;margin-bottom:.8rem">📈</div>
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.6rem;">Envie d'élargir mes compétences</div>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.75;">Au-delà du technique, je souhaite développer des compétences en <strong style="color:var(--text)">gestion d'affaires, conduite de projet et management</strong> pour piloter des équipes et des chantiers — le cœur du métier d'ingénieur généraliste.</p>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;border-top:3px solid var(--accent2);">
+        <div style="font-size:1.5rem;margin-bottom:.8rem">🌍</div>
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.6rem;">Ouverture internationale</div>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.75;">Niveau anglais B2 acquis et motivation forte pour progresser. Mon expérience sur des projets industriels d'envergure (Airbus, Neoline — projets à dimension internationale) illustre ma capacité à évoluer dans des environnements exigeants.</p>
+      </div>
+    </div>
+    </div>
   </section>
 
   <!-- INTERESTS -->
-  <section class="interests-section">
+  <section class="interests-section" style="background:var(--bg2);">
+    <div class="section-inner">
     <div class="section-eyebrow fade-up">Centres d'intérêt</div>
     <h2 class="section-title fade-up">Ma <span>Vie</span></h2>
     <div class="interests-grid fade-up">
@@ -343,7 +387,7 @@
         <div class="interest-icon">🏀</div>
         <div>
           <div class="interest-name">Basket-Ball</div>
-          <div class="interest-sub">11 ans de pratique · Travail d'équipe</div>
+          <div class="interest-sub">11 ans de pratique · Rôle de meneur</div>
         </div>
       </div>
       <div class="interest-card">
@@ -360,6 +404,7 @@
           <div class="interest-sub">Sport & discipline</div>
         </div>
       </div>
+    </div>
     </div>
   </section>
 

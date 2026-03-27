@@ -5,7 +5,7 @@
 // ── Theme Toggle ────────────────────────────────────
 const html = document.documentElement;
 const themeBtn = document.getElementById('themeToggle');
-const savedTheme = localStorage.getItem('lc-theme') || 'dark';
+const savedTheme = localStorage.getItem('lc-theme') || 'light';
 html.dataset.theme = savedTheme;
 
 themeBtn && themeBtn.addEventListener('click', () => {
