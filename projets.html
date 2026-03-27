@@ -4,107 +4,150 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projets — Léo Carvalho</title>
-<link rel="stylesheet" href="style.css">
 <script>document.documentElement.dataset.theme=localStorage.getItem('lc-theme')||'light';</script>
-<script>document.documentElement.dataset.theme=localStorage.getItem("lc-theme")||"light";</script>
+<link rel="stylesheet" href="style.css">
 <style>
+/* ── PAGE HERO ── */
 .page-hero {
-  padding: clamp(3rem,7vh,5rem) clamp(1.2rem,6vw,6rem) clamp(2rem,4vh,3rem);
+  padding: clamp(3rem,7vh,5rem) clamp(1.5rem,6vw,6rem) clamp(2rem,4vh,3rem);
   background: var(--bg2); border-bottom: 1px solid var(--border);
 }
 .page-hero-title {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(2rem,5vw,3.8rem); font-weight: 800;
-  line-height: 1.05; margin-bottom: 1rem;
+  font-size: clamp(2.2rem,5vw,4rem); font-weight: 800;
+  line-height: 1.05; margin-bottom: .8rem;
 }
-.page-hero-sub { font-size: 1rem; color: var(--muted); max-width: 560px; line-height: 1.7; }
+.page-hero-sub { font-size: .95rem; color: var(--muted); max-width: 540px; line-height: 1.75; }
 
-.projects-main {
-  padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem);
-  display: flex; flex-direction: column; gap: 3rem;
+/* ── PROJECTS LIST ── */
+.projects-list {
+  padding: clamp(2.5rem,5vh,4rem) clamp(1.5rem,6vw,6rem);
+  display: flex; flex-direction: column; gap: 2rem;
 }
 
-/* Big project card */
-.proj-card-big {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 20px; overflow: hidden;
-  transition: var(--trans);
-  text-decoration: none; color: inherit; display: block;
-}
-.proj-card-big:hover { border-color: rgba(193,123,63,.5); box-shadow: 0 24px 64px var(--glow); }
-
-.proj-card-top {
-  padding: 2rem 2.5rem;
-  display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: start;
-}
-.proj-num {
-  font-family: 'Syne', sans-serif; font-size: 3.5rem; font-weight: 800;
-  color: rgba(193,123,63,.1); line-height: 1; margin-bottom: -.5rem;
-}
-.proj-card-title {
-  font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800;
-  margin-bottom: .3rem;
-}
-.proj-card-context { font-size: .85rem; color: var(--accent2); margin-bottom: .8rem; }
-.proj-card-desc { font-size: .92rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; }
-.proj-card-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
-
-.proj-card-img-wrap {
-  background: var(--bg3);
-  border-top: 1px solid var(--border);
-  padding: 1.5rem 2.5rem;
-  display: flex; gap: 1rem; align-items: center; justify-content: space-between;
-}
-.proj-card-img-wrap img {
-  border-radius: 8px; max-height: 160px; object-fit: cover;
+/* ── PROJECT CARD ── */
+.proj-card {
+  background: var(--card);
   border: 1px solid var(--border);
-  flex: 1; min-width: 0;
-}
-.proj-card-result {
-  flex: 1; min-width: 200px;
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 10px; padding: 1.2rem 1.5rem;
-  border-left: 3px solid var(--accent);
-  font-size: .85rem; color: var(--muted); line-height: 1.6;
-}
-.proj-card-result strong { color: var(--accent); display: block; margin-bottom: .3rem; }
-
-.proj-card-footer {
-  padding: 1rem 2.5rem;
-  border-top: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: space-between;
-}
-.proj-card-footer-link {
-  font-size: .85rem; color: var(--accent); font-weight: 600;
-  display: flex; align-items: center; gap: .4rem;
-  transition: gap .2s;
-}
-.proj-card-big:hover .proj-card-footer-link { gap: .8rem; }
-
-/* SAE grid */
-.sae-section { padding: 0 clamp(1.2rem,6vw,6rem) clamp(3rem,6vh,5rem); }
-.sae-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.sae-card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 16px; padding: 2rem;
-  transition: var(--trans);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: box-shadow .3s ease, border-color .3s ease;
   text-decoration: none; color: inherit; display: block;
 }
-.sae-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 32px var(--glow); }
-.sae-card-icon { font-size: 2rem; margin-bottom: 1rem; }
-.sae-card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; margin-bottom: .4rem; }
-.sae-card-sub { font-size: .8rem; color: var(--accent2); margin-bottom: .8rem; }
-.sae-card-desc { font-size: .88rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
-.sae-card-link { font-size: .82rem; color: var(--accent); font-weight: 600; }
+.proj-card:hover {
+  border-color: rgba(193,123,63,.45);
+  box-shadow: 0 12px 48px var(--glow);
+}
 
-@media (max-width: 800px) {
-  .proj-card-top { grid-template-columns: 1fr; }
-  .proj-card-img-wrap { flex-direction: column; }
-  .sae-grid { grid-template-columns: 1fr; }
+/* Top bar with number + title */
+.proj-card-header {
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 1.8rem 2rem 1.4rem;
+  border-bottom: 1px solid var(--border);
+}
+.proj-card-num {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 2.8rem; line-height: 1;
+  color: rgba(193,123,63,.15);
+  flex-shrink: 0; width: 3.5rem; text-align: center;
+}
+.proj-card-icon-circle {
+  width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(193,123,63,.18), rgba(212,149,106,.12));
+  border: 1px solid rgba(193,123,63,.25);
+  display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+}
+.proj-card-titles { flex: 1; min-width: 0; }
+.proj-card-title {
+  font-family: 'Syne', sans-serif; font-size: 1.25rem; font-weight: 800;
+  margin-bottom: .2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.proj-card-context { font-size: .8rem; color: var(--accent2); font-weight: 500; }
+.proj-card-cta {
+  flex-shrink: 0;
+  font-size: .82rem; font-weight: 600; color: var(--accent);
+  display: flex; align-items: center; gap: .35rem;
+  padding: .5rem .9rem; border-radius: 8px;
+  border: 1.5px solid rgba(193,123,63,.3);
+  transition: background .2s, border-color .2s;
+  white-space: nowrap;
+}
+.proj-card:hover .proj-card-cta {
+  background: rgba(193,123,63,.08); border-color: var(--accent);
+}
+
+/* Body: description + image + result */
+.proj-card-body {
+  display: grid; grid-template-columns: 1fr 280px;
+  gap: 0;
+}
+.proj-card-content { padding: 1.6rem 2rem; }
+.proj-card-desc {
+  font-size: .9rem; color: var(--muted); line-height: 1.75;
+  margin-bottom: 1.2rem;
+}
+.proj-card-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.2rem; }
+.proj-card-result {
+  background: rgba(193,123,63,.06);
+  border: 1px solid rgba(193,123,63,.2);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px; padding: .9rem 1.1rem;
+  font-size: .83rem; color: var(--muted); line-height: 1.6;
+}
+.proj-card-result strong { color: var(--accent); display: block; margin-bottom: .25rem; font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; }
+
+.proj-card-image {
+  border-left: 1px solid var(--border);
+  overflow: hidden; position: relative;
+  min-height: 200px;
+}
+.proj-card-image img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .5s ease;
+  display: block;
+}
+.proj-card:hover .proj-card-image img { transform: scale(1.04); }
+.proj-card-image-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.35) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ── ACADEMIC SECTION ── */
+.academic-section {
+  padding: clamp(2rem,4vh,3.5rem) clamp(1.5rem,6vw,6rem) clamp(3rem,6vh,5rem);
+  border-top: 1px solid var(--border);
+  background: var(--bg2);
+}
+.academic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.academic-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.6rem;
+  text-decoration: none; color: inherit; display: block;
+  transition: var(--trans);
+}
+.academic-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 32px var(--glow); }
+.academic-card-icon { font-size: 1.8rem; margin-bottom: .9rem; }
+.academic-card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: .3rem; }
+.academic-card-sub { font-size: .78rem; color: var(--accent2); margin-bottom: .8rem; font-weight: 500; }
+.academic-card-desc { font-size: .85rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
+.academic-card-link { font-size: .82rem; color: var(--accent); font-weight: 600; display: flex; align-items: center; gap: .3rem; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 820px) {
+  .proj-card-body { grid-template-columns: 1fr; }
+  .proj-card-image { border-left: none; border-top: 1px solid var(--border); min-height: 180px; max-height: 220px; }
+  .proj-card-cta { display: none; }
+  .academic-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .proj-card-header { flex-wrap: wrap; gap: .8rem; }
+  .proj-card-num { display: none; }
 }
 </style>
 </head>
 <body>
+
 <nav>
   <a href="index.html" class="nav-logo">LC<span>.</span></a>
   <ul class="nav-links">
@@ -114,12 +157,16 @@
     <li><a href="apprentissage.html">Apprentissage</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <button class="theme-toggle" id="themeToggle"><span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span></button>
-  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+    <span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span>
+  </button>
+  <button class="burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
 <!-- MOBILE OVERLAY -->
 <div id="mobileOverlay" class="mobile-overlay"></div>
-
 <!-- MOBILE DRAWER -->
 <div id="mobileMenu" class="mobile-menu">
   <div class="mobile-menu-header">
@@ -127,11 +174,11 @@
     <button class="mobile-menu-close" onclick="closeMobile()">✕</button>
   </div>
   <div class="mobile-menu-links">
-      <a href="index.html" onclick="closeMobile()"><span class="nav-icon">🏠</span>Accueil</a>
-      <a href="profil.html" onclick="closeMobile()"><span class="nav-icon">👤</span>Profil</a>
-      <a href="projets.html" onclick="closeMobile()"><span class="nav-icon">⚙️</span>Projets</a>
-      <a href="apprentissage.html" onclick="closeMobile()"><span class="nav-icon">🎓</span>Apprentissage</a>
-      <a href="contact.html" onclick="closeMobile()"><span class="nav-icon">✉️</span>Contact</a>
+    <a href="index.html" onclick="closeMobile()"><span class="nav-icon">🏠</span>Accueil</a>
+    <a href="profil.html" onclick="closeMobile()"><span class="nav-icon">👤</span>Profil</a>
+    <a href="projets.html" onclick="closeMobile()"><span class="nav-icon">⚙️</span>Projets</a>
+    <a href="apprentissage.html" onclick="closeMobile()"><span class="nav-icon">🎓</span>Apprentissage</a>
+    <a href="contact.html" onclick="closeMobile()"><span class="nav-icon">✉️</span>Contact</a>
   </div>
   <div class="mobile-menu-footer">
     <a href="https://www.linkedin.com/in/leo-carvalho29/" target="_blank">💼 LinkedIn</a>
@@ -141,125 +188,134 @@
 
 <div class="page-content">
 
+  <!-- HERO -->
   <section class="page-hero">
     <div class="section-eyebrow fade-up">Réalisations</div>
     <h1 class="page-hero-title fade-up">Mes <span style="color:var(--accent)">Projets</span></h1>
-    <p class="page-hero-sub fade-up">Ensemble de mes réalisations en alternance chez SPIE Industrie et à l'IUT de Nantes. Chaque projet est détaillé avec contexte, méthode et résultats.</p>
+    <p class="page-hero-sub fade-up">Ensemble de mes réalisations en alternance chez SPIE Industrie et à l'IUT de Nantes. Cliquez sur un projet pour en voir tous les détails.</p>
   </section>
 
-  <div class="projects-main">
+  <!-- PROJETS ALTERNANCE -->
+  <div class="projects-list">
 
-    <!-- Projet 1 -->
-    <a href="projet-retrofit.html" class="proj-card-big fade-up">
-      <div class="proj-card-top">
-        <div>
-          <div class="proj-num">01</div>
+    <!-- PROJET 1 : RETROFIT -->
+    <a href="projet-retrofit.html" class="proj-card fade-up">
+      <div class="proj-card-header">
+        <div class="proj-card-num">01</div>
+        <div class="proj-card-icon-circle">⚙️</div>
+        <div class="proj-card-titles">
           <div class="proj-card-title">Retrofit Mecanolav — Airbus</div>
           <div class="proj-card-context">Alternance · SPIE Industrie · Saint-Herblain</div>
-          <p class="proj-card-desc">Modernisation complète d'une machine de lavage industrielle pour Airbus. Remplacement de l'automate obsolète par un Schneider M340 et de l'IHM par un HMIST6500.</p>
+        </div>
+        <div class="proj-card-cta">Voir le détail →</div>
+      </div>
+      <div class="proj-card-body">
+        <div class="proj-card-content">
+          <p class="proj-card-desc">Modernisation complète d'une machine de lavage industrielle chez Airbus. Remplacement de l'automate obsolète par un <strong>Schneider M340</strong> et de l'IHM par un <strong>HMIST6500</strong>. Reprise du programme, adressage E/S, création des écrans, tests en simulation puis réception sur site.</p>
           <div class="proj-card-tags">
             <span class="badge">Schneider M340</span>
             <span class="badge">Control Expert</span>
             <span class="badge">Op. Terminal Expert</span>
             <span class="badge">Modbus TCP</span>
-            <span class="badge badge-accent">Airbus</span>
+            <span class="badge badge-accent">Client : Airbus</span>
+          </div>
+          <div class="proj-card-result">
+            <strong>✅ Résultat</strong>
+            Mise en service validée, exploitation clarifiée, documentation complète (DOE + sauvegardes) et formation opérateurs assurée.
           </div>
         </div>
-        <div style="font-size:3rem">⚙️</div>
-      </div>
-      <div class="proj-card-img-wrap">
-        <img src="https://static.wixstatic.com/media/d6252f_f87d0688dce5408088848e831e174c41~mv2.jpg/v1/fill/w_667,h_575,q_90,enc_avif,quality_auto/d6252f_f87d0688dce5408088848e831e174c41~mv2.jpg" alt="Retrofit Mecanolav">
-        <div class="proj-card-result">
-          <strong>✅ Résultat</strong>
-          Mise en service validée, exploitation clarifiée, base documentaire complète (DOE + sauvegardes) et formation opérateurs assurée.
+        <div class="proj-card-image">
+          <img src="https://static.wixstatic.com/media/d6252f_f87d0688dce5408088848e831e174c41~mv2.jpg/v1/fill/w_667,h_575,q_90,enc_avif,quality_auto/d6252f_f87d0688dce5408088848e831e174c41~mv2.jpg" alt="Retrofit Mecanolav Airbus">
+          <div class="proj-card-image-overlay"></div>
         </div>
-      </div>
-      <div class="proj-card-footer">
-        <span style="font-size:.82rem; color:var(--muted)">Sep 2024 – Août 2026</span>
-        <span class="proj-card-footer-link">Voir le détail complet →</span>
       </div>
     </a>
 
-    <!-- Projet 2 -->
-    <a href="projet-epenons.html" class="proj-card-big fade-up">
-      <div class="proj-card-top">
-        <div>
-          <div class="proj-num">02</div>
+    <!-- PROJET 2 : EPENONS -->
+    <a href="projet-epenons.html" class="proj-card fade-up">
+      <div class="proj-card-header">
+        <div class="proj-card-num">02</div>
+        <div class="proj-card-icon-circle">📡</div>
+        <div class="proj-card-titles">
           <div class="proj-card-title">ePenons Trimcontrol — Neoline</div>
           <div class="proj-card-context">Alternance · SPIE Industrie · Saint-Herblain</div>
-          <p class="proj-card-desc">Mesure du comportement du film d'air via capteurs "penons" sur voilure de cargo à voile. Qualification réception radio et intégration flux UDP vers automate.</p>
+        </div>
+        <div class="proj-card-cta">Voir le détail →</div>
+      </div>
+      <div class="proj-card-body">
+        <div class="proj-card-content">
+          <p class="proj-card-desc">Qualification de la réception radio de capteurs "penons" mesurant le film d'air sur la voilure d'un cargo à voile (Neoline). Intégration d'un <strong>flux UDP</strong> entre le récepteur et l'automate, parsing des trames, comparaison IHM vs API pour isoler les pertes.</p>
           <div class="proj-card-tags">
             <span class="badge">Réseau UDP</span>
             <span class="badge">Supervision réseau</span>
-            <span class="badge">Automate</span>
-            <span class="badge badge-accent">Neoline</span>
+            <span class="badge">Automate API</span>
+            <span class="badge">Parsing trames</span>
+            <span class="badge badge-accent">Client : Neoline</span>
+          </div>
+          <div class="proj-card-result">
+            <strong>✅ Résultat</strong>
+            Chaîne capteur→récepteur→UDP→API validée. Les pertes venaient de l'interface logicielle, non du réseau.
           </div>
         </div>
-        <div style="font-size:3rem">📡</div>
-      </div>
-      <div class="proj-card-img-wrap">
-        <img src="https://static.wixstatic.com/media/d6252f_f908fbd05dd5496d8733239dc526897a~mv2.jpg/v1/fill/w_667,h_575,q_90,enc_avif,quality_auto/d6252f_f908fbd05dd5496d8733239dc526897a~mv2.jpg" alt="ePenons Neoline">
-        <div class="proj-card-result">
-          <strong>✅ Résultat</strong>
-          Chaîne capteur→récepteur→UDP→API entièrement validée. Les pertes provenaient de l'interface logicielle et non du réseau ni des capteurs.
+        <div class="proj-card-image">
+          <img src="https://static.wixstatic.com/media/d6252f_f908fbd05dd5496d8733239dc526897a~mv2.jpg/v1/fill/w_667,h_575,q_90,enc_avif,quality_auto/d6252f_f908fbd05dd5496d8733239dc526897a~mv2.jpg" alt="ePenons Neoline">
+          <div class="proj-card-image-overlay"></div>
         </div>
-      </div>
-      <div class="proj-card-footer">
-        <span style="font-size:.82rem; color:var(--muted)">Alternance 2024–2026</span>
-        <span class="proj-card-footer-link">Voir le détail complet →</span>
       </div>
     </a>
 
-    <!-- Projet 3 -->
-    <a href="projet-sms.html" class="proj-card-big fade-up">
-      <div class="proj-card-top">
-        <div>
-          <div class="proj-num">03</div>
+    <!-- PROJET 3 : SMS -->
+    <a href="projet-sms.html" class="proj-card fade-up">
+      <div class="proj-card-header">
+        <div class="proj-card-num">03</div>
+        <div class="proj-card-icon-circle">📲</div>
+        <div class="proj-card-titles">
           <div class="proj-card-title">Alerte SMS via Ewon Flexy</div>
-          <div class="proj-card-context">Alternance · SPIE Industrie</div>
-          <p class="proj-card-desc">Mise en place d'un système d'alerte préventive par SMS pour détecter les dérives machines et intervenir plus rapidement. Connexion automate Siemens → Ewon Flexy via OPC-UA.</p>
+          <div class="proj-card-context">Alternance · SPIE Industrie · Saint-Herblain</div>
+        </div>
+        <div class="proj-card-cta">Voir le détail →</div>
+      </div>
+      <div class="proj-card-body">
+        <div class="proj-card-content">
+          <p class="proj-card-desc">Système d'alerte préventive par SMS pour détecter les dérives machines avant qu'elles deviennent critiques. Connexion <strong>automate Siemens → Ewon Flexy via OPC-UA</strong>, création des tags, seuils et scénarios d'alerte, envoi SMS via la plateforme Talk2M.</p>
           <div class="proj-card-tags">
             <span class="badge">Ewon Flexy</span>
             <span class="badge">OPC-UA</span>
             <span class="badge">Talk2M</span>
             <span class="badge">Siemens TIA Portal</span>
           </div>
+          <div class="proj-card-result">
+            <strong>✅ Résultat</strong>
+            Alerte préventive opérationnelle. Gains de réactivité mesurables pour la maintenance industrielle.
+          </div>
         </div>
-        <div style="font-size:3rem">📲</div>
-      </div>
-      <div class="proj-card-img-wrap">
-        <img src="https://static.wixstatic.com/media/d6252f_74ac391551594a9587469d54120f230c~mv2.png/v1/fill/w_500,h_440,q_90,enc_avif,quality_auto/d6252f_74ac391551594a9587469d54120f230c~mv2.png" alt="Alerte SMS Ewon">
-        <div class="proj-card-result">
-          <strong>✅ Résultat</strong>
-          Alerte préventive pleinement opérationnelle. Gains de réactivité mesurables pour la maintenance industrielle.
+        <div class="proj-card-image">
+          <img src="https://static.wixstatic.com/media/d6252f_74ac391551594a9587469d54120f230c~mv2.png/v1/fill/w_500,h_440,q_90,enc_avif,quality_auto/d6252f_74ac391551594a9587469d54120f230c~mv2.png" alt="Alerte SMS Ewon Flexy">
+          <div class="proj-card-image-overlay"></div>
         </div>
-      </div>
-      <div class="proj-card-footer">
-        <span style="font-size:.82rem; color:var(--muted)">Alternance 2024–2026</span>
-        <span class="proj-card-footer-link">Voir le détail complet →</span>
       </div>
     </a>
 
   </div>
 
-  <!-- SAé ACADÉMIQUES -->
-  <section class="sae-section">
-    <div class="section-eyebrow fade-up">Académique</div>
-    <h2 class="section-title fade-up">Projets <span>IUT</span></h2>
-    <div class="sae-grid">
-      <a href="projet-sae.html" class="sae-card fade-up">
-        <div class="sae-card-icon">🔌</div>
-        <div class="sae-card-title">SAé 1 — Barrière de Passage à Niveau</div>
-        <div class="sae-card-sub">BUT GEII · IUT de Nantes</div>
-        <p class="sae-card-desc">Conception d'une carte électronique pour une barrière de passage à niveau pour train miniature. CAO électronique, routage PCB, câblage et tests.</p>
-        <div class="sae-card-link">Voir le projet →</div>
+  <!-- PROJETS ACADÉMIQUES -->
+  <section class="academic-section">
+    <div class="section-eyebrow fade-up">BUT GEII · IUT de Nantes</div>
+    <h2 class="section-title fade-up">Projets <span>Académiques</span></h2>
+    <div class="academic-grid">
+      <a href="projet-sae.html#sae1" class="academic-card fade-up">
+        <div class="academic-card-icon">🔌</div>
+        <div class="academic-card-title">SAé 1 — Barrière de Passage à Niveau</div>
+        <div class="academic-card-sub">Semestre 1 · BUT GEII · IUT de Nantes</div>
+        <p class="academic-card-desc">Conception d'une carte électronique pour train miniature — schéma sous KiCad, routage PCB, fabrication, câblage et tests. Dossier technique complet.</p>
+        <div class="academic-card-link">Voir le projet →</div>
       </a>
-      <a href="projet-sae.html#ppp" class="sae-card fade-up">
-        <div class="sae-card-icon">🎓</div>
-        <div class="sae-card-title">Projet Personnel et Professionnel (PPP)</div>
-        <div class="sae-card-sub">BUT GEII · IUT de Nantes</div>
-        <p class="sae-card-desc">Présentation orale du métier de technicien en électronique automobile. Interview d'un alternant chez Naval Group (3ème année BUT GEII).</p>
-        <div class="sae-card-link">Voir le projet →</div>
+      <a href="projet-sae.html#ppp" class="academic-card fade-up">
+        <div class="academic-card-icon">🎓</div>
+        <div class="academic-card-title">Projet Personnel et Professionnel (PPP)</div>
+        <div class="academic-card-sub">Semestre 1 · BUT GEII · IUT de Nantes</div>
+        <p class="academic-card-desc">Présentation orale du métier de technicien en électronique automobile. Interview d'un alternant chez Naval Group (3ème année BUT GEII).</p>
+        <div class="academic-card-link">Voir le projet →</div>
       </a>
     </div>
   </section>
@@ -268,12 +324,13 @@
 
 <footer>
   <span class="footer-logo">LC.</span>
-  <span>© 2026 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
+  <span>© 2025 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
   <div class="footer-links">
-    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/leo-carvalho29/" target="_blank">LinkedIn</a>
     <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_5103bc47c7a04f2eaef83886b93a42c3.pdf" target="_blank">CV PDF</a>
   </div>
 </footer>
+
 <script src="main.js"></script>
 </body>
 </html>

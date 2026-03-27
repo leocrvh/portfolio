@@ -4,39 +4,65 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projets Académiques — Léo Carvalho</title>
-<link rel="stylesheet" href="style.css">
 <script>document.documentElement.dataset.theme=localStorage.getItem('lc-theme')||'light';</script>
-<script>document.documentElement.dataset.theme=localStorage.getItem("lc-theme")||"light";</script>
+<link rel="stylesheet" href="style.css">
 <style>
-.page-hero { padding: clamp(3rem,7vh,5rem) clamp(1.2rem,6vw,6rem) clamp(2rem,4vh,3rem); background: var(--bg2); border-bottom: 1px solid var(--border); }
-.proj-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); }
-.proj-section + .proj-section { border-top: 1px solid var(--border); }
-.proj-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-.proj-academic-title { font-family: 'Syne', sans-serif; font-size: clamp(1.4rem,2.5vw,2rem); font-weight: 800; margin-bottom: .4rem; }
-.proj-academic-sub { font-size: .85rem; color: var(--accent2); margin-bottom: 1.5rem; }
-.proj-text { font-size: .92rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
-.proj-text strong { color: var(--text); }
-.proj-list { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.2rem; }
-.proj-list li { display: flex; gap: .6rem; font-size: .9rem; color: var(--muted); line-height: 1.5; }
-.proj-list li::before { content: '▸'; color: var(--accent); flex-shrink: 0; }
-.proj-gallery-4 { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
-.proj-gallery-4 .g-img { border-radius: 8px; border: 1px solid var(--border); overflow: hidden; aspect-ratio: 4/3; background: var(--bg3); }
-.proj-gallery-4 .g-img img { width:100%; height:100%; object-fit:cover; transition: transform .4s; }
-.proj-gallery-4 .g-img:hover img { transform: scale(1.05); }
-.result-block { background: linear-gradient(135deg, rgba(193,123,63,.08), rgba(212,149,106,.04)); border: 1px solid rgba(193,123,63,.3); border-radius: 14px; padding: 1.5rem; margin-top: 1.5rem; }
-.result-block-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--accent); margin-bottom: .8rem; }
-.breadcrumb { font-size: .78rem; color: var(--muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: .5rem; }
-.breadcrumb a { color: var(--accent); }
-@media (max-width: 800px) { .proj-layout { grid-template-columns: 1fr; gap: 2rem; } }
-.lightbox-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.88);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:2rem;}
+/* Lightbox */
+.lightbox-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:1.5rem;}
 .lightbox-overlay.open{display:flex;}
-.lightbox-inner{position:relative;max-width:900px;width:100%;}
-.lightbox-inner img{width:100%;border-radius:12px;box-shadow:0 32px 80px rgba(0,0,0,.5);}
-.lightbox-close{position:absolute;top:-14px;right:-14px;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.3);}
-.gallery-img{cursor:pointer;position:relative;}
+.lightbox-inner{position:relative;max-width:1000px;width:100%;}
+.lightbox-inner img{width:100%;border-radius:12px;box-shadow:0 32px 80px rgba(0,0,0,.6);display:block;}
+.lightbox-close{position:absolute;top:-16px;right:-16px;width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.3);font-weight:700;}
+.lightbox-caption{text-align:center;color:rgba(255,255,255,.7);font-size:.82rem;margin-top:.8rem;}
+/* Detail page layout */
+.proj-detail-hero{padding:clamp(2.5rem,6vh,4.5rem) clamp(1.5rem,6vw,6rem) clamp(1.5rem,3vh,2.5rem);background:var(--bg2);border-bottom:1px solid var(--border);}
+.proj-breadcrumb{font-size:.78rem;color:var(--muted);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem;}
+.proj-breadcrumb a{color:var(--accent);}
+.proj-breadcrumb a:hover{text-decoration:underline;}
+.proj-detail-title{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,3.5vw,2.8rem);font-weight:800;line-height:1.1;margin-bottom:.4rem;}
+.proj-detail-sub{font-size:.88rem;color:var(--accent2);margin-bottom:1.2rem;}
+.proj-meta{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.8rem;}
+.proj-summary-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.proj-summary-cell{background:var(--card);padding:1rem 1.2rem;}
+.proj-summary-cell-label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.25rem;}
+.proj-summary-cell-val{font-size:.88rem;font-weight:600;}
+/* Two-column body */
+.proj-detail-body{display:grid;grid-template-columns:1fr 320px;gap:3rem;padding:clamp(2.5rem,5vh,4rem) clamp(1.5rem,6vw,6rem);align-items:start;}
+.proj-section-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--accent);margin-bottom:.7rem;margin-top:2rem;text-transform:uppercase;letter-spacing:.08em;}
+.proj-section-title:first-child{margin-top:0;}
+.proj-text{font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:.9rem;}
+.proj-text strong{color:var(--text);}
+.proj-list{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1rem;}
+.proj-list li{display:flex;gap:.55rem;font-size:.88rem;color:var(--muted);line-height:1.55;}
+.proj-list li::before{content:'▸';color:var(--accent);flex-shrink:0;margin-top:.05rem;}
+.result-box{background:linear-gradient(135deg,rgba(193,123,63,.08),rgba(212,149,106,.03));border:1px solid rgba(193,123,63,.28);border-radius:12px;padding:1.4rem;margin:1.5rem 0;}
+.result-box-title{font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;color:var(--accent);margin-bottom:.7rem;}
+/* Sidebar */
+.proj-sidebar{display:flex;flex-direction:column;gap:1.2rem;}
+.sidebar-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.3rem;}
+.sidebar-card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);margin-bottom:.9rem;}
+.sidebar-stack{display:flex;flex-wrap:wrap;gap:.35rem;}
+/* Gallery */
+.proj-gallery-section{padding:0 clamp(1.5rem,6vw,6rem) clamp(3rem,6vh,5rem);}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;}
+.gallery-item{border-radius:10px;border:1px solid var(--border);overflow:hidden;aspect-ratio:4/3;cursor:pointer;position:relative;background:var(--bg3);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+.gallery-item:hover img{transform:scale(1.06);}
+.gallery-item-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35);opacity:0;transition:opacity .25s;}
+.gallery-item:hover .gallery-item-hint{opacity:1;}
+.gallery-item-hint span{background:rgba(255,255,255,.15);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.78rem;font-weight:600;padding:.35rem .8rem;border-radius:999px;}
+.gallery-placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;color:var(--muted);font-size:.82rem;aspect-ratio:4/3;}
+.gallery-placeholder-icon{font-size:1.8rem;}
+/* Nav between projects */
+.proj-nav-strip{display:flex;gap:1rem;flex-wrap:wrap;padding:0 clamp(1.5rem,6vw,6rem) clamp(2.5rem,5vh,4rem);}
+@media(max-width:900px){.proj-detail-body{grid-template-columns:1fr;}.proj-sidebar{order:-1;}.proj-summary-strip{grid-template-columns:1fr 1fr;}.gallery-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.gallery-grid{grid-template-columns:1fr;}.proj-summary-strip{grid-template-columns:1fr;}}
+
+
 </style>
 </head>
 <body>
+
 <nav>
   <a href="index.html" class="nav-logo">LC<span>.</span></a>
   <ul class="nav-links">
@@ -46,12 +72,16 @@
     <li><a href="apprentissage.html">Apprentissage</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <button class="theme-toggle" id="themeToggle"><span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span></button>
-  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+    <span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span>
+  </button>
+  <button class="burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
 <!-- MOBILE OVERLAY -->
 <div id="mobileOverlay" class="mobile-overlay"></div>
-
 <!-- MOBILE DRAWER -->
 <div id="mobileMenu" class="mobile-menu">
   <div class="mobile-menu-header">
@@ -59,11 +89,11 @@
     <button class="mobile-menu-close" onclick="closeMobile()">✕</button>
   </div>
   <div class="mobile-menu-links">
-      <a href="index.html" onclick="closeMobile()"><span class="nav-icon">🏠</span>Accueil</a>
-      <a href="profil.html" onclick="closeMobile()"><span class="nav-icon">👤</span>Profil</a>
-      <a href="projets.html" onclick="closeMobile()"><span class="nav-icon">⚙️</span>Projets</a>
-      <a href="apprentissage.html" onclick="closeMobile()"><span class="nav-icon">🎓</span>Apprentissage</a>
-      <a href="contact.html" onclick="closeMobile()"><span class="nav-icon">✉️</span>Contact</a>
+    <a href="index.html" onclick="closeMobile()"><span class="nav-icon">🏠</span>Accueil</a>
+    <a href="profil.html" onclick="closeMobile()"><span class="nav-icon">👤</span>Profil</a>
+    <a href="projets.html" onclick="closeMobile()"><span class="nav-icon">⚙️</span>Projets</a>
+    <a href="apprentissage.html" onclick="closeMobile()"><span class="nav-icon">🎓</span>Apprentissage</a>
+    <a href="contact.html" onclick="closeMobile()"><span class="nav-icon">✉️</span>Contact</a>
   </div>
   <div class="mobile-menu-footer">
     <a href="https://www.linkedin.com/in/leo-carvalho29/" target="_blank">💼 LinkedIn</a>
@@ -72,140 +102,177 @@
 </div>
 
 <div class="page-content">
-  <section class="page-hero">
-    <div class="breadcrumb fade-up"><a href="projets.html">← Tous les projets</a><span>/</span><span>Projets Académiques</span></div>
+
+  <section class="proj-detail-hero">
+    <div class="proj-breadcrumb fade-up">
+      <a href="projets.html">← Tous les projets</a>
+      <span>/</span><span>Projets Académiques</span>
+    </div>
     <div class="section-eyebrow fade-up">BUT GEII · IUT de Nantes</div>
-    <h1 style="font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;line-height:1.1;" class="fade-up">Projets <span style="color:var(--accent)">Académiques</span></h1>
-    <p style="font-size:.95rem;color:var(--muted);max-width:560px;line-height:1.7;margin-top:.8rem;" class="fade-up">SAé et Projets Personnels réalisés dans le cadre du BUT GEII à l'IUT de Nantes.</p>
+    <h1 class="proj-detail-title fade-up">Projets <span style="color:var(--accent)">Académiques</span></h1>
+    <p class="proj-detail-sub fade-up">🎓 SAé &amp; PPP réalisés dans le cadre du BUT GEII</p>
   </section>
 
   <!-- SAé 1 -->
-  <section class="proj-section" id="sae1">
-    <div class="section-eyebrow fade-up">SAé 1 · Semestre 1</div>
-    <div class="proj-layout">
-      <div class="fade-up">
-        <h2 class="proj-academic-title">🔌 Barrière de Passage à Niveau</h2>
-        <p class="proj-academic-sub">Conception d'une carte électronique pour train miniature</p>
-        <p class="proj-text">Ce projet a pour objectif de <strong>concevoir, fabriquer et tester une carte électronique</strong> permettant de commander une barrière de passage à niveau pour un train miniature.</p>
-        <p class="proj-text"><strong>Objectifs pédagogiques :</strong></p>
-        <ul class="proj-list">
-          <li>Découvrir les outils de <strong>CAO Electronique</strong> pour la conception de circuits imprimés (schéma et routage)</li>
-          <li>Décrire les moyens de fabrication d'une carte imprimée (film, gravure…)</li>
-          <li>Câbler et tester une carte électronique réelle</li>
-          <li>Élaborer un dossier technique complet</li>
+  <div class="proj-detail-body" id="sae1">
+    <div>
+      <div class="section-eyebrow fade-up">SAé 1 · Semestre 1</div>
+      <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;margin-bottom:.4rem;" class="fade-up">🔌 Barrière de Passage à Niveau</h2>
+      <p style="font-size:.85rem;color:var(--accent2);margin-bottom:1.5rem;" class="fade-up">Conception d'une carte électronique pour train miniature</p>
+
+      <div class="proj-section-title fade-up">📋 Description</div>
+      <p class="proj-text fade-up">Ce projet vise à <strong>concevoir, fabriquer et tester une carte électronique</strong> commandant une barrière de passage à niveau pour un train miniature.</p>
+
+      <div class="proj-section-title fade-up">🎯 Objectifs pédagogiques</div>
+      <ul class="proj-list fade-up">
+        <li>Découvrir les outils de <strong>CAO électronique</strong> (schéma et routage PCB)</li>
+        <li>Comprendre les moyens de fabrication d'un circuit imprimé</li>
+        <li>Câbler et tester une carte électronique réelle</li>
+        <li>Élaborer un <strong>dossier technique complet</strong></li>
+      </ul>
+
+      <div class="result-box fade-up">
+        <div class="result-box-title">Compétences acquises</div>
+        <ul class="proj-list" style="margin-bottom:0">
+          <li>Schéma électronique sous KiCad</li>
+          <li>Routage PCB et génération Gerber</li>
+          <li>Câblage, soudure et test sur carte réelle</li>
+          <li>Rédaction dossier technique</li>
         </ul>
-        <div class="result-block">
-          <div class="result-block-title">Compétences acquises</div>
-          <ul class="proj-list" style="margin-bottom:0">
-            <li>Schéma électronique sous KiCad</li>
-            <li>Routage PCB et génération des fichiers Gerber</li>
-            <li>Câblage et soudure sur carte réelle</li>
-            <li>Tests fonctionnels et débogage</li>
-            <li>Rédaction dossier technique complet</li>
-          </ul>
+      </div>
+    </div>
+
+    <div class="proj-sidebar">
+      <div class="sidebar-card fade-up">
+        <div class="sidebar-card-title">Technologies</div>
+        <div class="sidebar-stack">
+          <span class="badge">KiCad (CAO)</span>
+          <span class="badge">Routage PCB</span>
+          <span class="badge">Électronique</span>
         </div>
       </div>
-      <div class="fade-up" style="transition-delay:.1s">
-        <div class="proj-gallery-4">
-          <div class="g-img" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png', 'SAé1 schéma')">
-        <img src="https://static.wixstatic.com/media/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png" alt="SAé1 schéma"></div>
-          <div class="g-img" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png', 'SAé1 routage')">
-        <img src="https://static.wixstatic.com/media/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png" alt="SAé1 routage"></div>
-          <div class="g-img" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg', 'SAé1 carte')">
-        <img src="https://static.wixstatic.com/media/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg" alt="SAé1 carte"></div>
-          <div class="g-img" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png', 'SAé1 résultat')">
-        <img src="https://static.wixstatic.com/media/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png" alt="SAé1 résultat"></div>
-        </div>
+    </div>
+  </div>
+
+  <!-- Gallery SAé 1 -->
+  <section class="proj-gallery-section">
+    <div class="section-eyebrow fade-up">Illustrations SAé 1</div>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-up" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png','SAé 1 — Schéma électronique')">
+        <img src="https://static.wixstatic.com/media/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png" alt="SAé1 schéma">
+        <div class="gallery-item-hint"><span>🔍 Agrandir</span></div>
+      </div>
+      <div class="gallery-item fade-up" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png','SAé 1 — Routage PCB')">
+        <img src="https://static.wixstatic.com/media/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png" alt="SAé1 routage">
+        <div class="gallery-item-hint"><span>🔍 Agrandir</span></div>
+      </div>
+      <div class="gallery-item fade-up" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg','SAé 1 — Carte réelle')">
+        <img src="https://static.wixstatic.com/media/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg" alt="SAé1 carte">
+        <div class="gallery-item-hint"><span>🔍 Agrandir</span></div>
+      </div>
+      <div class="gallery-item fade-up" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png','SAé 1 — Résultat final')">
+        <img src="https://static.wixstatic.com/media/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png" alt="SAé1 résultat">
+        <div class="gallery-item-hint"><span>🔍 Agrandir</span></div>
+      </div>
+      <div class="gallery-item fade-up" style="cursor:default;">
+        <div class="gallery-placeholder"><div class="gallery-placeholder-icon">⚙️</div><span>Test barrière fonctionnelle</span></div>
+      </div>
+      <div class="gallery-item fade-up" style="cursor:default;">
+        <div class="gallery-placeholder"><div class="gallery-placeholder-icon">📄</div><span>Dossier technique</span></div>
       </div>
     </div>
   </section>
 
   <!-- PPP -->
-  <section class="proj-section" id="ppp">
-    <div class="section-eyebrow fade-up">PPP · Projet Personnel et Professionnel</div>
-    <div class="proj-layout">
-      <div class="fade-up">
-        <h2 class="proj-academic-title">🎓 Projet Personnel et Professionnel</h2>
-        <p class="proj-academic-sub">Semestre 1 · BUT GEII · IUT de Nantes</p>
-        <p class="proj-text">Le PPP vise à construire un <strong>projet professionnel réfléchi</strong> à travers des activités de découverte des métiers du GEII et des rencontres avec des professionnels.</p>
-        <p class="proj-text"><strong>Activité 1 — Présentation orale d'un métier GEII :</strong></p>
-        <ul class="proj-list">
-          <li>Recherche et étude du métier de <strong>Technicien en électronique automobile</strong></li>
-          <li>Présentation orale réalisée avec un camarade devant le groupe</li>
-          <li>Analyse des compétences requises, des débouchés et des formations associées</li>
+  <div class="proj-detail-body" id="ppp" style="border-top:1px solid var(--border);padding-top:clamp(2.5rem,5vh,4rem);">
+    <div>
+      <div class="section-eyebrow fade-up">PPP · Semestre 1</div>
+      <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;margin-bottom:.4rem;" class="fade-up">🎓 Projet Personnel et Professionnel</h2>
+      <p style="font-size:.85rem;color:var(--accent2);margin-bottom:1.5rem;" class="fade-up">Découverte des métiers GEII · Interview professionnel</p>
+
+      <div class="proj-section-title fade-up">Activité 1 — Présentation orale</div>
+      <ul class="proj-list fade-up">
+        <li>Étude du métier de <strong>Technicien en électronique automobile</strong></li>
+        <li>Présentation orale réalisée en binôme devant le groupe</li>
+        <li>Analyse des compétences, débouchés et formations associées</li>
+      </ul>
+
+      <div class="proj-section-title fade-up">Activité 2 — Interview d'un alternant</div>
+      <ul class="proj-list fade-up">
+        <li>Interview de <strong>Marwan</strong>, alternant chez <strong>Naval Group</strong> (3ème année BUT GEII)</li>
+        <li>Questions sur son quotidien en entreprise et ses missions</li>
+        <li>Rédaction d'un compte rendu complet de l'interview</li>
+      </ul>
+
+      <div class="result-box fade-up">
+        <div class="result-box-title">Compétences acquises</div>
+        <ul class="proj-list" style="margin-bottom:0">
+          <li>Communication orale professionnelle</li>
+          <li>Recherche et synthèse sur les métiers du GEII</li>
+          <li>Conduite d'entretien professionnel</li>
         </ul>
-        <p class="proj-text"><strong>Activité 2 — Interview d'un alternant :</strong></p>
-        <ul class="proj-list">
-          <li>Interview de <strong>Marwan</strong>, alternant chez <strong>Naval Group</strong> (3ème année BUT GEII)</li>
-          <li>Questions sur son quotidien en entreprise, ses missions, ses conseils pour l'alternance</li>
-          <li>Rédaction d'un compte rendu complet de l'interview</li>
-        </ul>
-        <div class="result-block">
-          <div class="result-block-title">Compétences acquises</div>
-          <ul class="proj-list" style="margin-bottom:0">
-            <li>Communication orale professionnelle</li>
-            <li>Recherche et synthèse sur les métiers du GEII</li>
-            <li>Conduite d'entretien professionnel</li>
-            <li>Construction du projet professionnel</li>
-          </ul>
+      </div>
+    </div>
+
+    <div class="proj-sidebar">
+      <div class="sidebar-card fade-up">
+        <div class="sidebar-card-title">Compétences</div>
+        <div class="sidebar-stack">
+          <span class="badge badge-accent">Communication orale</span>
+          <span class="badge badge-accent">Recherche métier</span>
+          <span class="badge badge-accent">Interview pro</span>
         </div>
       </div>
-      <div class="fade-up" style="transition-delay:.1s">
-        <div class="proj-gallery-4">
-          <div class="g-img" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png/v1/fill/w_333,h_288,q_90,enc_avif,quality_auto/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png', 'PPP diaporama')">
-        <img src="https://static.wixstatic.com/media/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png/v1/fill/w_333,h_288,q_90,enc_avif,quality_auto/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png" alt="PPP diaporama"></div>
-          <div class="g-img" style="display:flex;align-items:center;justify-content:center;">
-            <div style="text-align:center;color:var(--muted);font-size:.82rem;padding:1rem;">
-              <div style="font-size:2rem;margin-bottom:.4rem">🏭</div>
-              Naval Group<br>Interview alternant
-            </div>
+      <div class="sidebar-card fade-up">
+        <div class="sidebar-card-title">Illustrations PPP</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem;">
+          <div onclick="openLightbox('https://static.wixstatic.com/media/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png/v1/fill/w_333,h_288,q_90,enc_avif,quality_auto/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png','PPP — Diaporama présentation métier')" style="cursor:pointer;border-radius:8px;overflow:hidden;border:1px solid var(--border);aspect-ratio:4/3;position:relative;">
+            <img src="https://static.wixstatic.com/media/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png/v1/fill/w_333,h_288,q_90,enc_avif,quality_auto/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png" alt="PPP diaporama" style="width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;inset:0;background:rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0"><span style="color:#fff;font-size:.7rem;font-weight:600;">🔍</span></div>
           </div>
-          <div class="g-img" style="display:flex;align-items:center;justify-content:center;">
-            <div style="text-align:center;color:var(--muted);font-size:.82rem;padding:1rem;">
-              <div style="font-size:2rem;margin-bottom:.4rem">🚗</div>
-              Technicien électronique automobile
-            </div>
-          </div>
-          <div class="g-img" style="display:flex;align-items:center;justify-content:center;">
-            <div style="text-align:center;color:var(--muted);font-size:.82rem;padding:1rem;">
-              <div style="font-size:2rem;margin-bottom:.4rem">📄</div>
-              Compte rendu PPP1
-            </div>
-          </div>
+          <div style="border-radius:8px;border:1px solid var(--border);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:var(--bg3);font-size:.7rem;color:var(--muted);text-align:center;padding:.4rem;">Naval Group Interview</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <div style="padding: 0 clamp(1.2rem,6vw,6rem) clamp(3rem,6vh,5rem); display:flex; gap:1rem; flex-wrap:wrap;">
-    <a href="projet-sms.html" class="btn btn-outline">← Projet précédent</a>
+
+  <div class="proj-nav-strip">
+    <a href="projet-sms.html" class="btn btn-outline">← Alerte SMS</a>
     <a href="projets.html" class="btn btn-primary">Tous les projets →</a>
   </div>
 </div>
 
 <footer>
   <span class="footer-logo">LC.</span>
-  <span>© 2026 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
+  <span>© 2025 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
   <div class="footer-links">
-    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/leo-carvalho29/" target="_blank">LinkedIn</a>
     <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_5103bc47c7a04f2eaef83886b93a42c3.pdf" target="_blank">CV PDF</a>
   </div>
 </footer>
+
+
+<div class="lightbox-overlay" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>
 <script src="main.js"></script>
 <script>
-function openLightbox(src, alt) {
-  document.getElementById('lightboxImg').src = src;
-  document.getElementById('lightboxImg').alt = alt || '';
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
+var lb = document.getElementById('lightbox');
+var lbImg = document.getElementById('lightboxImg');
+var lbCap = document.getElementById('lightboxCaption');
+function openLightbox(src, caption) {
+  lbImg.src = src; lbCap.textContent = caption || '';
+  lb.classList.add('open'); document.body.style.overflow = 'hidden';
 }
-document.addEventListener('click', function(e) {
-  var lb = document.getElementById('lightbox');
-  if (e.target === lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
-});
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
-});
+document.getElementById('lightboxClose').onclick = closeLB;
+lb.addEventListener('click', function(e){ if(e.target===lb) closeLB(); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLB(); });
+function closeLB(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
 </script>
 </body>
 </html>
