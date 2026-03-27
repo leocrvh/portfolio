@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr" data-theme="light">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRZKHPG14F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LRZKHPG14F');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projets Académiques — Léo Carvalho</title>
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.dataset.theme=localStorage.getItem('lc-theme')||'light';</script>
 <script>document.documentElement.dataset.theme=localStorage.getItem("lc-theme")||"light";</script>
 <style>
 .page-hero { padding: clamp(3rem,7vh,5rem) clamp(1.2rem,6vw,6rem) clamp(2rem,4vh,3rem); background: var(--bg2); border-bottom: 1px solid var(--border); }
@@ -36,6 +28,12 @@
 .breadcrumb { font-size: .78rem; color: var(--muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: .5rem; }
 .breadcrumb a { color: var(--accent); }
 @media (max-width: 800px) { .proj-layout { grid-template-columns: 1fr; gap: 2rem; } }
+.lightbox-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.88);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:2rem;}
+.lightbox-overlay.open{display:flex;}
+.lightbox-inner{position:relative;max-width:900px;width:100%;}
+.lightbox-inner img{width:100%;border-radius:12px;box-shadow:0 32px 80px rgba(0,0,0,.5);}
+.lightbox-close{position:absolute;top:-14px;right:-14px;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+.gallery-img{cursor:pointer;position:relative;}
 </style>
 </head>
 <body>
@@ -51,12 +49,26 @@
   <button class="theme-toggle" id="themeToggle"><span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span></button>
   <button class="burger" id="burger"><span></span><span></span><span></span></button>
 </nav>
+<!-- MOBILE OVERLAY -->
+<div id="mobileOverlay" class="mobile-overlay"></div>
+
+<!-- MOBILE DRAWER -->
 <div id="mobileMenu" class="mobile-menu">
-  <a href="index.html" onclick="closeMobile()">Accueil</a>
-  <a href="profil.html" onclick="closeMobile()">Profil</a>
-  <a href="projets.html" onclick="closeMobile()">Projets</a>
-  <a href="apprentissage.html" onclick="closeMobile()">Apprentissage</a>
-  <a href="contact.html" onclick="closeMobile()">Contact</a>
+  <div class="mobile-menu-header">
+    <span class="mobile-menu-logo">LC.</span>
+    <button class="mobile-menu-close" onclick="closeMobile()">✕</button>
+  </div>
+  <div class="mobile-menu-links">
+      <a href="index.html" onclick="closeMobile()"><span class="nav-icon">🏠</span>Accueil</a>
+      <a href="profil.html" onclick="closeMobile()"><span class="nav-icon">👤</span>Profil</a>
+      <a href="projets.html" onclick="closeMobile()"><span class="nav-icon">⚙️</span>Projets</a>
+      <a href="apprentissage.html" onclick="closeMobile()"><span class="nav-icon">🎓</span>Apprentissage</a>
+      <a href="contact.html" onclick="closeMobile()"><span class="nav-icon">✉️</span>Contact</a>
+  </div>
+  <div class="mobile-menu-footer">
+    <a href="https://www.linkedin.com/in/leo-carvalho29/" target="_blank">💼 LinkedIn</a>
+    <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_5103bc47c7a04f2eaef83886b93a42c3.pdf" target="_blank">📄 CV</a>
+  </div>
 </div>
 
 <div class="page-content">
@@ -95,10 +107,14 @@
       </div>
       <div class="fade-up" style="transition-delay:.1s">
         <div class="proj-gallery-4">
-          <div class="g-img"><img src="https://static.wixstatic.com/media/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png" alt="SAé1 schéma"></div>
-          <div class="g-img"><img src="https://static.wixstatic.com/media/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png" alt="SAé1 routage"></div>
-          <div class="g-img"><img src="https://static.wixstatic.com/media/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg" alt="SAé1 carte"></div>
-          <div class="g-img"><img src="https://static.wixstatic.com/media/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png" alt="SAé1 résultat"></div>
+          <div class="g-img" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png', 'SAé1 schéma')">
+        <img src="https://static.wixstatic.com/media/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_a6ea08c0d0cb41e5be3c7a5a369b7f8e~mv2.png" alt="SAé1 schéma"></div>
+          <div class="g-img" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png', 'SAé1 routage')">
+        <img src="https://static.wixstatic.com/media/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_e7d2d58cad14473a8ddd45737a62b71e~mv2.png" alt="SAé1 routage"></div>
+          <div class="g-img" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg', 'SAé1 carte')">
+        <img src="https://static.wixstatic.com/media/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_4bc7c33dacc24496bf4afd51524387b2~mv2.jpg" alt="SAé1 carte"></div>
+          <div class="g-img" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png', 'SAé1 résultat')">
+        <img src="https://static.wixstatic.com/media/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png/v1/fill/w_334,h_378,q_90,enc_avif,quality_auto/d6252f_2d3bc684991a42f3a8adde96f2914400~mv2.png" alt="SAé1 résultat"></div>
         </div>
       </div>
     </div>
@@ -136,7 +152,8 @@
       </div>
       <div class="fade-up" style="transition-delay:.1s">
         <div class="proj-gallery-4">
-          <div class="g-img"><img src="https://static.wixstatic.com/media/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png/v1/fill/w_333,h_288,q_90,enc_avif,quality_auto/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png" alt="PPP diaporama"></div>
+          <div class="g-img" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png/v1/fill/w_333,h_288,q_90,enc_avif,quality_auto/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png', 'PPP diaporama')">
+        <img src="https://static.wixstatic.com/media/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png/v1/fill/w_333,h_288,q_90,enc_avif,quality_auto/d6252f_96a6e214ebf34db38c125ec254fb0edd~mv2.png" alt="PPP diaporama"></div>
           <div class="g-img" style="display:flex;align-items:center;justify-content:center;">
             <div style="text-align:center;color:var(--muted);font-size:.82rem;padding:1rem;">
               <div style="font-size:2rem;margin-bottom:.4rem">🏭</div>
@@ -175,5 +192,20 @@
   </div>
 </footer>
 <script src="main.js"></script>
+<script>
+function openLightbox(src, alt) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxImg').alt = alt || '';
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+document.addEventListener('click', function(e) {
+  var lb = document.getElementById('lightbox');
+  if (e.target === lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
+});
+</script>
 </body>
 </html>

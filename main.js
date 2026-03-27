@@ -28,12 +28,25 @@ themeBtn && themeBtn.addEventListener('click', () => {
 // ── Mobile Menu ──────────────────────────────────────
 const burger = document.getElementById('burger');
 const mobileMenu = document.getElementById('mobileMenu');
-burger && burger.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
-});
-function closeMobile() {
-  mobileMenu && mobileMenu.classList.remove('open');
+const overlay = document.getElementById('mobileOverlay');
+
+function openMobileMenu() {
+  burger && burger.classList.add('open');
+  mobileMenu && mobileMenu.classList.add('open');
+  overlay && overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
+function closeMobile() {
+  burger && burger.classList.remove('open');
+  mobileMenu && mobileMenu.classList.remove('open');
+  overlay && overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+burger && burger.addEventListener('click', () => {
+  mobileMenu && mobileMenu.classList.contains('open') ? closeMobile() : openMobileMenu();
+});
+overlay && overlay.addEventListener('click', closeMobile);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobile(); });
 
 // ── Scroll Animations ────────────────────────────────
 const observer = new IntersectionObserver((entries) => {

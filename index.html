@@ -1,34 +1,21 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="light">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRZKHPG14F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LRZKHPG14F');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Léo Carvalho — Portfolio</title>
+<script>document.documentElement.dataset.theme=localStorage.getItem('lc-theme')||'light';</script>
 <link rel="stylesheet" href="style.css">
 <style>
-/* ── HERO ── */
 .hero {
   min-height: calc(100vh - var(--nav-h));
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 5rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; gap: 5rem;
   padding: clamp(3rem,8vh,6rem) clamp(1.2rem,6vw,6rem);
-  position: relative;
-  overflow: hidden;
+  position: relative; overflow: hidden;
 }
 .hero-glow {
-  position: absolute; top: 10%; right: 0;
-  width: 55%; height: 80%;
+  position: absolute; top: 10%; right: 0; width: 55%; height: 80%;
   background: radial-gradient(ellipse at center, var(--glow) 0%, transparent 70%);
   pointer-events: none;
 }
@@ -36,164 +23,56 @@
   display: inline-flex; align-items: center; gap: .6rem;
   background: var(--bg3); border: 1px solid var(--border);
   border-radius: 999px; padding: .4rem 1.1rem;
-  font-size: .78rem; font-weight: 500; color: var(--accent2);
-  margin-bottom: 2rem;
+  font-size: .78rem; font-weight: 500; color: var(--accent2); margin-bottom: 2rem;
 }
-.hero-tag .dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--accent); animation: pulse 2s infinite;
-}
+.hero-tag .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
-
-.hero-name {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(3rem,6.5vw,5.8rem);
-  font-weight: 800; line-height: 1;
-  letter-spacing: -.02em;
-  margin-bottom: .5rem;
-}
-.hero-name .last {
-  color: var(--accent);
-  display: block;
-}
-.hero-sub {
-  font-size: clamp(.95rem, 1.5vw, 1.15rem);
-  color: var(--muted); font-weight: 300;
-  line-height: 1.7; margin-bottom: 2.5rem; max-width: 460px;
-}
+.hero-name { font-family: 'Syne', sans-serif; font-size: clamp(3rem,6.5vw,5.8rem); font-weight: 800; line-height: 1; letter-spacing: -.02em; margin-bottom: .5rem; }
+.hero-name .last { color: var(--accent); display: block; }
+.hero-sub { font-size: clamp(.95rem,1.5vw,1.15rem); color: var(--muted); font-weight: 300; line-height: 1.7; margin-bottom: 2.5rem; max-width: 460px; }
 .hero-sub strong { color: var(--text); font-weight: 500; }
-
 .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
-
-.hero-stats {
-  display: flex; gap: 2.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
-}
-.hero-stat-num {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.6rem; font-weight: 800; color: var(--accent);
-  line-height: 1;
-}
+.hero-stats { display: flex; gap: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.hero-stat-num { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--accent); line-height: 1; }
 .hero-stat-label { font-size: .75rem; color: var(--muted); margin-top: .2rem; }
-
-/* ── PHOTO CARD ── */
-.hero-visual {
-  position: relative;
-  display: flex; justify-content: center;
-  z-index: 1;
-}
-.photo-frame {
-  position: relative;
-  width: 340px;
-}
-.photo-frame::before {
-  content: '';
-  position: absolute; top: -12px; left: -12px; right: 12px; bottom: 12px;
-  border: 2px solid var(--accent);
-  border-radius: 20px; z-index: 0;
-  opacity: .35;
-}
-.photo-frame img {
-  width: 100%;
-  height: 420px;
-  object-fit: cover; object-position: center top;
-  border-radius: 16px;
-  position: relative; z-index: 1;
-  border: 1px solid var(--border);
-}
-.photo-badge {
-  position: absolute; bottom: -16px; right: -16px; z-index: 2;
-  background: var(--accent); color: #fff;
-  border-radius: 12px; padding: .9rem 1.2rem;
-  font-family: 'Syne', sans-serif; font-weight: 700;
-  font-size: .82rem; line-height: 1.3;
-  box-shadow: 0 8px 24px rgba(193,123,63,.3);
-}
+.hero-visual { position: relative; display: flex; justify-content: center; z-index: 1; }
+.photo-frame { position: relative; width: 340px; }
+.photo-frame::before { content: ''; position: absolute; top: -12px; left: -12px; right: 12px; bottom: 12px; border: 2px solid var(--accent); border-radius: 20px; z-index: 0; opacity: .35; }
+.photo-frame img { width: 100%; height: 420px; object-fit: cover; object-position: center top; border-radius: 16px; position: relative; z-index: 1; border: 1px solid var(--border); }
+.photo-badge { position: absolute; bottom: -16px; right: -16px; z-index: 2; background: var(--accent); color: #fff; border-radius: 12px; padding: .9rem 1.2rem; font-family: 'Syne', sans-serif; font-weight: 700; font-size: .82rem; line-height: 1.3; box-shadow: 0 8px 24px rgba(193,123,63,.3); }
 .photo-badge span { font-size: 1.1rem; display: block; }
-
-/* ── ABOUT STRIP ── */
-.about-strip {
-  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  margin: 0 clamp(1.2rem,6vw,6rem) 0;
-}
-.strip-cell {
-  background: var(--card);
-  padding: 2rem 1.5rem;
-  transition: background var(--trans);
-}
+.about-strip { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin: 0 clamp(1.2rem,6vw,6rem); }
+.strip-cell { background: var(--card); padding: 2rem 1.5rem; transition: background var(--trans); }
 .strip-cell:hover { background: var(--card-h); }
-.strip-cell-label {
-  font-size: .72rem; font-weight: 700; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--accent);
-  margin-bottom: .4rem;
-}
+.strip-cell-label { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: .4rem; }
 .strip-cell-value { font-weight: 500; font-size: .95rem; }
 .strip-cell-sub { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
-
-/* ── PROJECTS PREVIEW ── */
+.ingenieur-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); background: var(--bg2); }
+.ingenieur-inner { max-width: 900px; margin: 0 auto; }
+.ingenieur-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+.ingenieur-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.8rem; }
+.ingenieur-card-icon { font-size: 1.5rem; margin-bottom: .8rem; }
+.ingenieur-card-title { font-family: 'Syne', sans-serif; font-weight: 700; margin-bottom: .6rem; }
+.ingenieur-card-text { font-size: .88rem; color: var(--muted); line-height: 1.75; }
+.ingenieur-card-text strong { color: var(--text); }
 .projects-section { padding: clamp(4rem,8vh,7rem) clamp(1.2rem,6vw,6rem); }
-.projects-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
-}
-.proj-preview {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 14px; padding: 1.5rem;
-  transition: var(--trans); cursor: pointer;
-  text-decoration: none; display: block; color: inherit;
-}
-.proj-preview:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px var(--glow);
-}
-.proj-icon {
-  width: 44px; height: 44px; border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem; margin-bottom: 1rem;
-  background: linear-gradient(135deg, rgba(193,123,63,.15), rgba(212,149,106,.15));
-  border: 1px solid rgba(193,123,63,.2);
-}
-.proj-title {
-  font-family: 'Syne', sans-serif; font-weight: 700;
-  font-size: 1rem; margin-bottom: .4rem;
-}
+.projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+.proj-preview { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; transition: var(--trans); text-decoration: none; display: block; color: inherit; }
+.proj-preview:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 32px var(--glow); }
+.proj-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1rem; background: linear-gradient(135deg, rgba(193,123,63,.15), rgba(212,149,106,.15)); border: 1px solid rgba(193,123,63,.2); }
+.proj-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: .4rem; }
 .proj-context { font-size: .78rem; color: var(--accent2); margin-bottom: .6rem; }
 .proj-desc { font-size: .85rem; color: var(--muted); line-height: 1.6; }
-.proj-arrow {
-  margin-top: 1rem;
-  font-size: .82rem; color: var(--accent); font-weight: 600;
-  display: flex; align-items: center; gap: .3rem;
-}
-
-.proj-preview-wide {
-  grid-column: span 3;
-  display: grid; grid-template-columns: 1fr 2fr;
-  gap: 1.5rem; align-items: center;
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 14px; padding: 1.5rem;
-  transition: var(--trans); cursor: pointer;
-  text-decoration: none; color: inherit;
-}
-.proj-preview-wide:hover {
-  border-color: var(--accent); transform: translateY(-3px);
-  box-shadow: 0 12px 32px var(--glow);
-}
-
-/* ── RESPONSIVE ── */
+.proj-arrow { margin-top: 1rem; font-size: .82rem; color: var(--accent); font-weight: 600; display: flex; align-items: center; gap: .3rem; }
+.proj-preview-wide { grid-column: span 3; display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem; align-items: center; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; transition: var(--trans); text-decoration: none; color: inherit; }
+.proj-preview-wide:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 32px var(--glow); }
 @media (max-width: 1000px) {
   .hero { grid-template-columns: 1fr; gap: 3rem; }
   .hero-visual { display: none; }
   .about-strip { grid-template-columns: 1fr 1fr; }
   .projects-grid { grid-template-columns: 1fr 1fr; }
   .proj-preview-wide { grid-column: span 2; }
+  .ingenieur-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .about-strip { grid-template-columns: 1fr; }
@@ -205,7 +84,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">LC<span>.</span></a>
   <ul class="nav-links">
@@ -224,12 +102,26 @@
   </button>
 </nav>
 
+<!-- MOBILE OVERLAY -->
+<div id="mobileOverlay" class="mobile-overlay"></div>
+
+<!-- MOBILE DRAWER -->
 <div id="mobileMenu" class="mobile-menu">
-  <a href="index.html" onclick="closeMobile()">Accueil</a>
-  <a href="profil.html" onclick="closeMobile()">Profil</a>
-  <a href="projets.html" onclick="closeMobile()">Projets</a>
-  <a href="apprentissage.html" onclick="closeMobile()">Apprentissage</a>
-  <a href="contact.html" onclick="closeMobile()">Contact</a>
+  <div class="mobile-menu-header">
+    <span class="mobile-menu-logo">LC.</span>
+    <button class="mobile-menu-close" onclick="closeMobile()">✕</button>
+  </div>
+  <div class="mobile-menu-links">
+      <a href="index.html" onclick="closeMobile()"><span class="nav-icon">🏠</span>Accueil</a>
+      <a href="profil.html" onclick="closeMobile()"><span class="nav-icon">👤</span>Profil</a>
+      <a href="projets.html" onclick="closeMobile()"><span class="nav-icon">⚙️</span>Projets</a>
+      <a href="apprentissage.html" onclick="closeMobile()"><span class="nav-icon">🎓</span>Apprentissage</a>
+      <a href="contact.html" onclick="closeMobile()"><span class="nav-icon">✉️</span>Contact</a>
+  </div>
+  <div class="mobile-menu-footer">
+    <a href="https://www.linkedin.com/in/leo-carvalho29/" target="_blank">💼 LinkedIn</a>
+    <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_5103bc47c7a04f2eaef83886b93a42c3.pdf" target="_blank">📄 CV</a>
+  </div>
 </div>
 
 <div class="page-content">
@@ -240,7 +132,7 @@
     <div class="fade-up">
       <div class="hero-tag">
         <span class="dot"></span>
-        Candidat école d’ingénieur – Rentrée 2026
+        Objectif 2026 · École d'ingénieur
       </div>
       <h1 class="hero-name">
         Léo
@@ -249,7 +141,7 @@
       <p class="hero-sub">
         <strong>Apprenti Automaticien chez SPIE Industrie</strong><br>
         Étudiant en BUT GEII · IUT de Nantes · Carquefou<br>
-        Passionné par l'automatisme industriel, les systèmes embarqués et l'électrotechnique.
+        Futur ingénieur généraliste — à la recherche d'une école d'ingénieur pour septembre 2026.
       </p>
       <div class="hero-ctas">
         <a href="projets.html" class="btn btn-primary">Voir mes projets →</a>
@@ -306,24 +198,45 @@
     <div class="strip-cell">
       <div class="strip-cell-label">Contact</div>
       <div class="strip-cell-value">Par mail</div>
-      <div class="strip-cell-sub">leo.carvalho@guerven.eu</div>
+      <div class="strip-cell-sub">leo.carvalho&#64;guerven.eu</div>
     </div>
   </div>
+
+  <!-- INGÉNIEUR HIGHLIGHT -->
+  <section class="ingenieur-section">
+    <div class="ingenieur-inner">
+      <div class="section-eyebrow fade-up">Objectif 2026</div>
+      <h2 class="section-title fade-up">Candidature <span>École d'Ingénieur</span></h2>
+      <div class="ingenieur-grid fade-up">
+        <div class="ingenieur-card" style="border-top:3px solid var(--accent)">
+          <div class="ingenieur-card-icon">🎓</div>
+          <div class="ingenieur-card-title">Pourquoi une école d'ingénieur ?</div>
+          <p class="ingenieur-card-text">Mon BUT GEII en alternance m'a donné de solides bases techniques en automatisme et informatique industrielle. Je souhaite élargir mes compétences vers la <strong>gestion de projet, le management et la conduite d'affaires</strong> pour évoluer vers des responsabilités d'ingénieur généraliste.</p>
+        </div>
+        <div class="ingenieur-card" style="border-top:3px solid var(--accent2)">
+          <div class="ingenieur-card-icon">🚀</div>
+          <div class="ingenieur-card-title">Un profil terrain + académique</div>
+          <p class="ingenieur-card-text">2 ans d'alternance chez SPIE Industrie sur des projets réels (Airbus, Neoline), combinés à une formation BUT GEII solide, me donnent une <strong>expérience concrète rare</strong> à l'entrée en école d'ingénieur.</p>
+        </div>
+      </div>
+      <div class="fade-up" style="text-align:center">
+        <a href="profil.html#ingenieur" class="btn btn-primary">En savoir plus sur mon projet →</a>
+      </div>
+    </div>
+  </section>
 
   <!-- PROJECTS PREVIEW -->
   <section class="projects-section">
     <div class="section-eyebrow fade-up">Réalisations</div>
     <h2 class="section-title fade-up">Mes derniers <span>Projets</span></h2>
-
     <div class="projects-grid">
       <a href="projet-retrofit.html" class="proj-preview fade-up">
         <div class="proj-icon">⚙️</div>
         <div class="proj-title">Retrofit Mecanolav — Airbus</div>
         <div class="proj-context">Alternance · SPIE Industrie</div>
-        <p class="proj-desc">Modernisation d'une machine de lavage industrielle — remplacement automate & IHM obsolètes.</p>
+        <p class="proj-desc">Modernisation d'une machine de lavage industrielle — remplacement automate &amp; IHM obsolètes.</p>
         <div class="proj-arrow">Voir le projet →</div>
       </a>
-
       <a href="projet-epenons.html" class="proj-preview fade-up">
         <div class="proj-icon">📡</div>
         <div class="proj-title">ePenons Trimcontrol — Neoline</div>
@@ -331,7 +244,6 @@
         <p class="proj-desc">Qualification radio et intégration flux UDP vers automate pour capteurs de voilure.</p>
         <div class="proj-arrow">Voir le projet →</div>
       </a>
-
       <a href="projet-sms.html" class="proj-preview fade-up">
         <div class="proj-icon">📲</div>
         <div class="proj-title">Alerte SMS — Ewon Flexy</div>
@@ -339,11 +251,10 @@
         <p class="proj-desc">Système d'alerte préventive OPC-UA pour maintenance industrielle via Talk2M.</p>
         <div class="proj-arrow">Voir le projet →</div>
       </a>
-
       <a href="projet-sae.html" class="proj-preview-wide fade-up">
         <div>
           <div class="proj-icon" style="margin-bottom:.7rem">🔌</div>
-          <div class="proj-title">SAé & Projets Académiques IUT</div>
+          <div class="proj-title">SAé &amp; Projets Académiques IUT</div>
           <div class="proj-context">BUT GEII · IUT de Nantes</div>
         </div>
         <div>
@@ -352,21 +263,19 @@
         </div>
       </a>
     </div>
-
-    <div style="text-align:center;">
+    <div style="text-align:center">
       <a href="projets.html" class="btn btn-outline">Tous les projets →</a>
     </div>
   </section>
 
 </div>
 
-<!-- FOOTER -->
 <footer>
   <span class="footer-logo">LC.</span>
   <span>© 2025 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
   <div class="footer-links">
-    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">LinkedIn</a>
-    <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_5103bc47c7a04f2eaef83886b93a42c3.pdf" target="_blank">CV PDF</a>
+    <a href="https://www.linkedin.com/in/leo-carvalho29/" target="_blank">LinkedIn</a>
+        <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_5103bc47c7a04f2eaef83886b93a42c3.pdf" target="_blank">CV PDF</a>
   </div>
 </footer>
 

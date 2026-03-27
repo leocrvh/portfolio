@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr" data-theme="light">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRZKHPG14F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LRZKHPG14F');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apprentissage — Léo Carvalho</title>
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.dataset.theme=localStorage.getItem('lc-theme')||'light';</script>
 <script>document.documentElement.dataset.theme=localStorage.getItem("lc-theme")||"light";</script>
 <style>
 .page-hero { padding: clamp(3rem,7vh,5rem) clamp(1.2rem,6vw,6rem) clamp(2rem,4vh,3rem); background: var(--bg2); border-bottom: 1px solid var(--border); }
@@ -143,12 +135,26 @@
   <button class="theme-toggle" id="themeToggle"><span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span></button>
   <button class="burger" id="burger"><span></span><span></span><span></span></button>
 </nav>
+<!-- MOBILE OVERLAY -->
+<div id="mobileOverlay" class="mobile-overlay"></div>
+
+<!-- MOBILE DRAWER -->
 <div id="mobileMenu" class="mobile-menu">
-  <a href="index.html" onclick="closeMobile()">Accueil</a>
-  <a href="profil.html" onclick="closeMobile()">Profil</a>
-  <a href="projets.html" onclick="closeMobile()">Projets</a>
-  <a href="apprentissage.html" onclick="closeMobile()">Apprentissage</a>
-  <a href="contact.html" onclick="closeMobile()">Contact</a>
+  <div class="mobile-menu-header">
+    <span class="mobile-menu-logo">LC.</span>
+    <button class="mobile-menu-close" onclick="closeMobile()">✕</button>
+  </div>
+  <div class="mobile-menu-links">
+      <a href="index.html" onclick="closeMobile()"><span class="nav-icon">🏠</span>Accueil</a>
+      <a href="profil.html" onclick="closeMobile()"><span class="nav-icon">👤</span>Profil</a>
+      <a href="projets.html" onclick="closeMobile()"><span class="nav-icon">⚙️</span>Projets</a>
+      <a href="apprentissage.html" onclick="closeMobile()"><span class="nav-icon">🎓</span>Apprentissage</a>
+      <a href="contact.html" onclick="closeMobile()"><span class="nav-icon">✉️</span>Contact</a>
+  </div>
+  <div class="mobile-menu-footer">
+    <a href="https://www.linkedin.com/in/leo-carvalho29/" target="_blank">💼 LinkedIn</a>
+    <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_5103bc47c7a04f2eaef83886b93a42c3.pdf" target="_blank">📄 CV</a>
+  </div>
 </div>
 
 <div class="page-content">
