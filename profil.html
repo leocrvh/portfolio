@@ -80,13 +80,23 @@
 
 /* Languages */
 .lang-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); background: var(--bg2); }
-.langs { display: flex; flex-direction: column; gap: 1.2rem; max-width: 500px; }
-.lang-row { }
-.lang-top { display: flex; justify-content: space-between; margin-bottom: .4rem; }
-.lang-name { font-weight: 600; }
-.lang-lvl { font-size: .8rem; color: var(--muted); }
+.langs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.lang-row {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.6rem 1.4rem 1.3rem;
+  display: flex; flex-direction: column; gap: .6rem;
+  transition: border-color .25s, box-shadow .25s;
+}
+.lang-row:hover { border-color: rgba(193,123,63,.4); box-shadow: 0 8px 24px var(--glow); }
+.lang-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.6rem; font-weight: 800;
+  color: var(--text); line-height: 1;
+}
+.lang-lvl { font-size: .82rem; color: var(--muted); }
 .lang-bar { height: 5px; background: var(--bg3); border-radius: 3px; overflow: hidden; }
 .lang-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 1s ease .3s; }
+@media (max-width: 640px) { .langs { grid-template-columns: 1fr; } }
 
 /* Timeline */
 .timeline-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); }
@@ -271,15 +281,18 @@
     <h2 class="section-title fade-up">Communication</h2>
     <div class="langs fade-up">
       <div class="lang-row">
-        <div class="lang-top"><span class="lang-name">Français</span><span class="lang-lvl">Natif</span></div>
+        <span class="lang-name">Français</span>
+        <span class="lang-lvl">Natif</span>
         <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
       </div>
       <div class="lang-row">
-        <div class="lang-top"><span class="lang-name">Anglais</span><span class="lang-lvl">B2 — Intermédiaire avancé</span></div>
+        <span class="lang-name">Anglais</span>
+        <span class="lang-lvl">B2 — Intermédiaire avancé</span>
         <div class="lang-bar"><div class="lang-fill" style="width:65%"></div></div>
       </div>
       <div class="lang-row">
-        <div class="lang-top"><span class="lang-name">Italien</span><span class="lang-lvl">Notions élémentaires</span></div>
+        <span class="lang-name">Italien</span>
+        <span class="lang-lvl">Notions élémentaires</span>
         <div class="lang-bar"><div class="lang-fill" style="width:15%"></div></div>
       </div>
     </div>
