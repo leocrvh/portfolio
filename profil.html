@@ -133,6 +133,40 @@
 .tl-desc li { display: flex; gap: .4rem; margin-bottom: .3rem; }
 .tl-desc li::before { content: '▸'; color: var(--accent); flex-shrink: 0; }
 
+/* Active timeline items (en cours) */
+.tl-item--active .tl-dot {
+  width: 16px; height: 16px;
+  left: 167px; top: 18px;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(193,123,63,.18);
+  border-width: 3px;
+}
+.tl-item--active .tl-date { color: var(--accent); font-weight: 600; }
+.tl-item--active .tl-body {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: .5rem;
+}
+.tl-item--active .tl-title {
+  font-size: 1.12rem;
+  color: var(--text);
+}
+.tl-item--active .tl-badge {
+  display: inline-flex; align-items: center; gap: .35rem;
+  background: rgba(193,123,63,.12); border: 1px solid rgba(193,123,63,.3);
+  border-radius: 999px; padding: .2rem .7rem;
+  font-size: .72rem; font-weight: 600; color: var(--accent);
+  margin-bottom: .6rem;
+}
+.tl-item--active .tl-badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
+
 /* Interests */
 .interests-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); background: var(--bg2); }
 .interests-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
@@ -306,20 +340,22 @@
     <h2 class="section-title fade-up">Mon <span>Parcours</span></h2>
     <div class="timeline">
 
-      <div class="tl-item fade-up">
+      <div class="tl-item tl-item--active fade-up">
         <div class="tl-date">Sep 2023<br>→ Août 2026</div>
         <div class="tl-dot"></div>
         <div class="tl-body">
+          <div class="tl-badge">En cours</div>
           <div class="tl-title">BUT — Génie Électrique et Informatique Industrielle</div>
           <div class="tl-org">IUT de Nantes · Carquefou, France</div>
           <div class="tl-desc">Formation approfondie en électrotechnique, électronique de puissance, programmation, automatismes et systèmes embarqués. Cursus en alternance depuis la 2ème année.</div>
         </div>
       </div>
 
-      <div class="tl-item fade-up">
+      <div class="tl-item tl-item--active fade-up">
         <div class="tl-date">Sep 2024<br>→ Août 2026</div>
         <div class="tl-dot"></div>
         <div class="tl-body">
+          <div class="tl-badge">En cours</div>
           <div class="tl-title">Apprenti Automaticien</div>
           <div class="tl-org">SPIE Industrie · Saint-Herblain, France</div>
           <div class="tl-desc">
