@@ -65,3 +65,29 @@ window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');
   if (nav) nav.style.boxShadow = window.scrollY > 10 ? '0 4px 24px var(--shadow)' : '';
 }, { passive: true });
+
+// ── Scroll-to-top button ────────────────────────────────
+(function() {
+  const btn = document.createElement('button');
+  btn.className = 'scroll-top';
+  btn.setAttribute('aria-label', 'Retour en haut');
+  btn.textContent = '↑';
+  document.body.appendChild(btn);
+  btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', function() {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+})();
+
+// ── Page fade transition ─────────────────────────────────
+document.addEventListener('click', function(e) {
+  var a = e.target.closest('a[href]');
+  if (!a) return;
+  var href = a.getAttribute('href');
+  if (!href || href.startsWith('http') || href.startsWith('#') ||
+      href.startsWith('mailto') || href.startsWith('tel') ||
+      a.target === '_blank' || !href.endsWith('.html')) return;
+  e.preventDefault();
+  document.body.classList.add('page-leaving');
+  setTimeout(function() { window.location.href = href; }, 220);
+});

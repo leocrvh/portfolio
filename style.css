@@ -343,3 +343,33 @@ footer {
 @media (max-width: 600px) {
   .btn { padding: .65rem 1.2rem; font-size: .85rem; }
 }
+
+/* ─── PAGE FADE TRANSITION ───────────────────────────────── */
+body { animation: pageFadeIn .35s ease forwards; }
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+.page-leaving { animation: pageFadeOut .25s ease forwards; }
+@keyframes pageFadeOut {
+  from { opacity: 1; transform: none; }
+  to   { opacity: 0; transform: translateY(-6px); }
+}
+
+/* ─── SCROLL TO TOP ──────────────────────────────────────── */
+.scroll-top {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--accent); color: #fff;
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; font-weight: 700;
+  box-shadow: 0 4px 16px rgba(193,123,63,.35);
+  opacity: 0; transform: translateY(10px);
+  transition: opacity .3s ease, transform .3s ease, background .2s;
+  pointer-events: none;
+}
+.scroll-top.visible {
+  opacity: 1; transform: none; pointer-events: auto;
+}
+.scroll-top:hover { background: var(--accent2); transform: translateY(-2px); }

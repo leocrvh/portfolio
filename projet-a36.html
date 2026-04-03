@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRZKHPG14F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LRZKHPG14F');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projet A36 — Orient Express Corinthian — Léo Carvalho</title>
+<meta name="description" content="Synchronisation NTP et redondance automates S7-1515R sur le paquebot Orient Express Corinthian aux Chantiers de l'Atlantique. SPIE Industrie.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Projet A36 — Orient Express Corinthian — Léo Carvalho">
+<meta property="og:description" content="Synchronisation NTP et redondance automates S7-1515R sur le paquebot Orient Express Corinthian aux Chantiers de l'Atlantique.">
+<meta property="og:image" content="https://leocrvh.github.io/portfolio/photo.png">
+<meta property="og:url" content="https://leocrvh.github.io/portfolio/projet-a36.html">
+<meta property="og:site_name" content="Léo Carvalho — Portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iI0MxN0IzRiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTQlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC13ZWlnaHQ9IjcwMCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiPkxDPC90ZXh0Pjwvc3ZnPg==">
+<script>document.documentElement.dataset.theme=localStorage.getItem('lc-theme')||'light';</script>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Lightbox */
+.lightbox-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:1.5rem;}
+.lightbox-overlay.open{display:flex;}
+.lightbox-inner{position:relative;max-width:1000px;width:100%;}
+.lightbox-inner img{width:100%;border-radius:12px;box-shadow:0 32px 80px rgba(0,0,0,.6);display:block;}
+.lightbox-close{position:absolute;top:-16px;right:-16px;width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.3);font-weight:700;}
+.lightbox-caption{text-align:center;color:rgba(255,255,255,.7);font-size:.82rem;margin-top:.8rem;}
+/* Detail layout */
+.proj-detail-hero{padding:clamp(2.5rem,6vh,4.5rem) clamp(1.5rem,6vw,6rem) clamp(1.5rem,3vh,2.5rem);background:var(--bg2);border-bottom:1px solid var(--border);}
+.proj-breadcrumb{font-size:.78rem;color:var(--muted);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem;}
+.proj-breadcrumb a{color:var(--accent);}
+.proj-breadcrumb a:hover{text-decoration:underline;}
+.proj-detail-title{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,3.5vw,2.8rem);font-weight:800;line-height:1.1;margin-bottom:.4rem;}
+.proj-detail-sub{font-size:.88rem;color:var(--accent2);margin-bottom:1.2rem;}
+.proj-meta{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.8rem;}
+.proj-summary-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.proj-summary-cell{background:var(--card);padding:1rem 1.2rem;}
+.proj-summary-cell-label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.25rem;}
+.proj-summary-cell-val{font-size:.88rem;font-weight:600;}
+.proj-detail-body{display:grid;grid-template-columns:1fr 320px;gap:3rem;padding:clamp(2.5rem,5vh,4rem) clamp(1.5rem,6vw,6rem);align-items:start;}
+.proj-section-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--accent);margin-bottom:.7rem;margin-top:2rem;text-transform:uppercase;letter-spacing:.08em;}
+.proj-section-title:first-child{margin-top:0;}
+.proj-text{font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:.9rem;}
+.proj-text strong{color:var(--text);}
+.proj-list{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1rem;}
+.proj-list li{display:flex;gap:.55rem;font-size:.88rem;color:var(--muted);line-height:1.55;}
+.proj-list li::before{content:'▸';color:var(--accent);flex-shrink:0;margin-top:.05rem;}
+.result-box{background:linear-gradient(135deg,rgba(193,123,63,.08),rgba(212,149,106,.03));border:1px solid rgba(193,123,63,.28);border-radius:12px;padding:1.4rem;margin:1.5rem 0;}
+.result-box-title{font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;color:var(--accent);margin-bottom:.7rem;}
+.proj-sidebar{display:flex;flex-direction:column;gap:1.2rem;}
+.sidebar-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.3rem;}
+.sidebar-card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);margin-bottom:.9rem;}
+.sidebar-stack{display:flex;flex-wrap:wrap;gap:.35rem;}
+.proj-gallery-section{padding:0 clamp(1.5rem,6vw,6rem) clamp(3rem,6vh,5rem);}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;}
+.gallery-item{border-radius:10px;border:1px solid var(--border);overflow:hidden;aspect-ratio:4/3;cursor:pointer;position:relative;background:var(--bg3);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+.gallery-item:hover img{transform:scale(1.06);}
+.gallery-item-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35);opacity:0;transition:opacity .25s;}
+.gallery-item:hover .gallery-item-hint{opacity:1;}
+.gallery-item-hint span{background:rgba(255,255,255,.15);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.78rem;font-weight:600;padding:.35rem .8rem;border-radius:999px;}
+.gallery-placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;color:var(--muted);font-size:.82rem;aspect-ratio:4/3;padding:1rem;text-align:center;}
+.gallery-placeholder-icon{font-size:1.8rem;}
+.proj-nav-strip{display:flex;gap:1rem;flex-wrap:wrap;padding:0 clamp(1.5rem,6vw,6rem) clamp(2.5rem,5vh,4rem);}
+/* Context box */
+.context-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.3rem 1.5rem;margin-bottom:1.5rem;border-left:3px solid var(--accent2);}
+.context-box-label{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:.5rem;}
+.context-box-text{font-size:.88rem;color:var(--muted);line-height:1.6;}
+@media(max-width:900px){.proj-detail-body{grid-template-columns:1fr;}.proj-sidebar{order:-1;}.proj-summary-strip{grid-template-columns:1fr 1fr;}.gallery-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.gallery-grid{grid-template-columns:1fr;}.proj-summary-strip{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">LC<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="profil.html">Profil</a></li>
+    <li><a href="projets.html">Projets</a></li>
+    <li><a href="apprentissage.html">Apprentissage</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+    <span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span>
+  </button>
+  <button class="burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div id="mobileOverlay" class="mobile-overlay"></div>
+<!-- MOBILE DRAWER -->
+<div id="mobileMenu" class="mobile-menu">
+  <div class="mobile-menu-header">
+    <span class="mobile-menu-logo">LC.</span>
+    <button class="mobile-menu-close" onclick="closeMobile()">✕</button>
+  </div>
+  <div class="mobile-menu-links">
+    <a href="index.html" onclick="closeMobile()"><span class="nav-icon">🏠</span>Accueil</a>
+    <a href="profil.html" onclick="closeMobile()"><span class="nav-icon">👤</span>Profil</a>
+    <a href="projets.html" onclick="closeMobile()"><span class="nav-icon">⚙️</span>Projets</a>
+    <a href="apprentissage.html" onclick="closeMobile()"><span class="nav-icon">🎓</span>Apprentissage</a>
+    <a href="contact.html" onclick="closeMobile()"><span class="nav-icon">✉️</span>Contact</a>
+  </div>
+  <div class="mobile-menu-footer">
+    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">💼 LinkedIn</a>
+    <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_5103bc47c7a04f2eaef83886b93a42c3.pdf" target="_blank">📄 CV</a>
+  </div>
+</div>
+
+<div class="page-content">
+
+  <!-- HERO -->
+  <section class="proj-detail-hero">
+    <div class="proj-breadcrumb fade-up">
+      <a href="projets.html">← Tous les projets</a>
+      <span>/</span><span>Projet A36</span>
+    </div>
+    <div class="section-eyebrow fade-up">Alternance · SPIE Industrie · Chantiers de l'Atlantique</div>
+    <h1 class="proj-detail-title fade-up">Projet A36 — <span style="color:var(--accent)">Orient Express Corinthian</span></h1>
+    <p class="proj-detail-sub fade-up">⚓ Synchronisation NTP · Redondance automates · Paquebot à voiles automatisées</p>
+    <div class="proj-meta fade-up">
+      <span class="badge">Siemens TIA Portal</span>
+      <span class="badge">S7-1515R-2 PN</span>
+      <span class="badge">NTP / SNTP</span>
+      <span class="badge">Redondance CPU</span>
+      <span class="badge">PROFINET</span>
+      <span class="badge badge-accent">Chantiers de l'Atlantique</span>
+    </div>
+    <div class="proj-summary-strip fade-up">
+      <div class="proj-summary-cell"><div class="proj-summary-cell-label">Navire</div><div class="proj-summary-cell-val">Orient Express Corinthian</div></div>
+      <div class="proj-summary-cell"><div class="proj-summary-cell-label">Automates</div><div class="proj-summary-cell-val">2× S7-1515R-2 PN</div></div>
+      <div class="proj-summary-cell"><div class="proj-summary-cell-label">Protocole temps</div><div class="proj-summary-cell-val">NTP (LSNTP_Server)</div></div>
+      <div class="proj-summary-cell"><div class="proj-summary-cell-label">Site</div><div class="proj-summary-cell-val">Saint-Nazaire</div></div>
+    </div>
+  </section>
+
+  <div class="proj-detail-body">
+    <div>
+
+      <!-- CONTEXT BOX -->
+      <div class="context-box fade-up">
+        <div class="context-box-label">Contexte exceptionnel</div>
+        <div class="context-box-text">L'<strong>Orient Express Corinthian</strong> est le premier paquebot de croisière à voile commerciale grande échelle au monde, en construction aux <strong>Chantiers de l'Atlantique à Saint-Nazaire</strong>. Ses voiles rigides automatisées sont pilotées intégralement par automates — un sous-système critique qui ne doit jamais s'interrompre.</div>
+      </div>
+
+      <div class="proj-section-title fade-up">📋 Contexte du projet</div>
+      <p class="proj-text fade-up">Le projet A36 porte sur la mise en cohérence de l'automatisation des voiles rigides de l'Orient Express Corinthian. Ces voiles doivent s'orienter automatiquement, se coordonner entre elles et se mettre en sécurité en cas de conditions défavorables. L'ensemble repose sur des automates Siemens S7-1515R-2 PN qui échangent en permanence des données.</p>
+      <p class="proj-text fade-up">Deux problématiques centrales structurent le projet : <strong>la cohérence temporelle</strong> (tous les équipements partagent la même heure pour une traçabilité fiable) et <strong>la continuité de service</strong> (le système doit rester opérationnel même en cas de défaillance d'un automate).</p>
+
+      <div class="proj-section-title fade-up">🎯 Objectifs</div>
+      <ul class="proj-list fade-up">
+        <li>Mettre en place une <strong>synchronisation horaire centralisée via NTP</strong> — tous les automates partagent une référence de temps commune</li>
+        <li>Garantir la <strong>continuité de service</strong> via deux automates redondants (primaire / secondaire)</li>
+        <li>Assurer un <strong>basculement automatique</strong> transparent lors d'une défaillance du primaire</li>
+        <li>Proposer une <strong>organisation logicielle modulaire</strong> sous TIA Portal, lisible et maintenable par plusieurs automaticiens</li>
+      </ul>
+
+      <div class="proj-section-title fade-up">🔧 Ce que j'ai réalisé</div>
+      <ul class="proj-list fade-up">
+        <li><strong>Architecture réseau</strong> — deux sous-réseaux distincts : PN/IE_Int (communications internes, 192.168.0.xx) et PN/IE_Ext (synchronisation NTP, 10.10.10.xx)</li>
+        <li><strong>Organisation logicielle TIA Portal</strong> — structure modulaire 00.System / 01.FC / 02.DB / 03.FB, lisible par toute l'équipe</li>
+        <li><strong>Bloc FC_PrimaryID</strong> — utilisation de l'instruction <code>RH_GetPrimaryID</code> pour identifier dynamiquement quel automate est actif</li>
+        <li><strong>Bloc FC_SNTP</strong> — activation du serveur NTP <em>uniquement</em> sur l'automate primaire, sélection dynamique de l'interface réseau selon le rôle actif</li>
+        <li><strong>Gestion des basculements</strong> — détection du changement de primaire, redémarrage contrôlé du service NTP avec temporisateur anti-rebond</li>
+        <li><strong>Tests sur banc B36</strong> représentatif du système réel — validation de la synchronisation, des basculements et de la chaîne complète jusqu'au PC de supervision</li>
+        <li><strong>Intégration sur le système A36 réel</strong> à bord du navire via l'automaticien de l'agence Montoir</li>
+      </ul>
+
+      <div class="proj-section-title fade-up">🏗️ Architecture technique</div>
+      <p class="proj-text fade-up">Le banc repose sur deux automates redondants <strong>S7-1515R-2 PN</strong> (PLC_Mast_A et PLC_Mast_B), une CPU 1512SP-1 PN jouant le rôle de serveur NTP, deux switchs industriels SCALANCE XC216-4C interconnectés en anneau PROFINET, et un PC de supervision. L'anneau garantit la continuité des communications en cas de rupture d'un lien.</p>
+      <p class="proj-text fade-up">Le principe retenu : <strong>un seul automate diffuse l'heure à la fois</strong>. Lorsque le rôle bascule, le programme identifie le nouveau primaire, change l'interface réseau active et relance proprement le service NTP — sans qu'aucune incohérence ne soit visible côté supervision.</p>
+
+      <div class="result-box fade-up">
+        <div class="result-box-title">✅ Résultats obtenus</div>
+        <ul class="proj-list" style="margin-bottom:0">
+          <li>Synchronisation horaire <strong>validée</strong> entre les deux automates redondants et le serveur NTP simulé</li>
+          <li>Basculements primaire/secondaire <strong>transparents</strong> — aucune interruption de la diffusion de l'heure</li>
+          <li>Chaîne complète serveur NTP → automates redondants → PC supervision <strong>opérationnelle</strong></li>
+          <li>Solution <strong>intégrée sur le système A36 réel</strong> à bord du navire avant les essais à quai et en mer</li>
+        </ul>
+      </div>
+
+      <div class="proj-section-title fade-up">📚 Compétences BUT GEII mobilisées</div>
+      <ul class="proj-list fade-up">
+        <li><strong>Concevoir</strong> — analyse du besoin, architecture réseau, organisation logicielle</li>
+        <li><strong>Intégrer</strong> — insertion dans un programme collaboratif multi-automaticiens, gestion de versions OneDrive</li>
+        <li><strong>Vérifier</strong> — tests progressifs sur banc représentatif, validation basculements et supervision</li>
+        <li><strong>Maintenir</strong> — code modulaire lisible, structuration facilitant les évolutions futures</li>
+      </ul>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="proj-sidebar">
+      <div class="sidebar-card fade-up">
+        <div class="sidebar-card-title">Technologies</div>
+        <div class="sidebar-stack">
+          <span class="badge">TIA Portal V18/V19</span>
+          <span class="badge">S7-1515R-2 PN</span>
+          <span class="badge">CPU 1512SP-1 PN</span>
+          <span class="badge">NTP / LSNTP_Server</span>
+          <span class="badge">RH_GetPrimaryID</span>
+          <span class="badge">PROFINET</span>
+          <span class="badge">SCALANCE XC216</span>
+        </div>
+      </div>
+      <div class="sidebar-card fade-up">
+        <div class="sidebar-card-title">Compétences</div>
+        <div class="sidebar-stack">
+          <span class="badge badge-accent">Redondance automates</span>
+          <span class="badge badge-accent">Synchronisation NTP</span>
+          <span class="badge badge-accent">Architecture réseau</span>
+          <span class="badge badge-accent">TIA Portal avancé</span>
+          <span class="badge badge-accent">Tests validation</span>
+          <span class="badge badge-accent">Travail collaboratif</span>
+          <span class="badge badge-accent">Milieu naval</span>
+        </div>
+      </div>
+      <div class="sidebar-card fade-up">
+        <div class="sidebar-card-title">Documents</div>
+        <div style="display:flex;flex-direction:column;gap:.5rem;">
+          <a href="CARVALHO_Leo_Rapport-mi-parcours__4_.pdf" target="_blank" class="btn btn-outline btn-sm" style="width:100%;justify-content:space-between;font-size:.78rem;">📄 Rapport mi-parcours <span>↓</span></a>
+        </div>
+      </div>
+      <div class="sidebar-card fade-up">
+        <div class="sidebar-card-title">Autres projets</div>
+        <div style="display:flex;flex-direction:column;gap:.5rem;">
+          <a href="projet-retrofit.html" class="btn btn-outline btn-sm" style="width:100%;justify-content:space-between;">Retrofit Mecanolav <span>→</span></a>
+          <a href="projet-epenons.html" class="btn btn-outline btn-sm" style="width:100%;justify-content:space-between;">ePenons Neoline <span>→</span></a>
+          <a href="projet-sms.html" class="btn btn-outline btn-sm" style="width:100%;justify-content:space-between;">Alerte SMS <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <section class="proj-gallery-section">
+    <div class="section-eyebrow fade-up">Illustrations</div>
+    <h2 class="section-title fade-up">Visuels du <span>Projet</span></h2>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-up" style="cursor:default;">
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">⛵</div>
+          <span>Orient Express Corinthian<br>Chantiers de l'Atlantique</span>
+        </div>
+      </div>
+      <div class="gallery-item fade-up" style="cursor:default;">
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">🖥️</div>
+          <span>Architecture réseau TIA Portal<br>Banc B36</span>
+        </div>
+      </div>
+      <div class="gallery-item fade-up" style="cursor:default;">
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">🔄</div>
+          <span>Logique FC_PrimaryID<br>Gestion redondance</span>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:.82rem;color:var(--muted);margin-top:1rem;font-style:italic;">Illustrations à ajouter — captures TIA Portal, banc de test, photos navire.</p>
+  </section>
+
+  <div class="proj-nav-strip">
+    <a href="projets.html" class="btn btn-outline">← Retour aux projets</a>
+    <a href="projet-sae.html" class="btn btn-primary">Projets académiques →</a>
+  </div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">LC.</span>
+  <span>© 2026 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">LinkedIn</a>
+    <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_5103bc47c7a04f2eaef83886b93a42c3.pdf" target="_blank">CV PDF</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+var lb = document.getElementById('lightbox');
+var lbImg = document.getElementById('lightboxImg');
+var lbCap = document.getElementById('lightboxCaption');
+function openLightbox(src, caption) {
+  lbImg.src = src; lbCap.textContent = caption || '';
+  lb.classList.add('open'); document.body.style.overflow = 'hidden';
+}
+document.getElementById('lightboxClose').onclick = function() { lb.classList.remove('open'); document.body.style.overflow = ''; };
+lb.addEventListener('click', function(e){ if(e.target===lb){ lb.classList.remove('open'); document.body.style.overflow = ''; } });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ lb.classList.remove('open'); document.body.style.overflow = ''; } });
+</script>
+</body>
+</html>
