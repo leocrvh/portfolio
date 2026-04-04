@@ -81,6 +81,8 @@ window.addEventListener('scroll', () => {
 
 // ── Page fade transition ─────────────────────────────────
 document.addEventListener('click', function(e) {
+  var lb = document.getElementById('lightbox');
+  if (lb && lb.classList.contains('open')) return;
   var a = e.target.closest('a[href]');
   if (!a) return;
   var href = a.getAttribute('href');

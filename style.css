@@ -373,3 +373,53 @@ body { animation: pageFadeIn .35s ease forwards; }
   opacity: 1; transform: none; pointer-events: auto;
 }
 .scroll-top:hover { background: var(--accent2); transform: translateY(-2px); }
+
+/* ─── PAGE FADE TRANSITION ───────────────────────────────── */
+body { animation: pageFadeIn .35s ease forwards; }
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+.page-leaving { animation: pageFadeOut .25s ease forwards; }
+@keyframes pageFadeOut {
+  from { opacity: 1; transform: none; }
+  to   { opacity: 0; transform: translateY(-6px); }
+}
+
+/* ─── SCROLL TO TOP ──────────────────────────────────────── */
+.scroll-top {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--accent); color: #fff;
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; font-weight: 700;
+  box-shadow: 0 4px 16px rgba(193,123,63,.35);
+  opacity: 0; transform: translateY(10px);
+  transition: opacity .3s ease, transform .3s ease, background .2s;
+  pointer-events: none;
+}
+.scroll-top.visible { opacity: 1; transform: none; pointer-events: auto; }
+.scroll-top:hover { background: var(--accent2); transform: translateY(-2px); }
+
+/* ─── LIGHTBOX ISOLATION ─────────────────────────────────── */
+.lightbox-overlay { transform: none !important; animation: none !important; }
+
+/* ─── MOBILE FIXES ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .proj-summary-strip { grid-template-columns: 1fr 1fr; font-size: .8rem; }
+  .gallery-item { min-height: 140px; }
+  .proj-detail-body { gap: 2rem; }
+  .hero-stats { gap: 1.2rem; flex-wrap: wrap; }
+  .ingenieur-grid { grid-template-columns: 1fr; }
+  .proj-detail-hero, .proj-gallery-section, .proj-nav-strip {
+    padding-left: 1rem; padding-right: 1rem;
+  }
+  .scroll-top { bottom: 1.2rem; right: 1.2rem; width: 38px; height: 38px; font-size: .95rem; }
+}
+@media (max-width: 480px) {
+  .proj-summary-strip { grid-template-columns: 1fr; }
+  .proj-card-num { display: none; }
+  .hero-name { font-size: 2.8rem; }
+  .about-strip { grid-template-columns: 1fr; }
+}
