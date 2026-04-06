@@ -71,11 +71,13 @@
 .cal-card { cursor: pointer; }
 .cal-card:hover .cal-img { opacity: .85; }
 .lightbox-overlay {
-  display: none; position: fixed; inset: 0; z-index: 500;
+  display: flex; position: fixed; inset: 0; z-index: 9999;
   background: rgba(0,0,0,.88); backdrop-filter: blur(6px);
   align-items: center; justify-content: center; padding: 2rem;
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s ease;
 }
-.lightbox-overlay.open { display: flex; }
+.lightbox-overlay.open { opacity: 1; pointer-events: auto; }
 .lightbox-inner { position: relative; max-width: 900px; width: 100%; }
 .lightbox-inner img { width: 100%; border-radius: 12px; box-shadow: 0 32px 80px rgba(0,0,0,.5); }
 .lightbox-close {
