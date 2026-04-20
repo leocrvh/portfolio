@@ -1,71 +1,376 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr" data-theme="light">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Parcours d’apprentissage chez SPIE Industrie et progression des compétences de Léo Carvalho.">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRZKHPG14F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LRZKHPG14F');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alternance chez SPIE Industrie · BUT GEII IUT de Nantes · Automatisme industriel et informatique industrielle.">
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Apprentissage — Léo Carvalho">
-  <meta property="og:description" content="Progress bars compétences, timeline alternance, technologies maîtrisées.">
-  <title>Apprentissage — Léo Carvalho</title>
-  <script>document.documentElement.dataset.theme=localStorage.getItem('lc-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');</script>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <meta property="og:description" content="Alternance chez SPIE Industrie · BUT GEII IUT de Nantes · Automatisme industriel et informatique industrielle.">
+  <meta property="og:image" content="https://leocrvh.github.io/portfolio/photo.png">
+  <meta property="og:url" content="https://leocrvh.github.io/portfolio/apprentissage.html">
+  <meta property="og:site_name" content="Léo Carvalho — Portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iI0MxN0IzRiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTQlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC13ZWlnaHQ9IjcwMCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiPkxDPC90ZXh0Pjwvc3ZnPg==">
+<title>Apprentissage — Léo Carvalho</title>
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.dataset.theme=localStorage.getItem('lc-theme')||'light';</script>
+<script>document.documentElement.dataset.theme=localStorage.getItem("lc-theme")||"light";</script>
+<style>
+.page-hero { padding: clamp(3rem,7vh,5rem) clamp(1.2rem,6vw,6rem) clamp(2rem,4vh,3rem); background: var(--bg2); border-bottom: 1px solid var(--border); }
+.spie-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); }
+.spie-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.spie-logo-block {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 2.5rem;
+}
+.spie-logo-img {
+  height: 44px; margin-bottom: 1.2rem;
+  filter: none;
+}
+[data-theme="dark"] .spie-logo-img { filter: brightness(0) invert(1); }
+.spie-logo-name {
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.8rem;
+  color: var(--accent); margin-bottom: .3rem;
+  letter-spacing: -.01em;
+}
+.spie-logo-sub { font-size: .85rem; color: var(--muted); margin-bottom: 2rem; line-height: 1.5; }
+.spie-facts { display: flex; flex-direction: column; gap: 1rem; }
+.spie-fact { display: flex; gap: 1rem; align-items: flex-start; }
+.spie-fact-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.spie-fact-label { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .2rem; }
+.spie-fact-val { font-size: .9rem; font-weight: 500; }
+.spie-fact-sub { font-size: .8rem; color: var(--muted); margin-top: .1rem; }
+
+.missions-blocks { display: flex; flex-direction: column; gap: 1.2rem; }
+.mission-block {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.5rem;
+  transition: var(--trans);
+}
+.mission-block:hover { border-color: rgba(193,123,63,.35); }
+.mission-block-title {
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: .85rem;
+  text-transform: uppercase; letter-spacing: .1em; color: var(--accent);
+  margin-bottom: .8rem; display: flex; align-items: center; gap: .5rem;
+}
+.mission-list { display: flex; flex-direction: column; gap: .4rem; }
+.mission-list li { display: flex; gap: .5rem; font-size: .88rem; color: var(--muted); }
+.mission-list li::before { content: '▸'; color: var(--accent); flex-shrink: 0; }
+
+/* Lightbox for calendriers */
+.cal-card { cursor: pointer; }
+.cal-card:hover .cal-img { opacity: .85; }
+.lightbox-overlay {
+  display: flex; position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,.88); backdrop-filter: blur(6px);
+  align-items: center; justify-content: center; padding: 2rem;
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s ease;
+}
+.lightbox-overlay.open { opacity: 1; pointer-events: auto; }
+.lightbox-inner { position: relative; max-width: 900px; width: 100%; }
+.lightbox-inner img { width: 100%; border-radius: 12px; box-shadow: 0 32px 80px rgba(0,0,0,.5); }
+.lightbox-close {
+  position: absolute; top: -14px; right: -14px;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  border: none; cursor: pointer; font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+.cal-expand-hint {
+  font-size: .75rem; color: var(--muted); text-align: center;
+  padding: .5rem; display: flex; align-items: center; justify-content: center; gap: .3rem;
+}
+
+/* Formation section */
+.formation-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); background: var(--bg2); }
+.formation-detail {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden; margin-bottom: 2rem;
+}
+.formation-header {
+  padding: 2rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: start; gap: 2rem;
+  flex-wrap: wrap;
+}
+.formation-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; margin-bottom: .3rem; }
+.formation-sub { font-size: .85rem; color: var(--accent2); }
+.formation-link { font-size: .82rem; color: var(--accent); font-weight: 600; white-space: nowrap; }
+.formation-link:hover { text-decoration: underline; }
+.formation-body { padding: 2rem 2.5rem; }
+.formation-desc { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+.modules-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+.module-card {
+  background: var(--bg3); border-radius: 10px; padding: 1rem;
+  font-size: .82rem; color: var(--muted); text-align: center;
+}
+.module-card-icon { font-size: 1.4rem; margin-bottom: .4rem; }
+.module-card-name { font-weight: 600; color: var(--text); font-size: .85rem; }
+
+/* Calendrier */
+.calendriers-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); }
+.cal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.cal-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden;
+}
+.cal-card-header {
+  padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.cal-card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: .95rem; }
+.cal-card-year { font-size: .8rem; color: var(--muted); }
+.cal-img { width: 100%; display: block; }
+
+@media (max-width: 900px) {
+  .spie-grid { grid-template-columns: 1fr; }
+  .modules-grid { grid-template-columns: 1fr 1fr; }
+  .cal-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) { .modules-grid { grid-template-columns: 1fr; } }
+</style>
 </head>
-<body class="page-enter">
-  <a class="skip-link" href="#main-content">Aller au contenu</a>
-  <div class="progress" aria-hidden="true"><span data-scroll-progress></span></div>
-  <header class="site-header">
-    <nav class="nav" aria-label="Navigation principale">
-      <a class="brand" href="index.html">LC<span class="brand-dot">.</span></a>
-      <div class="nav-links">
-        <a data-nav-link href="index.html">Accueil</a>
-        <a data-nav-link href="profil.html">Profil</a>
-        <a data-nav-link href="projets.html">Projets</a>
-        <a data-nav-link href="apprentissage.html">Apprentissage</a>
-        <a data-nav-link href="contact.html">Contact</a>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">LC<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="profil.html">Profil</a></li>
+    <li><a href="projets.html">Projets</a></li>
+    <li><a href="apprentissage.html">Apprentissage</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle"><span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span></button>
+  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+<!-- MOBILE OVERLAY -->
+<div id="mobileOverlay" class="mobile-overlay"></div>
+
+<!-- MOBILE DRAWER -->
+<div id="mobileMenu" class="mobile-menu">
+  <div class="mobile-menu-header">
+    <span class="mobile-menu-logo">LC.</span>
+    <button class="mobile-menu-close" onclick="closeMobile()">✕</button>
+  </div>
+  <div class="mobile-menu-links">
+      <a href="index.html" onclick="closeMobile()"><span class="nav-icon">🏠</span>Accueil</a>
+      <a href="profil.html" onclick="closeMobile()"><span class="nav-icon">👤</span>Profil</a>
+      <a href="projets.html" onclick="closeMobile()"><span class="nav-icon">⚙️</span>Projets</a>
+      <a href="apprentissage.html" onclick="closeMobile()"><span class="nav-icon">🎓</span>Apprentissage</a>
+      <a href="contact.html" onclick="closeMobile()"><span class="nav-icon">✉️</span>Contact</a>
+  </div>
+  <div class="mobile-menu-footer">
+    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">💼 LinkedIn</a>
+    <a href="CARVALHO-Leo-CV.pdf" target="_blank">📄 CV</a>
+  </div>
+</div>
+
+<div class="page-content">
+
+  <section class="page-hero">
+    <div class="section-eyebrow fade-up">Alternance en cours</div>
+    <h1 style="font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;line-height:1.1;" class="fade-up">Mon <span style="color:var(--accent)">Apprentissage</span></h1>
+    <p style="font-size:.95rem;color:var(--muted);max-width:580px;line-height:1.7;margin-top:.8rem;" class="fade-up">Vous trouverez sur cette page l'ensemble des informations liées à mon alternance en cours chez SPIE Industrie ainsi que ma formation BUT GEII à l'IUT de Nantes.</p>
+  </section>
+
+  <!-- SPIE -->
+  <section class="spie-section">
+    <div class="section-eyebrow fade-up">Entreprise d'accueil</div>
+    <h2 class="section-title fade-up">SPIE <span>Industrie</span></h2>
+    <div class="spie-grid">
+      <div class="spie-logo-block fade-up">
+        <div class="spie-logo-name">SPIE INDUSTRIE</div>
+        <p class="spie-logo-sub">Entreprise spécialisée en services multi-techniques dans les domaines de l'énergie, des réseaux et des communications. Leader européen des services de l'énergie.</p>
+        <div class="spie-facts">
+          <div class="spie-fact">
+            <div class="spie-fact-icon">📅</div>
+            <div>
+              <div class="spie-fact-label">Période</div>
+              <div class="spie-fact-val">Septembre 2024 → Août 2026</div>
+              <div class="spie-fact-sub">2 ans d'alternance</div>
+            </div>
+          </div>
+          <div class="spie-fact">
+            <div class="spie-fact-icon">💼</div>
+            <div>
+              <div class="spie-fact-label">Poste</div>
+              <div class="spie-fact-val">Apprenti Automaticien</div>
+            </div>
+          </div>
+          <div class="spie-fact">
+            <div class="spie-fact-icon">📍</div>
+            <div>
+              <div class="spie-fact-label">Site</div>
+              <div class="spie-fact-val">Saint-Herblain, France</div>
+              <div class="spie-fact-sub">Loire-Atlantique (44)</div>
+            </div>
+          </div>
+          <div class="spie-fact">
+            <div class="spie-fact-icon">🏭</div>
+            <div>
+              <div class="spie-fact-label">Secteurs clients</div>
+              <div class="spie-fact-val">Aéronautique · Maritime · Industrie</div>
+              <div class="spie-fact-sub">Airbus, Neoline, et autres</div>
+            </div>
+          </div>
+          <div class="spie-fact">
+            <div class="spie-fact-icon">🎓</div>
+            <div>
+              <div class="spie-fact-label">Formation associée</div>
+              <div class="spie-fact-val">BUT GEII — IUT de Nantes</div>
+              <div class="spie-fact-sub">Carquefou (44)</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="nav-actions">
-        <button class="theme-toggle" data-theme-toggle aria-label="Changer le thème"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v2m0 14v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M3 12h2m14 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-        <button class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+
+      <div class="missions-blocks fade-up" style="transition-delay:.15s">
+        <div class="mission-block">
+          <div class="mission-block-title">⚙️ Missions principales</div>
+          <ul class="mission-list">
+            <li>Programmation et configuration de PLC et IHM (TIA Portal, Control Expert)</li>
+            <li>Mise en service sur sites clients (tests E/S, communications, sécurité machine)</li>
+            <li>Rédaction de documentation technique (DOE, sauvegardes)</li>
+            <li>Formation des opérateurs sur les nouvelles installations</li>
+          </ul>
+        </div>
+        <div class="mission-block">
+          <div class="mission-block-title">🔧 Technologies maîtrisées</div>
+          <ul class="mission-list">
+            <li>Siemens TIA Portal / WinCC Unified</li>
+            <li>Schneider Control Expert / Operator Terminal Expert</li>
+            <li>Ewon Flexy · OPC-UA · Modbus TCP · UDP</li>
+            <li>Talk2M (alertes SMS industrielles)</li>
+          </ul>
+        </div>
+        <div class="mission-block">
+          <div class="mission-block-title">🚀 Projets réalisés</div>
+          <ul class="mission-list">
+            <li><a href="projet-retrofit.html" style="color:var(--accent2)">Retrofit Mecanolav (Airbus) →</a></li>
+            <li><a href="projet-epenons.html" style="color:var(--accent2)">ePenons Trimcontrol (Neoline) →</a></li>
+            <li><a href="projet-sms.html" style="color:var(--accent2)">Alerte SMS via Ewon Flexy →</a></li>
+            <li><a href="projet-a36.html" style="color:var(--accent2)">Projet A36 — Orient Express Corinthian →</a></li>
+          </ul>
+        </div>
       </div>
-    </nav>
-    <div id="mobile-menu" class="mobile-menu" data-mobile-menu>
-      <a data-nav-link href="index.html">Accueil</a>
-      <a data-nav-link href="profil.html">Profil</a>
-      <a data-nav-link href="projets.html">Projets</a>
-      <a data-nav-link href="apprentissage.html">Apprentissage</a>
-      <a data-nav-link href="contact.html">Contact</a>
     </div>
-  </header>
+  </section>
 
-  <main id="main-content">
-    <section class="section reveal" data-cursor-track>
-      <div class="eyebrow">Montée en compétences</div>
-      <h1>Apprentissage en alternance</h1>
-      <p>Progression concrète entre théorie IUT et exécution sur sites industriels.</p>
-    </section>
+  <!-- FORMATION -->
+  <section class="formation-section">
+    <div class="section-eyebrow fade-up">IUT de Nantes</div>
+    <h2 class="section-title fade-up">Ma <span>Formation</span></h2>
 
-    <section class="section skills-grid">
-      <article class="skill reveal"><strong>PLC Siemens / Schneider</strong><p>Conception et maintenance de programmes industriels.</p><div class="progress-line"><span style="--value:90%"></span></div></article>
-      <article class="skill reveal"><strong>IHM / UX opérateur</strong><p>Écrans orientés exploitation et maintenance.</p><div class="progress-line"><span style="--value:84%"></span></div></article>
-      <article class="skill reveal"><strong>Protocoles & connectivité</strong><p>OPC-UA, Modbus TCP, UDP, NTP.</p><div class="progress-line"><span style="--value:86%"></span></div></article>
-      <article class="skill reveal"><strong>Documentation technique</strong><p>DOE, procédures, capitalisation.</p><div class="progress-line"><span style="--value:88%"></span></div></article>
-    </section>
-
-    <section class="section">
-      <header class="section-head reveal"><div class="eyebrow">Périodes</div><h2>Timeline alternance</h2></header>
-      <div class="timeline">
-        <article class="card timeline-item reveal"><strong>2024</strong><p>Intégration chez SPIE Industrie, appropriation des standards projet.</p></article>
-        <article class="card timeline-item reveal"><strong>2025</strong><p>Autonomie sur lots techniques et interventions client.</p></article>
-        <article class="card timeline-item reveal"><strong>2026</strong><p>Consolidation d’un profil ingénieur orienté delivery terrain.</p></article>
+    <div class="formation-detail fade-up">
+      <div class="formation-header">
+        <div>
+          <div class="formation-title">BUT — Génie Électrique et Informatique Industrielle</div>
+          <div class="formation-sub">IUT de Nantes · Carquefou · Sep 2023 → Août 2026</div>
+        </div>
+        <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_6176a94144974c27ac3194d56fed9e27.pdf" target="_blank" class="formation-link">Description détaillée PDF →</a>
       </div>
-    </section>
-  </main>
+      <div class="formation-body">
+        <p class="formation-desc">
+          Le BUT GEII forme des techniciens supérieurs capables de concevoir, d'installer, de mettre en service et de maintenir des systèmes électriques et informatiques industriels. La formation couvre l'électrotechnique, l'électronique de puissance, la programmation, les automatismes et les systèmes embarqués.
+        </p>
+        <div class="modules-grid">
+          <div class="module-card">
+            <div class="module-card-icon">⚡</div>
+            <div class="module-card-name">Électrotechnique</div>
+          </div>
+          <div class="module-card">
+            <div class="module-card-icon">🔌</div>
+            <div class="module-card-name">Électronique de puissance</div>
+          </div>
+          <div class="module-card">
+            <div class="module-card-icon">💻</div>
+            <div class="module-card-name">Programmation</div>
+          </div>
+          <div class="module-card">
+            <div class="module-card-icon">⚙️</div>
+            <div class="module-card-name">Automatismes</div>
+          </div>
+          <div class="module-card">
+            <div class="module-card-icon">🖥️</div>
+            <div class="module-card-name">Systèmes embarqués</div>
+          </div>
+          <div class="module-card">
+            <div class="module-card-icon">📡</div>
+            <div class="module-card-name">Réseaux industriels</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer class="footer"><div class="footer-inner"><span>© <span id="year">2026</span> Léo Carvalho</span></div></footer>
-  <script src="js/core.js" defer></script>
-  <script src="js/animations.js" defer></script>
+  <!-- CALENDRIERS -->
+  <section class="calendriers-section">
+    <div class="section-eyebrow fade-up">Planning</div>
+    <h2 class="section-title fade-up">Calendriers <span>d'Alternance</span></h2>
+    <div class="cal-grid">
+      <div class="cal-card fade-up" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_8d77b3ea43fb47638e9070865b1971d3~mv2.jpg/v1/fill/w_378,h_283,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/GEII_CALENDRIER%20PROVISOIRE_BUT%20GEII_2_Ann%C3%A9e%202024-2025_1_page-0001.jpg')">
+        <div class="cal-card-header">
+          <div class="cal-card-title">Calendrier 2024–2025</div>
+          <div class="cal-card-year">BUT GEII 2ème année</div>
+        </div>
+        <img class="cal-img" src="https://static.wixstatic.com/media/d6252f_8d77b3ea43fb47638e9070865b1971d3~mv2.jpg/v1/fill/w_378,h_283,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/GEII_CALENDRIER%20PROVISOIRE_BUT%20GEII_2_Ann%C3%A9e%202024-2025_1_page-0001.jpg" alt="Calendrier 2024-2025">
+        <div class="cal-expand-hint">🔍 Cliquer pour agrandir</div>
+      </div>
+      <div class="cal-card fade-up" style="transition-delay:.1s" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_171dab7bd62948e089f5d97c9e64c4bf~mv2.jpg/v1/fill/w_378,h_283,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/GEII_CALENDRIER%20PROVISOIRE_BUT%20GEII_3_Ann%C3%A9e%202025-2026_1_page-0001.jpg')">
+        <div class="cal-card-header">
+          <div class="cal-card-title">Calendrier 2025–2026</div>
+          <div class="cal-card-year">BUT GEII 3ème année</div>
+        </div>
+        <img class="cal-img" src="https://static.wixstatic.com/media/d6252f_171dab7bd62948e089f5d97c9e64c4bf~mv2.jpg/v1/fill/w_378,h_283,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/GEII_CALENDRIER%20PROVISOIRE_BUT%20GEII_3_Ann%C3%A9e%202025-2026_1_page-0001.jpg" alt="Calendrier 2025-2026">
+        <div class="cal-expand-hint">🔍 Cliquer pour agrandir</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" src="" alt="Calendrier">
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">LC.</span>
+  <span>© 2026 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">LinkedIn</a>
+    <a href="CARVALHO-Leo-CV.pdf" target="_blank">CV PDF</a>
+  </div>
+</footer>
+<script src="main.js"></script>
+<script>
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e) {
+  if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close')) {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox({target: document.getElementById('lightbox')}); });
+</script>
 </body>
 </html>
