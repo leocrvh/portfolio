@@ -1,506 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-theme="light">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRZKHPG14F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LRZKHPG14F');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Profil, compétences et parcours de Léo Carvalho, apprenti automaticien chez SPIE Industrie, étudiant BUT GEII.">
-  <meta property="og:type" content="website">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Profil de Léo Carvalho : timeline de formation et expérience, compétences clés en automatisme industriel.">
   <meta property="og:title" content="Profil — Léo Carvalho">
-  <meta property="og:description" content="Profil, compétences et parcours de Léo Carvalho, apprenti automaticien chez SPIE Industrie, étudiant BUT GEII.">
-  <meta property="og:image" content="https://leocrvh.github.io/portfolio/photo.png">
+  <meta property="og:description" content="Timeline professionnelle, expérience et compétences techniques.">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://leocrvh.github.io/portfolio/profil.html">
-  <meta property="og:site_name" content="Léo Carvalho — Portfolio">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iI0MxN0IzRiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTQlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC13ZWlnaHQ9IjcwMCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiPkxDPC90ZXh0Pjwvc3ZnPg==">
-<title>Profil — Léo Carvalho</title>
-<link rel="stylesheet" href="style.css">
-<script>document.documentElement.dataset.theme=localStorage.getItem('lc-theme')||'light';</script>
-<script>document.documentElement.dataset.theme=localStorage.getItem("lc-theme")||"light";</script>
-<style>
-.profil-hero {
-  padding: clamp(3rem,7vh,5rem) clamp(1.2rem,6vw,6rem);
-  background: var(--bg2);
-  border-bottom: 1px solid var(--border);
-}
-.profil-hero-inner {
-  max-width: 960px; margin: 0 auto;
-  display: grid; grid-template-columns: auto 1fr; gap: 4rem; align-items: start;
-}
-.profil-photo-wrap { position: relative; }
-.profil-photo {
-  width: 220px; height: 280px;
-  object-fit: cover; object-position: center top;
-  border-radius: 16px;
-  border: 2px solid var(--border);
-  box-shadow: 0 16px 48px var(--shadow);
-}
-.profil-photo-ring {
-  position: absolute; top: -8px; left: -8px; right: 8px; bottom: 8px;
-  border: 2px solid rgba(193,123,63,.3);
-  border-radius: 20px; pointer-events: none;
-}
-.profil-info {}
-.profil-name {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(2rem,4vw,3rem); font-weight: 800;
-  line-height: 1.1; margin-bottom: .4rem;
-}
-.profil-name span { color: var(--accent); }
-.profil-role {
-  font-size: 1.05rem; color: var(--accent2); font-weight: 500;
-  margin-bottom: 1.5rem;
-}
-.profil-bio {
-  font-size: .95rem; line-height: 1.85; color: var(--muted);
-  max-width: 640px; margin-bottom: 2rem;
-}
-.profil-bio strong { color: var(--text); }
-.profil-quick { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
-.profil-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-/* Skills section */
-.skills-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); }
-.section-inner { max-width: 960px; margin: 0 auto; }
-.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-.skill-group { }
-.skill-group-label {
-  font-family: 'Syne', sans-serif;
-  font-size: .7rem; font-weight: 700; letter-spacing: .18em;
-  text-transform: uppercase; color: var(--accent);
-  margin-bottom: 1rem;
-}
-.skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
-.skill-tag {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 8px; padding: .4rem .9rem;
-  font-size: .82rem; font-weight: 500; color: var(--text);
-  transition: var(--trans);
-}
-.skill-tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-
-/* Languages */
-.lang-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); background: var(--bg2); }
-.langs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
-.lang-row {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 14px; padding: 1.6rem 1.4rem 1.3rem;
-  display: flex; flex-direction: column; gap: .6rem;
-  transition: border-color .25s, box-shadow .25s;
-}
-.lang-row:hover { border-color: rgba(193,123,63,.4); box-shadow: 0 8px 24px var(--glow); }
-.lang-name {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.6rem; font-weight: 800;
-  color: var(--text); line-height: 1;
-}
-.lang-lvl { font-size: .82rem; color: var(--muted); }
-.lang-bar { height: 5px; background: var(--bg3); border-radius: 3px; overflow: hidden; }
-.lang-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 1s ease .3s; }
-@media (max-width: 640px) { .langs { grid-template-columns: 1fr; } }
-
-/* Timeline */
-.timeline-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); }
-.timeline { display: flex; flex-direction: column; gap: 0; max-width: 780px; }
-.tl-item {
-  display: grid; grid-template-columns: 160px 1fr;
-  gap: 2rem;
-  position: relative;
-  padding-bottom: 2.5rem;
-}
-.tl-item::after {
-  content:''; position:absolute;
-  left: 174px; top: 16px; bottom: 0;
-  width: 1px; background: var(--border);
-}
-.tl-item:last-child::after { display: none; }
-.tl-dot {
-  position: absolute; left: 169px; top: 14px;
-  width: 12px; height: 12px; border-radius: 50%;
-  background: var(--accent); border: 2px solid var(--bg);
-  z-index: 1;
-}
-.tl-date {
-  text-align: right;
-  font-size: .78rem; color: var(--muted); line-height: 1.5; padding-top: .1rem;
-}
-.tl-body { padding-left: 1rem; }
-.tl-title {
-  font-family: 'Syne', sans-serif; font-weight: 700;
-  font-size: 1.02rem; margin-bottom: .2rem;
-}
-.tl-org { font-size: .85rem; color: var(--accent2); margin-bottom: .5rem; }
-.tl-desc { font-size: .88rem; color: var(--muted); line-height: 1.65; }
-.tl-desc li { display: flex; gap: .4rem; margin-bottom: .3rem; }
-.tl-desc li::before { content: '▸'; color: var(--accent); flex-shrink: 0; }
-
-/* Active timeline items (en cours) */
-.tl-item--active .tl-dot {
-  width: 16px; height: 16px;
-  left: 167px; top: 18px;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(193,123,63,.18);
-  border-width: 3px;
-}
-.tl-item--active .tl-date { color: var(--accent); font-weight: 600; }
-.tl-item--active .tl-body {
-  border-left: 3px solid var(--accent);
-  padding-left: 1.2rem;
-  margin-bottom: .5rem;
-}
-.tl-item--active .tl-title {
-  font-size: 1.12rem;
-  color: var(--text);
-}
-.tl-item--active .tl-badge {
-  display: inline-flex; align-items: center; gap: .35rem;
-  background: rgba(193,123,63,.12); border: 1px solid rgba(193,123,63,.3);
-  border-radius: 999px; padding: .2rem .7rem;
-  font-size: .72rem; font-weight: 600; color: var(--accent);
-  margin-bottom: .6rem;
-}
-.tl-item--active .tl-badge::before {
-  content: ''; width: 6px; height: 6px; border-radius: 50%;
-  background: var(--accent); animation: pulse 2s infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
-
-/* Interests */
-.interests-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); background: var(--bg2); }
-.interests-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
-.interest-card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 1.2rem 1.5rem;
-  display: flex; align-items: center; gap: .8rem;
-  transition: var(--trans);
-}
-.interest-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-.interest-icon { font-size: 1.4rem; }
-.interest-name { font-weight: 600; font-size: .92rem; }
-.interest-sub { font-size: .78rem; color: var(--muted); margin-top: .1rem; }
-
-@media (max-width: 900px) {
-  .profil-hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .profil-photo { width: 160px; height: 200px; }
-  .skills-grid { grid-template-columns: 1fr; }
-  .tl-item { grid-template-columns: 1fr; }
-  .tl-date { text-align: left; }
-  .tl-item::after, .tl-dot { display: none; }
-}
-</style>
+  <title>Profil — Léo Carvalho</title>
+  <script>document.documentElement.dataset.theme=localStorage.getItem('lc-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');</script>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://leocrvh.github.io/portfolio/index.html"},{"@type":"ListItem","position":2,"name":"Profil","item":"https://leocrvh.github.io/portfolio/profil.html"}]}</script>
 </head>
-<body>
-<nav>
-  <a href="index.html" class="nav-logo">LC<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="profil.html">Profil</a></li>
-    <li><a href="projets.html">Projets</a></li>
-    <li><a href="apprentissage.html">Apprentissage</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
-    <span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span>
-  </button>
-  <button class="burger" id="burger"><span></span><span></span><span></span></button>
-</nav>
-<!-- MOBILE OVERLAY -->
-<div id="mobileOverlay" class="mobile-overlay"></div>
-
-<!-- MOBILE DRAWER -->
-<div id="mobileMenu" class="mobile-menu">
-  <div class="mobile-menu-header">
-    <span class="mobile-menu-logo">LC.</span>
-    <button class="mobile-menu-close" onclick="closeMobile()">✕</button>
-  </div>
-  <div class="mobile-menu-links">
-      <a href="index.html" onclick="closeMobile()"><span class="nav-icon">🏠</span>Accueil</a>
-      <a href="profil.html" onclick="closeMobile()"><span class="nav-icon">👤</span>Profil</a>
-      <a href="projets.html" onclick="closeMobile()"><span class="nav-icon">⚙️</span>Projets</a>
-      <a href="apprentissage.html" onclick="closeMobile()"><span class="nav-icon">🎓</span>Apprentissage</a>
-      <a href="contact.html" onclick="closeMobile()"><span class="nav-icon">✉️</span>Contact</a>
-  </div>
-  <div class="mobile-menu-footer">
-    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">💼 LinkedIn</a>
-    <a href="CARVALHO-Leo-CV.pdf" target="_blank">📄 CV</a>
-  </div>
-</div>
-
-<div class="page-content">
-
-  <!-- HERO PROFIL -->
-  <section class="profil-hero">
-    <div class="profil-hero-inner">
-    <div class="profil-photo-wrap fade-up">
-      <img src="photo.png" alt="Léo Carvalho" class="profil-photo">
-      <div class="profil-photo-ring"></div>
+<body class="page-enter">
+  <a class="skip-link" href="#main-content">Aller au contenu</a>
+  <div class="progress" aria-hidden="true"><span data-scroll-progress></span></div>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="index.html">LC<span class="brand-dot">.</span></a>
+      <div class="nav-links">
+        <a data-nav-link href="index.html">Accueil</a>
+        <a data-nav-link href="profil.html">Profil</a>
+        <a data-nav-link href="projets.html">Projets</a>
+        <a data-nav-link href="apprentissage.html">Apprentissage</a>
+        <a data-nav-link href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Changer le thème"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v2m0 14v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M3 12h2m14 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        <button class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu" data-mobile-menu>
+      <a data-nav-link href="index.html">Accueil</a>
+      <a data-nav-link href="profil.html">Profil</a>
+      <a data-nav-link href="projets.html">Projets</a>
+      <a data-nav-link href="apprentissage.html">Apprentissage</a>
+      <a data-nav-link href="contact.html">Contact</a>
     </div>
-    <div class="profil-info fade-up" style="transition-delay:.1s">
-      <div class="section-eyebrow">À propos de moi</div>
-      <h1 class="profil-name">Léo <span>Carvalho</span></h1>
-      <p class="profil-role">Apprenti Automaticien · BUT GEII · 21 ans</p>
-      <p class="profil-bio">
-        Je me considère comme une personne <strong>à l'écoute, patient, appliqué et sérieux</strong>. La pratique du basket depuis 11 ans m'a permis d'acquérir de véritables compétences en travail d'équipe et en organisation.
-        <br><br>
-        Actuellement en <strong>3ème année de BUT GEII</strong> à l'IUT de Nantes (Carquefou), je réalise simultanément une alternance en tant qu'<strong>automaticien chez SPIE Industrie</strong> à Saint-Herblain. Ce double cursus me permet d'ancrer mes connaissances théoriques dans des applications industrielles concrètes.
-      </p>
-      <div class="profil-quick">
-        <span class="badge badge-accent">Permis B · Véhiculé</span>
-        <span class="badge badge-accent">Automatisme & Supervision</span>
-        <span class="badge badge-accent">Réseaux industriels</span>
-        <span class="badge badge-accent">Programmation</span>
-        <span class="badge badge-accent">CAO</span>
-      </div>
-      <div class="profil-ctas">
-        <a href="CARVALHO-Leo-CV.pdf" target="_blank" class="btn btn-primary">Télécharger CV ↓</a>
-        <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" class="btn btn-outline">LinkedIn →</a>
-      </div>
-    </div>
-    </div>
-  </section>
+  </header>
 
-  <!-- SKILLS -->
-  <section class="skills-section">
-    <div class="section-inner">
-    <div class="section-eyebrow fade-up">Compétences</div>
-    <h2 class="section-title fade-up">Mes <span>Skills</span></h2>
-    <div class="skills-grid">
-      <div class="fade-up">
-        <div class="skill-group-label">Automatisme & Supervision</div>
-        <div class="skill-tags">
-          <span class="skill-tag">TIA Portal</span>
-          <span class="skill-tag">WinCC Unified</span>
-          <span class="skill-tag">Control Expert</span>
-          <span class="skill-tag">Op. Terminal Expert</span>
-          <span class="skill-tag">WinRelais</span>
-        </div>
-      </div>
-      <div class="fade-up">
-        <div class="skill-group-label">Réseaux industriels</div>
-        <div class="skill-tags">
-          <span class="skill-tag">OPC-UA</span>
-          <span class="skill-tag">Modbus TCP</span>
-          <span class="skill-tag">UDP / IP</span>
-          <span class="skill-tag">Ewon / Talk2M</span>
-        </div>
-      </div>
-      <div class="fade-up">
-        <div class="skill-group-label">Programmation</div>
-        <div class="skill-tags">
-          <span class="skill-tag">C / C++</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">VHDL</span>
-          <span class="skill-tag">HTML / CSS</span>
-        </div>
-      </div>
-      <div class="fade-up">
-        <div class="skill-group-label">CAO & Outils</div>
-        <div class="skill-tags">
-          <span class="skill-tag">KiCad (CAO PCB)</span>
-          <span class="skill-tag">VS Code</span>
-          <span class="skill-tag">Pack Office</span>
-          <span class="skill-tag">Canva / Wix</span>
-        </div>
-      </div>
-    </div>
-    </div>
-  </section>
+  <main id="main-content">
+    <section class="section reveal" data-cursor-track>
+      <div class="eyebrow">Profil professionnel</div>
+      <h1>Timeline formation & expérience</h1>
+      <p>Parcours orienté automatisme, informatique industrielle et pilotage opérationnel.</p>
+    </section>
 
-  <!-- LANGUAGES -->
-  <section class="lang-section">
-    <div class="section-inner">
-    <div class="section-eyebrow fade-up">Langues</div>
-    <h2 class="section-title fade-up">Communication</h2>
-    <div class="langs fade-up">
-      <div class="lang-row">
-        <span class="lang-name">Français</span>
-        <span class="lang-lvl">Natif</span>
-        <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+    <section class="section">
+      <header class="section-head reveal"><div class="eyebrow">Timeline</div><h2>Étapes clés</h2></header>
+      <div class="timeline">
+        <article class="card timeline-item reveal"><strong>2023 — Entrée en BUT GEII</strong><p>IUT de Nantes, socle solide en électronique, énergie, automatisme et réseaux industriels.</p></article>
+        <article class="card timeline-item reveal"><strong>2024 — Alternance SPIE Industrie</strong><p>Programmation PLC/HMI, mise en service et documentation sur projets clients.</p></article>
+        <article class="card timeline-item reveal"><strong>2025 — Projets à haute criticité</strong><p>Interventions sur Airbus, Neoline et systèmes de supervision connectés.</p></article>
+        <article class="card timeline-item reveal"><strong>2026 — Candidature école d’ingénieur</strong><p>Objectif : renforcer management technique et conduite d’affaires industrielles.</p></article>
       </div>
-      <div class="lang-row">
-        <span class="lang-name">Anglais</span>
-        <span class="lang-lvl">B2 — Intermédiaire avancé</span>
-        <div class="lang-bar"><div class="lang-fill" style="width:65%"></div></div>
-      </div>
-      <div class="lang-row">
-        <span class="lang-name">Italien</span>
-        <span class="lang-lvl">Notions élémentaires</span>
-        <div class="lang-bar"><div class="lang-fill" style="width:15%"></div></div>
-      </div>
-    </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- TIMELINE -->
-  <section class="timeline-section">
-    <div class="section-inner">
-    <div class="section-eyebrow fade-up">Formation & Expériences</div>
-    <h2 class="section-title fade-up">Mon <span>Parcours</span></h2>
-    <div class="timeline">
+    <section class="section">
+      <header class="section-head reveal"><div class="eyebrow">Compétences</div><h2>Skills showcase</h2></header>
+      <div class="skills-grid">
+        <article class="skill reveal"><strong>Programmation automate</strong><p>TIA Portal, Control Expert</p><div class="progress-line"><span style="--value:88%"></span></div></article>
+        <article class="skill reveal"><strong>Réseaux industriels</strong><p>OPC-UA, UDP, Modbus TCP</p><div class="progress-line"><span style="--value:82%"></span></div></article>
+        <article class="skill reveal"><strong>IHM & supervision</strong><p>WinCC, OTE, ergonomie opérateur</p><div class="progress-line"><span style="--value:84%"></span></div></article>
+        <article class="skill reveal"><strong>Mise en service</strong><p>Tests terrain, diagnostics, réception</p><div class="progress-line"><span style="--value:86%"></span></div></article>
+      </div>
+    </section>
+  </main>
 
-      <div class="tl-item tl-item--active fade-up">
-        <div class="tl-date">Sep 2023<br>→ Août 2026</div>
-        <div class="tl-dot"></div>
-        <div class="tl-body">
-          <div class="tl-badge">En cours</div>
-          <div class="tl-title">BUT — Génie Électrique et Informatique Industrielle</div>
-          <div class="tl-org">IUT de Nantes · Carquefou, France</div>
-          <div class="tl-desc">Formation approfondie en électrotechnique, électronique de puissance, programmation, automatismes et systèmes embarqués. Cursus en alternance depuis la 2ème année.</div>
-        </div>
-      </div>
-
-      <div class="tl-item tl-item--active fade-up">
-        <div class="tl-date">Sep 2024<br>→ Août 2026</div>
-        <div class="tl-dot"></div>
-        <div class="tl-body">
-          <div class="tl-badge">En cours</div>
-          <div class="tl-title">Apprenti Automaticien</div>
-          <div class="tl-org">SPIE Industrie · Saint-Herblain, France</div>
-          <div class="tl-desc">
-            <ul>
-              <li>Programmation et configuration PLC et IHM (Siemens TIA Portal, Schneider Control Expert)</li>
-              <li>Mise en service et tests sur site clients (Airbus, Neoline…)</li>
-              <li>Retrofit machine industrielle, intégration capteurs UDP, alerte SMS OPC-UA</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item fade-up">
-        <div class="tl-date">Sep 2022<br>→ Juin 2023</div>
-        <div class="tl-dot"></div>
-        <div class="tl-body">
-          <div class="tl-title">Licence — Informatique et Sciences de l'Ingénieur</div>
-          <div class="tl-org">Université de Bretagne Occidentale · Brest, France</div>
-          <div class="tl-desc">Formation en informatique et sciences de l'ingénieur.</div>
-        </div>
-      </div>
-
-      <div class="tl-item fade-up">
-        <div class="tl-date">Mai – Août 2023</div>
-        <div class="tl-dot"></div>
-        <div class="tl-body">
-          <div class="tl-title">Emplois Saisonniers</div>
-          <div class="tl-org">E.Leclerc Porte de Gouesnou · Serre Ty Glas, Milizac</div>
-          <div class="tl-desc">Préparation commandes drive (2 semaines) · Récolte, training, effeuillage serre de tomates (3 mois).</div>
-        </div>
-      </div>
-
-      <div class="tl-item fade-up">
-        <div class="tl-date">Sep 2019<br>→ Juin 2022</div>
-        <div class="tl-dot"></div>
-        <div class="tl-body">
-          <div class="tl-title">Baccalauréat — Mention Assez Bien</div>
-          <div class="tl-org">Lycée de l'Harteloire · Brest, France</div>
-          <div class="tl-desc">Spécialités : Mathématiques & Physique-Chimie.</div>
-        </div>
-      </div>
-
-      <div class="tl-item fade-up">
-        <div class="tl-date">Sep 2015<br>→ Juin 2019</div>
-        <div class="tl-dot"></div>
-        <div class="tl-body">
-          <div class="tl-title">Brevet — Mention Très Bien</div>
-          <div class="tl-org">Collège Croas Ar Pennoc · Guilers, France</div>
-        </div>
-      </div>
-      
-      <div class="tl-item fade-up">
-        <div class="tl-date">Fév 2019</div>
-        <div class="tl-dot"></div>
-        <div class="tl-body">
-          <div class="tl-title">Stages d'observation</div>
-          <div class="tl-org">Gendarmerie Nationale (Quartier Buquet) & SIMELEC · Brest</div>
-          <div class="tl-desc">Découverte des métiers · Tâches administratives et comptabilité chez SIMELEC (entreprise d'électricité de 15 personnes).</div>
-        </div>
-      </div>
-    </div>
-    </div>
-  </section>
-
-  <!-- ÉCOLE D'INGÉNIEUR -->
-  <section class="interests-section" id="ingenieur" style="background:var(--bg);">
-    <div class="section-inner">
-    <div class="section-eyebrow fade-up">Projet 2026</div>
-    <h2 class="section-title fade-up">Objectif <span>École d'Ingénieur</span></h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;" class="fade-up">
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;border-top:3px solid var(--accent);">
-        <div style="font-size:1.5rem;margin-bottom:.8rem">🎯</div>
-        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.6rem;">Un profil technique solide</div>
-        <p style="font-size:.88rem;color:var(--muted);line-height:1.75;">Mon BUT GEII en alternance m'a permis d'acquérir une <strong style="color:var(--text)">expertise terrain concrète</strong> : programmation d'automates industriels, mise en service sur sites clients (Airbus, Neoline), rédaction de DOE. Une base rare pour intégrer une école d'ingénieur.</p>
-      </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;border-top:3px solid var(--accent2);">
-        <div style="font-size:1.5rem;margin-bottom:.8rem">🏀</div>
-        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.6rem;">Leadership & gestion d'équipe</div>
-        <p style="font-size:.88rem;color:var(--muted);line-height:1.75;">11 ans de basket m'ont forgé en tant que <strong style="color:var(--text)">meneur</strong> : gestion du collectif sous pression, prise de décision rapide, communication dans l'adversité. Des qualités directement transposables au management de projet en école d'ingénieur.</p>
-      </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;border-top:3px solid var(--accent);">
-        <div style="font-size:1.5rem;margin-bottom:.8rem">📈</div>
-        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.6rem;">Envie d'élargir mes compétences</div>
-        <p style="font-size:.88rem;color:var(--muted);line-height:1.75;">Au-delà du technique, je souhaite développer des compétences en <strong style="color:var(--text)">gestion d'affaires, conduite de projet et management</strong> pour piloter des équipes et des chantiers — le cœur du métier d'ingénieur généraliste.</p>
-      </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;border-top:3px solid var(--accent2);">
-        <div style="font-size:1.5rem;margin-bottom:.8rem">🌍</div>
-        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.6rem;">Ouverture internationale</div>
-        <p style="font-size:.88rem;color:var(--muted);line-height:1.75;">Niveau anglais B2 acquis et motivation forte pour progresser. Mon expérience sur des projets industriels d'envergure (Airbus, Neoline — projets à dimension internationale) illustre ma capacité à évoluer dans des environnements exigeants.</p>
-      </div>
-    </div>
-    </div>
-  </section>
-
-  <!-- INTERESTS -->
-  <section class="interests-section" style="background:var(--bg2);">
-    <div class="section-inner">
-    <div class="section-eyebrow fade-up">Centres d'intérêt</div>
-    <h2 class="section-title fade-up">Ma <span>Vie</span></h2>
-    <div class="interests-grid fade-up">
-      
-      <div class="interest-card">
-        <div class="interest-icon">🚗</div>
-        <div>
-          <div class="interest-name">Automobile</div>
-          <div class="interest-sub">Permis B · Passionné mécanique & sports automobiles</div>
-        </div>
-      </div>
-      
-      <div class="interest-card">
-        <div class="interest-icon">💪</div>
-        <div>
-          <div class="interest-name">Musculation</div>
-          <div class="interest-sub">Sport & discipline</div>
-        </div>
-      </div>
-        
-      <div class="interest-card">
-        <div class="interest-icon">🏀</div>
-        <div>
-          <div class="interest-name">Basket-Ball</div>
-          <div class="interest-sub">11 ans de pratique · Rôle de meneur</div>
-        </div> 
-      </div>
-      
-    </div>
-    </div>
-  </section>
-
-</div>
-
-<footer>
-  <span class="footer-logo">LC.</span>
-  <span>© 2026 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
-  <div class="footer-links">
-    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">LinkedIn</a>
-    <a href="CARVALHO-Leo-CV.pdf" target="_blank">CV PDF</a>
-  </div>
-</footer>
-<script src="main.js"></script>
+  <footer class="footer"><div class="footer-inner"><span>© <span id="year">2026</span> Léo Carvalho</span></div></footer>
+  <script src="js/core.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/interactions.js" defer></script>
 </body>
 </html>
