@@ -12,6 +12,19 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://leocrvh.github.io/portfolio/profil.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:image:alt" content="Portfolio de Léo Carvalho">
+  <meta name="twitter:title" content="Profil — Léo Carvalho">
+  <meta name="twitter:description" content="Profil, compétences et parcours de Léo Carvalho, apprenti automaticien chez SPIE Industrie, étudiant BUT GEII.">
+  <meta name="twitter:image" content="https://leocrvh.github.io/portfolio/photo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"></noscript>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="description" content="Profil, compétences et parcours de Léo Carvalho, apprenti automaticien chez SPIE Industrie, étudiant BUT GEII.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Profil — Léo Carvalho">
@@ -24,7 +37,6 @@
 <title>Profil — Léo Carvalho</title>
 <link rel="stylesheet" href="style.css">
 <script>document.documentElement.dataset.theme=localStorage.getItem('lc-theme')||'light';</script>
-<script>document.documentElement.dataset.theme=localStorage.getItem("lc-theme")||"light";</script>
 <style>
 .profil-hero {
   padding: clamp(3rem,7vh,5rem) clamp(1.2rem,6vw,6rem);
@@ -210,7 +222,7 @@
   <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
     <span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span>
   </button>
-  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <!-- MOBILE OVERLAY -->
 <div id="mobileOverlay" class="mobile-overlay"></div>
@@ -229,8 +241,8 @@
       <a href="contact.html" onclick="closeMobile()"><span class="nav-icon">✉️</span>Contact</a>
   </div>
   <div class="mobile-menu-footer">
-    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">💼 LinkedIn</a>
-    <a href="CARVALHO-Leo-CV.pdf" target="_blank">📄 CV</a>
+    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+    <a href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer">📄 CV</a>
   </div>
 </div>
 
@@ -240,7 +252,10 @@
   <section class="profil-hero">
     <div class="profil-hero-inner">
     <div class="profil-photo-wrap fade-up">
-      <img src="photo.png" alt="Léo Carvalho" class="profil-photo">
+      <picture>
+        <source srcset="photo.webp" type="image/webp">
+        <img src="photo.png" alt="Léo Carvalho" class="profil-photo" width="1024" height="1300" decoding="async">
+      </picture>
       <div class="profil-photo-ring"></div>
     </div>
     <div class="profil-info fade-up" style="transition-delay:.1s">
@@ -260,8 +275,8 @@
         <span class="badge badge-accent">CAO</span>
       </div>
       <div class="profil-ctas">
-        <a href="CARVALHO-Leo-CV.pdf" target="_blank" class="btn btn-primary">Télécharger CV ↓</a>
-        <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" class="btn btn-outline">LinkedIn →</a>
+        <a href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Télécharger CV ↓</a>
+        <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn →</a>
       </div>
     </div>
     </div>
@@ -497,8 +512,8 @@
   <span class="footer-logo">LC.</span>
   <span>© 2026 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
   <div class="footer-links">
-    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">LinkedIn</a>
-    <a href="CARVALHO-Leo-CV.pdf" target="_blank">CV PDF</a>
+    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer">CV PDF</a>
   </div>
 </footer>
 <script src="main.js"></script>

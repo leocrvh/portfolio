@@ -12,6 +12,19 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://leocrvh.github.io/portfolio/apprentissage.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:image:alt" content="Portfolio de Léo Carvalho">
+  <meta name="twitter:title" content="Apprentissage — Léo Carvalho">
+  <meta name="twitter:description" content="Alternance chez SPIE Industrie · BUT GEII IUT de Nantes · Automatisme industriel et informatique industrielle.">
+  <meta name="twitter:image" content="https://leocrvh.github.io/portfolio/photo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"></noscript>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="description" content="Alternance chez SPIE Industrie · BUT GEII IUT de Nantes · Automatisme industriel et informatique industrielle.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Apprentissage — Léo Carvalho">
@@ -24,7 +37,6 @@
 <title>Apprentissage — Léo Carvalho</title>
 <link rel="stylesheet" href="style.css">
 <script>document.documentElement.dataset.theme=localStorage.getItem('lc-theme')||'light';</script>
-<script>document.documentElement.dataset.theme=localStorage.getItem("lc-theme")||"light";</script>
 <style>
 .page-hero { padding: clamp(3rem,7vh,5rem) clamp(1.2rem,6vw,6rem) clamp(2rem,4vh,3rem); background: var(--bg2); border-bottom: 1px solid var(--border); }
 .spie-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); }
@@ -152,8 +164,8 @@
     <li><a href="apprentissage.html">Apprentissage</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <button class="theme-toggle" id="themeToggle"><span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span></button>
-  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème"><span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span></button>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <!-- MOBILE OVERLAY -->
 <div id="mobileOverlay" class="mobile-overlay"></div>
@@ -172,8 +184,8 @@
       <a href="contact.html" onclick="closeMobile()"><span class="nav-icon">✉️</span>Contact</a>
   </div>
   <div class="mobile-menu-footer">
-    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">💼 LinkedIn</a>
-    <a href="CARVALHO-Leo-CV.pdf" target="_blank">📄 CV</a>
+    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+    <a href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer">📄 CV</a>
   </div>
 </div>
 
@@ -279,7 +291,7 @@
           <div class="formation-title">BUT — Génie Électrique et Informatique Industrielle</div>
           <div class="formation-sub">IUT de Nantes · Carquefou · Sep 2023 → Août 2026</div>
         </div>
-        <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_6176a94144974c27ac3194d56fed9e27.pdf" target="_blank" class="formation-link">Description détaillée PDF →</a>
+        <a href="https://80bb8d07-755b-4113-91d6-ce9287c94271.filesusr.com/ugd/d6252f_6176a94144974c27ac3194d56fed9e27.pdf" target="_blank" rel="noopener noreferrer" class="formation-link">Description détaillée PDF →</a>
       </div>
       <div class="formation-body">
         <p class="formation-desc">
@@ -325,7 +337,7 @@
           <div class="cal-card-title">Calendrier 2024–2025</div>
           <div class="cal-card-year">BUT GEII 2ème année</div>
         </div>
-        <img class="cal-img" src="https://static.wixstatic.com/media/d6252f_8d77b3ea43fb47638e9070865b1971d3~mv2.jpg/v1/fill/w_378,h_283,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/GEII_CALENDRIER%20PROVISOIRE_BUT%20GEII_2_Ann%C3%A9e%202024-2025_1_page-0001.jpg" alt="Calendrier 2024-2025">
+        <img class="cal-img" src="https://static.wixstatic.com/media/d6252f_8d77b3ea43fb47638e9070865b1971d3~mv2.jpg/v1/fill/w_378,h_283,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/GEII_CALENDRIER%20PROVISOIRE_BUT%20GEII_2_Ann%C3%A9e%202024-2025_1_page-0001.jpg" alt="Calendrier 2024-2025" width="378" height="283" loading="lazy">
         <div class="cal-expand-hint">🔍 Cliquer pour agrandir</div>
       </div>
       <div class="cal-card fade-up" style="transition-delay:.1s" onclick="openLightbox('https://static.wixstatic.com/media/d6252f_171dab7bd62948e089f5d97c9e64c4bf~mv2.jpg/v1/fill/w_378,h_283,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/GEII_CALENDRIER%20PROVISOIRE_BUT%20GEII_3_Ann%C3%A9e%202025-2026_1_page-0001.jpg')">
@@ -333,7 +345,7 @@
           <div class="cal-card-title">Calendrier 2025–2026</div>
           <div class="cal-card-year">BUT GEII 3ème année</div>
         </div>
-        <img class="cal-img" src="https://static.wixstatic.com/media/d6252f_171dab7bd62948e089f5d97c9e64c4bf~mv2.jpg/v1/fill/w_378,h_283,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/GEII_CALENDRIER%20PROVISOIRE_BUT%20GEII_3_Ann%C3%A9e%202025-2026_1_page-0001.jpg" alt="Calendrier 2025-2026">
+        <img class="cal-img" src="https://static.wixstatic.com/media/d6252f_171dab7bd62948e089f5d97c9e64c4bf~mv2.jpg/v1/fill/w_378,h_283,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/GEII_CALENDRIER%20PROVISOIRE_BUT%20GEII_3_Ann%C3%A9e%202025-2026_1_page-0001.jpg" alt="Calendrier 2025-2026" width="378" height="283" loading="lazy">
         <div class="cal-expand-hint">🔍 Cliquer pour agrandir</div>
       </div>
     </div>
@@ -353,8 +365,8 @@
   <span class="footer-logo">LC.</span>
   <span>© 2026 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
   <div class="footer-links">
-    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">LinkedIn</a>
-    <a href="CARVALHO-Leo-CV.pdf" target="_blank">CV PDF</a>
+    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer">CV PDF</a>
   </div>
 </footer>
 <script src="main.js"></script>
