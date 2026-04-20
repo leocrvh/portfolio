@@ -1,0 +1,42 @@
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .quick-grid,
+  .cards-grid,
+  .projects-grid,
+  .skills-grid,
+  .contact-grid { grid-template-columns: 1fr 1fr; }
+  .bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .menu-toggle { display: inline-flex; }
+  .mobile-menu.open { display: block; }
+  main { padding-top: .8rem; }
+}
+
+@media (max-width: 640px) {
+  .quick-grid,
+  .cards-grid,
+  .projects-grid,
+  .skills-grid,
+  .contact-grid,
+  .filter-row,
+  .stats-grid,
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-item.large,
+  .bento-item.wide { grid-column: span 1; grid-row: span 1; }
+  .hero { padding: 1rem; }
+}
+
+@media (min-width: 375px) and (max-width: 420px) {
+  .nav { padding-inline: .8rem; }
+  h1 { font-size: clamp(1.75rem, 9.2vw, 2.2rem); }
+}
+
+@media (min-width: 1440px) {
+  main,
+  .nav,
+  .footer-inner { max-width: 1320px; }
+}

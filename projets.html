@@ -1,388 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-theme="light">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRZKHPG14F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LRZKHPG14F');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Projets industriels : Retrofit Mecanolav Airbus, ePenons Neoline, Alerte SMS Ewon, Projet A36 Orient Express Corinthian.">
-  <meta property="og:type" content="website">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Projets industriels de Léo Carvalho : filtrage par catégorie et galerie lightbox.">
   <meta property="og:title" content="Projets — Léo Carvalho">
-  <meta property="og:description" content="Projets industriels : Retrofit Mecanolav Airbus, ePenons Neoline, Alerte SMS Ewon, Projet A36 Orient Express Corinthian.">
-  <meta property="og:image" content="https://leocrvh.github.io/portfolio/photo.png">
+  <meta property="og:description" content="Bento grid, filtrage catégories, projets industriels détaillés.">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://leocrvh.github.io/portfolio/projets.html">
-  <meta property="og:site_name" content="Léo Carvalho — Portfolio">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iI0MxN0IzRiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTQlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC13ZWlnaHQ9IjcwMCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiPkxDPC90ZXh0Pjwvc3ZnPg==">
-<title>Projets — Léo Carvalho</title>
-<script>document.documentElement.dataset.theme=localStorage.getItem('lc-theme')||'light';</script>
-<link rel="stylesheet" href="style.css">
-<style>
-/* ── PAGE HERO ── */
-.page-hero {
-  padding: clamp(3rem,7vh,5rem) clamp(1.5rem,6vw,6rem) clamp(2rem,4vh,3rem);
-  background: var(--bg2); border-bottom: 1px solid var(--border);
-}
-.page-hero-title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(2.2rem,5vw,4rem); font-weight: 800;
-  line-height: 1.05; margin-bottom: .8rem;
-}
-.page-hero-sub { font-size: .95rem; color: var(--muted); max-width: 540px; line-height: 1.75; }
-
-/* ── PROJECTS LIST ── */
-.projects-list {
-  padding: clamp(2.5rem,5vh,4rem) clamp(1.5rem,6vw,6rem);
-  display: flex; flex-direction: column; gap: 2rem;
-}
-
-/* ── PROJECT CARD ── */
-.proj-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  overflow: hidden;
-  transition: box-shadow .3s ease, border-color .3s ease;
-  text-decoration: none; color: inherit; display: block;
-}
-.proj-card:hover {
-  border-color: rgba(193,123,63,.45);
-  box-shadow: 0 12px 48px var(--glow);
-}
-
-/* Top bar with number + title */
-.proj-card-header {
-  display: flex; align-items: center; gap: 1.5rem;
-  padding: 1.8rem 2rem 1.4rem;
-  border-bottom: 1px solid var(--border);
-}
-.proj-card-num {
-  font-family: 'Syne', sans-serif; font-weight: 800;
-  font-size: 2.8rem; line-height: 1;
-  color: rgba(193,123,63,.15);
-  flex-shrink: 0; width: 3.5rem; text-align: center;
-}
-.proj-card-icon-circle {
-  width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
-  background: linear-gradient(135deg, rgba(193,123,63,.18), rgba(212,149,106,.12));
-  border: 1px solid rgba(193,123,63,.25);
-  display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
-}
-.proj-card-titles { flex: 1; min-width: 0; }
-.proj-card-title {
-  font-family: 'Syne', sans-serif; font-size: 1.25rem; font-weight: 800;
-  margin-bottom: .2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.proj-card-context { font-size: .8rem; color: var(--accent2); font-weight: 500; }
-.proj-card-cta {
-  flex-shrink: 0;
-  font-size: .82rem; font-weight: 600; color: var(--accent);
-  display: flex; align-items: center; gap: .35rem;
-  padding: .5rem .9rem; border-radius: 8px;
-  border: 1.5px solid rgba(193,123,63,.3);
-  transition: background .2s, border-color .2s;
-  white-space: nowrap;
-}
-.proj-card:hover .proj-card-cta {
-  background: rgba(193,123,63,.08); border-color: var(--accent);
-}
-
-/* Body: description + image + result */
-.proj-card-body {
-  display: grid; grid-template-columns: 1fr 280px;
-  gap: 0;
-}
-.proj-card-content { padding: 1.6rem 2rem; }
-.proj-card-desc {
-  font-size: .9rem; color: var(--muted); line-height: 1.75;
-  margin-bottom: 1.2rem;
-}
-.proj-card-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.2rem; }
-.proj-card-result {
-  background: rgba(193,123,63,.06);
-  border: 1px solid rgba(193,123,63,.2);
-  border-left: 3px solid var(--accent);
-  border-radius: 8px; padding: .9rem 1.1rem;
-  font-size: .83rem; color: var(--muted); line-height: 1.6;
-}
-.proj-card-result strong { color: var(--accent); display: block; margin-bottom: .25rem; font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; }
-
-.proj-card-image {
-  border-left: 1px solid var(--border);
-  overflow: hidden; position: relative;
-  min-height: 200px;
-}
-.proj-card-image img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform .5s ease;
-  display: block;
-}
-.proj-card:hover .proj-card-image img { transform: scale(1.04); }
-.proj-card-image-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.35) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-/* ── ACADEMIC SECTION ── */
-.academic-section {
-  padding: clamp(2rem,4vh,3.5rem) clamp(1.5rem,6vw,6rem) clamp(3rem,6vh,5rem);
-  border-top: 1px solid var(--border);
-  background: var(--bg2);
-}
-.academic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-.academic-card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 14px; padding: 1.6rem;
-  text-decoration: none; color: inherit; display: block;
-  transition: var(--trans);
-}
-.academic-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 32px var(--glow); }
-.academic-card-icon { font-size: 1.8rem; margin-bottom: .9rem; }
-.academic-card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: .3rem; }
-.academic-card-sub { font-size: .78rem; color: var(--accent2); margin-bottom: .8rem; font-weight: 500; }
-.academic-card-desc { font-size: .85rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
-.academic-card-link { font-size: .82rem; color: var(--accent); font-weight: 600; display: flex; align-items: center; gap: .3rem; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 820px) {
-  .proj-card-body { grid-template-columns: 1fr; }
-  .proj-card-image { border-left: none; border-top: 1px solid var(--border); min-height: 180px; max-height: 220px; }
-  .proj-card-cta { display: none; }
-  .academic-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 560px) {
-  .proj-card-header { flex-wrap: wrap; gap: .8rem; }
-  .proj-card-num { display: none; }
-}
-</style>
+  <title>Projets — Léo Carvalho</title>
+  <script>document.documentElement.dataset.theme=localStorage.getItem('lc-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');</script>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body>
-
-<nav>
-  <a href="index.html" class="nav-logo">LC<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="profil.html">Profil</a></li>
-    <li><a href="projets.html">Projets</a></li>
-    <li><a href="apprentissage.html">Apprentissage</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
-    <span class="theme-icon moon">🌙</span><span class="theme-icon sun">☀️</span>
-  </button>
-  <button class="burger" id="burger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- MOBILE OVERLAY -->
-<div id="mobileOverlay" class="mobile-overlay"></div>
-<!-- MOBILE DRAWER -->
-<div id="mobileMenu" class="mobile-menu">
-  <div class="mobile-menu-header">
-    <span class="mobile-menu-logo">LC.</span>
-    <button class="mobile-menu-close" onclick="closeMobile()">✕</button>
-  </div>
-  <div class="mobile-menu-links">
-    <a href="index.html" onclick="closeMobile()"><span class="nav-icon">🏠</span>Accueil</a>
-    <a href="profil.html" onclick="closeMobile()"><span class="nav-icon">👤</span>Profil</a>
-    <a href="projets.html" onclick="closeMobile()"><span class="nav-icon">⚙️</span>Projets</a>
-    <a href="apprentissage.html" onclick="closeMobile()"><span class="nav-icon">🎓</span>Apprentissage</a>
-    <a href="contact.html" onclick="closeMobile()"><span class="nav-icon">✉️</span>Contact</a>
-  </div>
-  <div class="mobile-menu-footer">
-    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">💼 LinkedIn</a>
-    <a href="CARVALHO-Leo-CV.pdf" target="_blank">📄 CV</a>
-  </div>
-</div>
-
-<div class="page-content">
-
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="section-eyebrow fade-up">Réalisations</div>
-    <h1 class="page-hero-title fade-up">Mes <span style="color:var(--accent)">Projets</span></h1>
-    <p class="page-hero-sub fade-up">Ensemble de mes réalisations en alternance chez SPIE Industrie et à l'IUT de Nantes. Cliquez sur un projet pour en voir tous les détails.</p>
-  </section>
-
-  <!-- PROJETS ALTERNANCE -->
-  <div class="projects-list">
-
-    <!-- PROJET EN COURS : A36 -->
-    <a href="projet-a36.html" class="proj-card fade-up">
-      <div class="proj-card-header">
-        <div class="proj-card-num"></div>
-        <div class="proj-card-icon-circle">⚓</div>
-        <div class="proj-card-titles">
-          <div class="proj-card-title"><div style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(193,123,63,.12);border:1px solid rgba(193,123,63,.3);border-radius:999px;padding:.18rem .65rem;font-size:.7rem;font-weight:700;color:var(--accent);margin-bottom:.35rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse 2s infinite;flex-shrink:0;"></span>En cours</div>
-          Projet A36 — Orient Express Corinthian</div>
-          <div class="proj-card-context">Alternance · SPIE Industrie · Chantiers de l'Atlantique</div>
-        </div>
-        <div class="proj-card-cta">Voir le détail →</div>
+<body class="page-enter">
+  <a class="skip-link" href="#main-content">Aller au contenu</a>
+  <div class="progress" aria-hidden="true"><span data-scroll-progress></span></div>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="index.html">LC<span class="brand-dot">.</span></a>
+      <div class="nav-links">
+        <a data-nav-link href="index.html">Accueil</a>
+        <a data-nav-link href="profil.html">Profil</a>
+        <a data-nav-link href="projets.html">Projets</a>
+        <a data-nav-link href="apprentissage.html">Apprentissage</a>
+        <a data-nav-link href="contact.html">Contact</a>
       </div>
-      <div class="proj-card-body">
-        <div class="proj-card-content">
-          <p class="proj-card-desc">Synchronisation horaire NTP et redondance automates sur le premier paquebot de croisière à voile automatisée au monde. Deux automates <strong>S7-1515R-2 PN</strong> en redondance — détection du primaire, basculement transparent, chaîne NTP du serveur navire jusqu'à la supervision.</p>
-          <div class="proj-card-tags">
-            <span class="badge">TIA Portal</span>
-            <span class="badge">S7-1515R-2 PN</span>
-            <span class="badge">NTP / SNTP</span>
-            <span class="badge">Redondance CPU</span>
-            <span class="badge">PROFINET</span>
-            <span class="badge badge-accent">Chantiers de l'Atlantique</span>
-          </div>
-          <div class="proj-card-result">
-            <strong>✅ Résultat</strong>
-            Synchronisation validée, basculements transparents, solution intégrée sur le système réel à bord du navire avant les essais à quai et en mer.
-          </div>
-        </div>
-        <div class="proj-card-image">
-          <img src="a36_1.jpg" alt="Orient Express Corinthian">
-          <div class="proj-card-image-overlay"></div>
-        </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Changer le thème"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v2m0 14v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M3 12h2m14 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        <button class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
       </div>
-    </a>
-
-    <!-- PROJET 1 : RETROFIT -->
-    <a href="projet-retrofit.html" class="proj-card fade-up">
-      <div class="proj-card-header">
-        <div class="proj-card-num">1</div>
-        <div class="proj-card-icon-circle">⚙️</div>
-        <div class="proj-card-titles">
-          <div class="proj-card-title">Retrofit Mecanolav — Airbus</div>
-          <div class="proj-card-context">Alternance · SPIE Industrie · Saint-Herblain</div>
-        </div>
-        <div class="proj-card-cta">Voir le détail →</div>
-      </div>
-      <div class="proj-card-body">
-        <div class="proj-card-content">
-          <p class="proj-card-desc">Modernisation complète d'une machine de lavage industrielle chez Airbus. Remplacement de l'automate obsolète par un <strong>Schneider M340</strong> et de l'IHM par un <strong>HMIST6500</strong>. Reprise du programme, adressage E/S, création des écrans, tests en simulation puis réception sur site.</p>
-          <div class="proj-card-tags">
-            <span class="badge">Schneider M340</span>
-            <span class="badge">Control Expert</span>
-            <span class="badge">Op. Terminal Expert</span>
-            <span class="badge">Modbus TCP</span>
-            <span class="badge badge-accent">Client : Airbus</span>
-          </div>
-          <div class="proj-card-result">
-            <strong>✅ Résultat</strong>
-            Mise en service validée, exploitation clarifiée, documentation complète (DOE + sauvegardes) et formation opérateurs assurée.
-          </div>
-        </div>
-        <div class="proj-card-image">
-          <img src="mecanolav1.jpg" alt="Retrofit Mecanolav Airbus">
-          <div class="proj-card-image-overlay"></div>
-        </div>
-      </div>
-    </a>
-
-    <!-- PROJET 2 : EPENONS -->
-    <a href="projet-epenons.html" class="proj-card fade-up">
-      <div class="proj-card-header">
-        <div class="proj-card-num">2</div>
-        <div class="proj-card-icon-circle">📡</div>
-        <div class="proj-card-titles">
-          <div class="proj-card-title">ePenons Trimcontrol — Neoline</div>
-          <div class="proj-card-context">Alternance · SPIE Industrie · Saint-Herblain</div>
-        </div>
-        <div class="proj-card-cta">Voir le détail →</div>
-      </div>
-      <div class="proj-card-body">
-        <div class="proj-card-content">
-          <p class="proj-card-desc">Qualification de la réception radio de capteurs "penons" mesurant le film d'air sur la voilure d'un cargo à voile (Neoline). Intégration d'un <strong>flux UDP</strong> entre le récepteur et l'automate, parsing des trames, comparaison IHM vs API pour isoler les pertes.</p>
-          <div class="proj-card-tags">
-            <span class="badge">Réseau UDP</span>
-            <span class="badge">Supervision réseau</span>
-            <span class="badge">Automate API</span>
-            <span class="badge">Parsing trames</span>
-            <span class="badge badge-accent">Client : Neoline</span>
-          </div>
-          <div class="proj-card-result">
-            <strong>✅ Résultat</strong>
-            Chaîne capteur→récepteur→UDP→API validée. Les pertes venaient de l'interface logicielle, non du réseau.
-          </div>
-        </div>
-        <div class="proj-card-image">
-          <img src="https://static.wixstatic.com/media/d6252f_f908fbd05dd5496d8733239dc526897a~mv2.jpg/v1/fill/w_667,h_575,q_90,enc_avif,quality_auto/d6252f_f908fbd05dd5496d8733239dc526897a~mv2.jpg" alt="ePenons Neoline">
-          <div class="proj-card-image-overlay"></div>
-        </div>
-      </div>
-    </a>
-
-    <!-- PROJET 3 : SMS -->
-    <a href="projet-sms.html" class="proj-card fade-up">
-      <div class="proj-card-header">
-        <div class="proj-card-num">3</div>
-        <div class="proj-card-icon-circle">📲</div>
-        <div class="proj-card-titles">
-          <div class="proj-card-title">Alerte SMS via Ewon Flexy</div>
-          <div class="proj-card-context">Alternance · SPIE Industrie · Saint-Herblain</div>
-        </div>
-        <div class="proj-card-cta">Voir le détail →</div>
-      </div>
-      <div class="proj-card-body">
-        <div class="proj-card-content">
-          <p class="proj-card-desc">Système d'alerte préventive par SMS pour détecter les dérives machines avant qu'elles deviennent critiques. Connexion <strong>automate Siemens → Ewon Flexy via OPC-UA</strong>, création des tags, seuils et scénarios d'alerte, envoi SMS via la plateforme Talk2M.</p>
-          <div class="proj-card-tags">
-            <span class="badge">Ewon Flexy</span>
-            <span class="badge">OPC-UA</span>
-            <span class="badge">Talk2M</span>
-            <span class="badge">Siemens TIA Portal</span>
-          </div>
-          <div class="proj-card-result">
-            <strong>✅ Résultat</strong>
-            Alerte préventive opérationnelle. Gains de réactivité mesurables pour la maintenance industrielle.
-          </div>
-        </div>
-        <div class="proj-card-image">
-          <img src="ewon.jpg" alt="Alerte SMS Ewon Flexy">
-          <div class="proj-card-image-overlay"></div>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <!-- PROJETS ACADÉMIQUES -->
-  <section class="academic-section">
-    <div class="section-eyebrow fade-up">BUT GEII · IUT de Nantes</div>
-    <h2 class="section-title fade-up">Projets <span>Académiques</span></h2>
-    <div class="academic-grid">
-      <a href="projet-sae.html#sae1" class="academic-card fade-up">
-        <div class="academic-card-icon">🔌</div>
-        <div class="academic-card-title">SAé 1 — Barrière de Passage à Niveau</div>
-        <div class="academic-card-sub">Semestre 1 · BUT GEII · IUT de Nantes</div>
-        <p class="academic-card-desc">Conception d'une carte électronique pour train miniature — schéma sous KiCad, routage PCB, fabrication, câblage et tests. Dossier technique complet.</p>
-        <div class="academic-card-link">Voir le projet →</div>
-      </a>
-      <a href="projet-sae.html#ppp" class="academic-card fade-up">
-        <div class="academic-card-icon">🎓</div>
-        <div class="academic-card-title">Projet Personnel et Professionnel (PPP)</div>
-        <div class="academic-card-sub">Semestre 1 · BUT GEII · IUT de Nantes</div>
-        <p class="academic-card-desc">Présentation orale du métier de technicien en électronique automobile. Interview d'un alternant chez Naval Group (3ème année BUT GEII).</p>
-        <div class="academic-card-link">Voir le projet →</div>
-      </a>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu" data-mobile-menu>
+      <a data-nav-link href="index.html">Accueil</a>
+      <a data-nav-link href="profil.html">Profil</a>
+      <a data-nav-link href="projets.html">Projets</a>
+      <a data-nav-link href="apprentissage.html">Apprentissage</a>
+      <a data-nav-link href="contact.html">Contact</a>
     </div>
-  </section>
+  </header>
 
-</div>
+  <main id="main-content">
+    <section class="section reveal" data-cursor-track>
+      <div class="eyebrow">Réalisations</div>
+      <h1>Bento grid + filtrage intelligent</h1>
+      <p>Filtre par catégorie et tags techniques pour naviguer rapidement dans les projets.</p>
+      <div class="filter-row" style="margin-top:1rem">
+        <button class="filter-btn" data-filter="all" aria-pressed="true">Tous</button>
+        <button class="filter-btn" data-filter="alternance" aria-pressed="false">Alternance</button>
+        <button class="filter-btn" data-filter="academique" aria-pressed="false">Académique</button>
+        <button class="filter-btn" data-filter="opcua" aria-pressed="false">OPC-UA</button>
+      </div>
+    </section>
 
-<footer>
-  <span class="footer-logo">LC.</span>
-  <span>© 2026 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
-  <div class="footer-links">
-    <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank">LinkedIn</a>
-    <a href="CARVALHO-Leo-CV.pdf" target="_blank">CV PDF</a>
-  </div>
-</footer>
+    <section class="section projects-grid">
+      <article class="card project-card reveal" data-project data-category="alternance" data-tags="airbus retrofit">
+        <h3>Retrofit Mecanolav — Airbus</h3><p>Modernisation PLC/HMI et mise en service.</p>
+        <div class="project-tags"><span class="badge">alternance</span><span class="badge">retrofit</span></div>
+        <div class="button-row"><a class="btn btn-soft" href="projet-retrofit.html">Détails</a><button class="btn btn-primary" data-lightbox-trigger="mecanolav1.jpg" data-lightbox-alt="Retrofit Airbus">Galerie</button></div>
+      </article>
+      <article class="card project-card reveal" data-project data-category="alternance" data-tags="opcua sms">
+        <h3>Alerte SMS Ewon</h3><p>Alerte maintenance préventive via OPC-UA et Talk2M.</p>
+        <div class="project-tags"><span class="badge">alternance</span><span class="badge">opcua</span></div>
+        <div class="button-row"><a class="btn btn-soft" href="projet-sms.html">Détails</a><button class="btn btn-primary" data-lightbox-trigger="ewon.jpg" data-lightbox-alt="Alerte SMS">Galerie</button></div>
+      </article>
+      <article class="card project-card reveal" data-project data-category="alternance" data-tags="udp neoline">
+        <h3>ePenons Neoline</h3><p>Qualification radio et intégration UDP vers automate.</p>
+        <div class="project-tags"><span class="badge">alternance</span><span class="badge">udp</span></div>
+        <div class="button-row"><a class="btn btn-soft" href="projet-epenons.html">Détails</a><button class="btn btn-primary" data-lightbox-trigger="epenon.jpg" data-lightbox-alt="ePenons">Galerie</button></div>
+      </article>
+      <article class="card project-card reveal" data-project data-category="academique" data-tags="pcb iut">
+        <h3>SAÉ 1 — Barrière PN</h3><p>Conception électronique, PCB, tests et intégration.</p>
+        <div class="project-tags"><span class="badge">académique</span><span class="badge">pcb</span></div>
+        <div class="button-row"><a class="btn btn-soft" href="projet-sae.html">Détails</a><button class="btn btn-primary" data-lightbox-trigger="sae1.jpg" data-lightbox-alt="SAE 1">Galerie</button></div>
+      </article>
+      <article class="card project-card reveal" data-project data-category="alternance" data-tags="redundance ntp">
+        <h3>Projet A36</h3><p>Redondance CPU et synchronisation NTP navire.</p>
+        <div class="project-tags"><span class="badge">alternance</span><span class="badge">temps-réel</span></div>
+        <div class="button-row"><a class="btn btn-soft" href="projet-a36.html">Détails</a><button class="btn btn-primary" data-lightbox-trigger="a36_1.jpg" data-lightbox-alt="A36">Galerie</button></div>
+      </article>
+    </section>
 
-<script src="main.js"></script>
+    <p class="empty-state" data-empty-projects hidden>Aucun projet ne correspond à ce filtre.</p>
+  </main>
+
+  <aside class="lightbox" data-lightbox aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="btn btn-soft lightbox-close" data-lightbox-close aria-label="Fermer">Fermer</button>
+      <img data-lightbox-image src="" alt="Aperçu projet">
+    </div>
+  </aside>
+
+  <footer class="footer"><div class="footer-inner"><span>© <span id="year">2026</span> Léo Carvalho</span></div></footer>
+  <script src="js/core.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/interactions.js" defer></script>
 </body>
 </html>
