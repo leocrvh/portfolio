@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://leocrvh.github.io/portfolio/sitemap.xml
