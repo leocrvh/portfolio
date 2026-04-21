@@ -370,6 +370,7 @@ body { animation: pageFadeIn .3s ease forwards; }
 /* ─── SCROLL TO TOP ──────────────────────────────────────── */
 .scroll-top {
   position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
+  --scroll-top-base-offset: 2rem;
   width: 44px; height: 44px; border-radius: 12px;
   background: var(--accent); color: #fff;
   border: none; cursor: pointer;
@@ -377,7 +378,8 @@ body { animation: pageFadeIn .3s ease forwards; }
   font-size: 1.1rem; font-weight: 700;
   box-shadow: 0 4px 16px rgba(193,123,63,.35);
   opacity: 0; transform: translateY(10px);
-  transition: opacity .3s ease, transform .3s ease, background .2s;
+  bottom: calc(var(--scroll-top-base-offset) + var(--scroll-top-dynamic-offset, 0px));
+  transition: opacity .3s ease, transform .3s ease, background .2s, bottom .2s ease;
   pointer-events: none;
 }
 .scroll-top.visible {
@@ -390,6 +392,10 @@ body { animation: pageFadeIn .3s ease forwards; }
 
 /* ─── MOBILE FIXES ───────────────────────────────────────── */
 @media (max-width: 768px) {
+  .page-content,
+  .page-content * {
+    min-width: 0;
+  }
   .page-content .page-hero,
   .page-content .projects-list,
   .page-content .academic-section,
@@ -428,6 +434,16 @@ body { animation: pageFadeIn .3s ease forwards; }
     font-size: .95rem;
     line-height: 1.75;
   }
+  .page-content .proj-card-title,
+  .page-content .btn,
+  .page-content code {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .page-content .proj-card-title {
+    white-space: normal;
+    text-overflow: initial;
+  }
   .page-content .proj-breadcrumb {
     flex-wrap: wrap;
     row-gap: .2rem;
@@ -449,7 +465,7 @@ body { animation: pageFadeIn .3s ease forwards; }
     padding-left: 1rem; padding-right: 1rem;
   }
   .scroll-top {
-    bottom: calc(env(safe-area-inset-bottom) + 1rem);
+    --scroll-top-base-offset: calc(env(safe-area-inset-bottom) + 1rem);
     right: 1rem;
     width: 38px;
     height: 38px;

@@ -103,12 +103,14 @@ window.addEventListener('scroll', () => {
   btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
   function updateScrollTopVisibility() {
     const farFromTop = window.scrollY > 400;
-    let nearFooter = false;
+    let dynamicOffset = 0;
     if (footer) {
       const footerRect = footer.getBoundingClientRect();
-      nearFooter = footerRect.top < window.innerHeight - (btn.offsetHeight + 24);
+      const triggerLine = window.innerHeight - 16;
+      dynamicOffset = Math.max(0, Math.ceil(triggerLine - footerRect.top));
     }
-    btn.classList.toggle('visible', farFromTop && !nearFooter);
+    btn.style.setProperty('--scroll-top-dynamic-offset', dynamicOffset + 'px');
+    btn.classList.toggle('visible', farFromTop);
   }
   window.addEventListener('scroll', updateScrollTopVisibility, { passive: true });
   window.addEventListener('resize', updateScrollTopVisibility);
