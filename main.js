@@ -21,9 +21,35 @@ themeBtn && themeBtn.addEventListener('click', () => {
     const href = a.getAttribute('href').split('/').pop();
     if (href === path || (path === '' && href === 'index.html')) {
       a.classList.add('active');
+      a.setAttribute('aria-current', 'page');
+    } else {
+      a.removeAttribute('aria-current');
     }
   });
 })();
+
+// ── External links security ───────────────────────────
+document.querySelectorAll('a[target="_blank"]').forEach(a => {
+  const rel = new Set((a.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
+  rel.add('noopener');
+  rel.add('noreferrer');
+  a.setAttribute('rel', Array.from(rel).join(' '));
+});
+
+// ── Accessibility helpers ─────────────────────────────
+document.querySelectorAll('button').forEach(btn => {
+  if (btn.hasAttribute('aria-label')) return;
+  const txt = (btn.textContent || '').trim();
+  if (txt === '✕') btn.setAttribute('aria-label', 'Fermer');
+});
+
+// ── Image loading optimizations ───────────────────────
+document.querySelectorAll('img').forEach(img => {
+  if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
+  if (!img.hasAttribute('loading') && !img.closest('.hero, .profil-hero, .contact-grid')) {
+    img.setAttribute('loading', 'lazy');
+  }
+});
 
 // ── Mobile Menu ──────────────────────────────────────
 const burger = document.getElementById('burger');

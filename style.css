@@ -3,7 +3,6 @@
    ═══════════════════════════════════════════════════ */
 
 /* ─── GOOGLE FONTS ──────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
 
 /* ─── TOKENS ─────────────────────────────────────────── */
 :root {
@@ -21,7 +20,7 @@
   --bg3:       #221f1a;
   --border:    rgba(193,123,63,.18);
   --text:      #F0EDE8;
-  --muted:     #7A7065;
+  --muted:     #B6A99B;
   --card:      #1A1714;
   --card-h:    #211e19;
   --nav-bg:    rgba(15,14,12,.88);
@@ -59,6 +58,10 @@ body {
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
 
 /* ─── NAV ────────────────────────────────────────────── */
 nav {
@@ -380,42 +383,6 @@ body { animation: pageFadeIn .3s ease forwards; }
 .scroll-top.visible {
   opacity: 1; transform: none; pointer-events: auto;
 }
-.scroll-top:hover { background: var(--accent2); transform: translateY(-2px); }
-
-/* ─── PAGE FADE TRANSITION ───────────────────────────────── */
-/* IMPORTANT: Never put transform on body — it breaks position:fixed (lightbox, nav)  */
-/* Fade only on body (opacity), translateY only on .page-content                     */
-body { animation: pageFadeIn .3s ease forwards; }
-@keyframes pageFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-/* page-content: opacity only, no transform - transform breaks fixed children */
-.page-content { animation: contentSlideIn .3s ease forwards; }
-@keyframes contentSlideIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-.page-leaving { animation: pageFadeOut .22s ease forwards; }
-@keyframes pageFadeOut {
-  from { opacity: 1; }
-  to   { opacity: 0; }
-}
-
-/* ─── SCROLL TO TOP ──────────────────────────────────────── */
-.scroll-top {
-  position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
-  width: 44px; height: 44px; border-radius: 12px;
-  background: var(--accent); color: #fff;
-  border: none; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; font-weight: 700;
-  box-shadow: 0 4px 16px rgba(193,123,63,.35);
-  opacity: 0; transform: translateY(10px);
-  transition: opacity .3s ease, transform .3s ease, background .2s;
-  pointer-events: none;
-}
-.scroll-top.visible { opacity: 1; transform: none; pointer-events: auto; }
 .scroll-top:hover { background: var(--accent2); transform: translateY(-2px); }
 
 /* ─── LIGHTBOX ISOLATION ─────────────────────────────────── */
