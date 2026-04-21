@@ -95,14 +95,24 @@ window.addEventListener('scroll', () => {
 // ── Scroll-to-top button ────────────────────────────────
 (function() {
   const btn = document.createElement('button');
+  const footer = document.querySelector('footer');
   btn.className = 'scroll-top';
   btn.setAttribute('aria-label', 'Retour en haut');
   btn.textContent = '↑';
   document.body.appendChild(btn);
   btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-  window.addEventListener('scroll', function() {
-    btn.classList.toggle('visible', window.scrollY > 400);
-  }, { passive: true });
+  function updateScrollTopVisibility() {
+    const farFromTop = window.scrollY > 400;
+    let nearFooter = false;
+    if (footer) {
+      const footerRect = footer.getBoundingClientRect();
+      nearFooter = footerRect.top < window.innerHeight - (btn.offsetHeight + 24);
+    }
+    btn.classList.toggle('visible', farFromTop && !nearFooter);
+  }
+  window.addEventListener('scroll', updateScrollTopVisibility, { passive: true });
+  window.addEventListener('resize', updateScrollTopVisibility);
+  updateScrollTopVisibility();
 })();
 
 // ── Page fade transition ─────────────────────────────────
