@@ -16,7 +16,7 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:image:alt" content="Portfolio de Léo Carvalho">
   <meta name="twitter:title" content="Projet A36 — Orient Express Corinthian — Léo Carvalho">
-  <meta name="twitter:description" content="Synchronisation NTP et redondance automates S7-1515R sur le paquebot Orient Express Corinthian aux Chantiers de l'Atlantique.">
+  <meta name="twitter:description" content="Rapport final BUT3 : synchronisation NTP, communications NMEA0183 et jumeau numérique — automates redondants S7-1515R sur l'Orient Express Corinthian (Chantiers de l'Atlantique).">
   <meta name="twitter:image" content="https://leocrvh.github.io/portfolio/photo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,10 +25,10 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"></noscript>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <title>Projet A36 — Orient Express Corinthian — Léo Carvalho</title>
-<meta name="description" content="Synchronisation NTP et redondance automates S7-1515R sur le paquebot Orient Express Corinthian aux Chantiers de l'Atlantique. SPIE Industrie.">
+<meta name="description" content="Rapport final BUT3 : synchronisation NTP, communications NMEA0183 et jumeau numérique sur l'Orient Express Corinthian aux Chantiers de l'Atlantique. SPIE Industrie.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Projet A36 — Orient Express Corinthian — Léo Carvalho">
-<meta property="og:description" content="Synchronisation NTP et redondance automates S7-1515R sur le paquebot Orient Express Corinthian aux Chantiers de l'Atlantique.">
+<meta property="og:description" content="Rapport final BUT3 : synchronisation NTP, communications NMEA0183 et jumeau numérique — automates redondants S7-1515R sur l'Orient Express Corinthian (Chantiers de l'Atlantique).">
 <meta property="og:image" content="https://leocrvh.github.io/portfolio/photo.png">
 <meta property="og:url" content="https://leocrvh.github.io/portfolio/projet-a36.html">
 <meta property="og:site_name" content="Léo Carvalho — Portfolio">
@@ -92,7 +92,15 @@
 .context-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.3rem 1.5rem;margin-bottom:1.5rem;border-left:3px solid var(--accent2);}
 .context-box-label{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:.5rem;}
 .context-box-text{font-size:.88rem;color:var(--muted);line-height:1.6;}
-@media(max-width:900px){.proj-detail-body{grid-template-columns:1fr;}.proj-sidebar{order:-1;}.proj-summary-strip{grid-template-columns:1fr 1fr;}.gallery-grid{grid-template-columns:1fr 1fr;}}
+/* Phase track — mi-parcours → rapport final → prolongement */
+.phase-track{display:flex;align-items:stretch;gap:.6rem;margin-top:1.6rem;}
+.phase-step{flex:1;display:flex;align-items:flex-start;gap:.7rem;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.85rem 1rem;}
+.phase-num{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:.72rem;display:flex;align-items:center;justify-content:center;}
+.phase-body{min-width:0;}
+.phase-tag{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin-bottom:.2rem;}
+.phase-title{font-size:.84rem;font-weight:600;line-height:1.4;}
+.phase-connector{flex:0 0 24px;display:flex;align-items:center;justify-content:center;color:var(--accent2);opacity:.6;font-size:1rem;}
+@media(max-width:900px){.proj-detail-body{grid-template-columns:1fr;}.proj-sidebar{order:-1;}.proj-summary-strip{grid-template-columns:1fr 1fr;}.gallery-grid{grid-template-columns:1fr 1fr;}.phase-track{flex-direction:column;}.phase-connector{transform:rotate(90deg);padding:.1rem 0;}}
 @media(max-width:560px){.gallery-grid{grid-template-columns:1fr;}.proj-summary-strip{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -144,22 +152,48 @@
       <a href="projets.html">← Tous les projets</a>
       <span>/</span><span>Projet A36</span>
     </div>
-    <div class="section-eyebrow fade-up">Alternance · SPIE Industrie · Chantiers de l'Atlantique</div>
+    <div class="section-eyebrow fade-up">Alternance BUT3 · SPIE Industrie · Chantiers de l'Atlantique</div>
     <h1 class="proj-detail-title fade-up">Projet A36 — <span style="color:var(--accent)">Orient Express Corinthian</span></h1>
-    <p class="proj-detail-sub fade-up">⚓ Synchronisation NTP · Redondance automates · Paquebot à voiles automatisées</p>
+    <p class="proj-detail-sub fade-up">⚓ Synchronisation NTP · Communications NMEA0183 · Jumeau numérique — rapport final de BUT3</p>
     <div class="proj-meta fade-up">
       <span class="badge">Siemens TIA Portal</span>
       <span class="badge">S7-1515R-2 PN</span>
       <span class="badge">NTP / SNTP</span>
+      <span class="badge">NMEA0183</span>
       <span class="badge">Redondance CPU</span>
-      <span class="badge">PROFINET</span>
+      <span class="badge">Jumeau numérique</span>
       <span class="badge badge-accent">Chantiers de l'Atlantique</span>
     </div>
     <div class="proj-summary-strip fade-up">
       <div class="proj-summary-cell"><div class="proj-summary-cell-label">Navire</div><div class="proj-summary-cell-val">Orient Express Corinthian</div></div>
+      <div class="proj-summary-cell"><div class="proj-summary-cell-label">Missions</div><div class="proj-summary-cell-val">NTP · NMEA0183</div></div>
       <div class="proj-summary-cell"><div class="proj-summary-cell-label">Automates</div><div class="proj-summary-cell-val">2× S7-1515R-2 PN</div></div>
-      <div class="proj-summary-cell"><div class="proj-summary-cell-label">Protocole temps</div><div class="proj-summary-cell-val">NTP (LSNTP_Server)</div></div>
-      <div class="proj-summary-cell"><div class="proj-summary-cell-label">Site</div><div class="proj-summary-cell-val">Saint-Nazaire</div></div>
+      <div class="proj-summary-cell"><div class="proj-summary-cell-label">Départ chantier</div><div class="proj-summary-cell-val">2 mai 2026</div></div>
+    </div>
+    <div class="phase-track fade-up">
+      <div class="phase-step">
+        <div class="phase-num">✓</div>
+        <div class="phase-body">
+          <div class="phase-tag">Mi-parcours</div>
+          <div class="phase-title">Architecture redondante &amp; synchronisation NTP</div>
+        </div>
+      </div>
+      <div class="phase-connector">→</div>
+      <div class="phase-step">
+        <div class="phase-num">✓</div>
+        <div class="phase-body">
+          <div class="phase-tag">Rapport final</div>
+          <div class="phase-title">NMEA0183 (vent &amp; navigation)</div>
+        </div>
+      </div>
+      <div class="phase-connector">→</div>
+      <div class="phase-step">
+        <div class="phase-num">✓</div>
+        <div class="phase-body">
+          <div class="phase-tag">Prolongement</div>
+          <div class="phase-title">Jumeau numérique — plateforme de simulation</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -169,52 +203,67 @@
       <!-- CONTEXT BOX -->
       <div class="context-box fade-up">
         <div class="context-box-label">Contexte exceptionnel</div>
-        <div class="context-box-text">L'<strong>Orient Express Corinthian</strong> est le premier paquebot de croisière à voile commerciale grande échelle au monde, en construction aux <strong>Chantiers de l'Atlantique à Saint-Nazaire</strong>. Ses voiles rigides automatisées sont pilotées intégralement par automates — un sous-système critique qui ne doit jamais s'interrompre.</div>
+        <div class="context-box-text">L'<strong>Orient Express Corinthian</strong> (220 m), construit par les <strong>Chantiers de l'Atlantique</strong> à Saint-Nazaire, est aujourd'hui le plus grand voilier de ce type en exploitation. Baptisé le 29 avril 2026, il a quitté le chantier le 2 mai 2026 pour rejoindre Lisbonne. Ses trois gréements SolidSail — environ 4 500 m² de voile au total, mâts carbone proches de 100 m — sont pilotés intégralement par une paire d'automates Siemens redondants, un sous-système critique qui ne doit jamais s'interrompre. Lors des essais en mer de février 2026, le navire a atteint environ 12 nœuds sous voiles seules par 20 nœuds de vent.</div>
       </div>
 
       <div class="proj-section-title fade-up">📋 Contexte du projet</div>
-      <p class="proj-text fade-up">Le projet A36 porte sur la mise en cohérence de l'automatisation des voiles rigides de l'Orient Express Corinthian. Ces voiles doivent s'orienter automatiquement, se coordonner entre elles et se mettre en sécurité en cas de conditions défavorables. L'ensemble repose sur des automates Siemens S7-1515R-2 PN qui échangent en permanence des données.</p>
-      <p class="proj-text fade-up">Deux problématiques centrales structurent le projet : <strong>la cohérence temporelle</strong> (tous les équipements partagent la même heure pour une traçabilité fiable) et <strong>la continuité de service</strong> (le système doit rester opérationnel même en cas de défaillance d'un automate).</p>
+      <p class="proj-text fade-up">Le projet A36 porte sur l'automatisation des trois gréements de l'Orient Express Corinthian, pilotés par une paire d'automates Siemens <strong>S7-1515R-2 PN</strong> (PLC_Mast_A / PLC_Mast_B) fonctionnant en redondance — les deux CPU partagent le même programme et doivent rester cohérentes lors des changements de rôle primaire/secondaire. <strong>Cette page couvre l'ensemble de ma dernière année sur le projet</strong> : la synchronisation NTP ci-dessous a fait l'objet de mon rapport de mi-parcours ; les communications NMEA0183 et le prolongement autour d'un jumeau numérique, détaillés plus bas, sont le contenu de mon rapport final.</p>
+      <p class="proj-text fade-up">Le pilotage des gréements ne peut pas être considéré indépendamment : il doit rester cohérent lors d'un basculement entre automates, tout en intégrant en continu les données transmises par le navire (vent, navigation) pour adapter l'orientation des voiles.</p>
 
       <div class="proj-section-title fade-up">🎯 Objectifs</div>
       <ul class="proj-list fade-up">
-        <li>Mettre en place une <strong>synchronisation horaire centralisée via NTP</strong> — tous les automates partagent une référence de temps commune</li>
-        <li>Garantir la <strong>continuité de service</strong> via deux automates redondants (primaire / secondaire)</li>
-        <li>Assurer un <strong>basculement automatique</strong> transparent lors d'une défaillance du primaire</li>
-        <li>Proposer une <strong>organisation logicielle modulaire</strong> sous TIA Portal, lisible et maintenable par plusieurs automaticiens</li>
+        <li>Garantir une <strong>référence de temps unique</strong> entre les deux automates redondants et la supervision, avec basculement primaire/secondaire transparent (NTP)</li>
+        <li>Rendre exploitables par le programme les <strong>données de vent et de navigation</strong> transmises par le navire au format NMEA0183</li>
+        <li>Développer un <strong>outil de test indépendant du navire</strong> pour préparer les mises en service et le diagnostic (jumeau numérique)</li>
       </ul>
 
-      <div class="proj-section-title fade-up">🔧 Ce que j'ai réalisé</div>
+      <div class="proj-section-title fade-up">🕐 Synchronisation NTP &amp; redondance</div>
+      <p class="proj-text fade-up">Première mission de l'année, validée lors de mon rapport de mi-parcours : garantir une référence horaire commune entre les deux automates, quel que soit celui des deux qui est primaire à un instant donné — condition nécessaire pour pouvoir comparer les événements enregistrés dans les automates et sur la supervision lors d'un diagnostic.</p>
       <ul class="proj-list fade-up">
-        <li><strong>Architecture réseau</strong> — deux sous-réseaux distincts : PN/IE_Int (communications internes, 192.168.0.xx) et PN/IE_Ext (synchronisation NTP, 10.10.10.xx)</li>
-        <li><strong>Organisation logicielle TIA Portal</strong> — structure modulaire 00.System / 01.FC / 02.DB / 03.FB, lisible par toute l'équipe</li>
-        <li><strong>Bloc FC_PrimaryID</strong> — utilisation de l'instruction <code>RH_GetPrimaryID</code> pour identifier dynamiquement quel automate est actif</li>
-        <li><strong>Bloc FC_SNTP</strong> — activation du serveur NTP <em>uniquement</em> sur l'automate primaire, sélection dynamique de l'interface réseau selon le rôle actif</li>
-        <li><strong>Gestion des basculements</strong> — détection du changement de primaire, redémarrage contrôlé du service NTP avec temporisateur anti-rebond</li>
-        <li><strong>Tests sur banc B36</strong> représentatif du système réel — validation de la synchronisation, des basculements et de la chaîne complète jusqu'au PC de supervision</li>
-        <li><strong>Intégration sur le système A36 réel</strong> à bord du navire via l'automaticien de l'agence Montoir</li>
+        <li><strong>Banc de test représentatif</strong> monté et configuré à Saint-Herblain à partir de matériel du projet B36 : 2× S7-1515R-2 PN, une CPU 1512SP-1 PN simulant la source horaire du navire, 2× switchs SCALANCE XC216-4C, deux réseaux séparés PN/IE_Int (192.168.0.xx, échanges internes) et PN/IE_Ext (10.10.10.xx, synchronisation)</li>
+        <li><strong>FC_RH</strong> (appelée depuis Main [OB1]) orchestrant <strong>FC_PrimaryID</strong> — instruction Siemens <code>RH_GetPrimaryID</code> identifiant l'automate primaire — puis <strong>FC_SNTP</strong>, qui pilote le bloc <code>LSNTP_Server</code> sur l'interface réseau correspondante</li>
+        <li>Diagnostic d'un défaut de basculement : le service NTP ne reprenait pas toujours correctement après un changement de primaire → détection du changement par comparaison cycle à cycle, puis redémarrage contrôlé avec temporisation anti-rebond</li>
+        <li>Second défaut identifié côté PC de supervision (service <strong>Windows Time</strong> à réinstaller/reconfigurer), puis script de resynchronisation périodique automatique mis en place au printemps 2026</li>
+        <li>Solution présentée à l'équipe du Département Marine et intégrée dans le programme master A36 début 2026, validation confirmée sans nouvelle correction nécessaire</li>
       </ul>
 
-      <div class="proj-section-title fade-up">🏗️ Architecture technique</div>
-      <p class="proj-text fade-up">Le banc repose sur deux automates redondants <strong>S7-1515R-2 PN</strong> (PLC_Mast_A et PLC_Mast_B), une CPU 1512SP-1 PN jouant le rôle de serveur NTP, deux switchs industriels SCALANCE XC216-4C interconnectés en anneau PROFINET, et un PC de supervision. L'anneau garantit la continuité des communications en cas de rupture d'un lien.</p>
-      <p class="proj-text fade-up">Le principe retenu : <strong>un seul automate diffuse l'heure à la fois</strong>. Lorsque le rôle bascule, le programme identifie le nouveau primaire, change l'interface réseau active et relance proprement le service NTP — sans qu'aucune incohérence ne soit visible côté supervision.</p>
+      <div class="proj-section-title fade-up">🧭 Communications NMEA0183</div>
+      <p class="proj-text fade-up">Mission suivante : rendre exploitables par le programme A36 les données transmises par le navire au format <strong>NMEA0183</strong>, un flux série de trames texte séparées par virgules (par exemple <code>$IIMWV,315.0,R,000.0,N,A*3A</code>) portant d'abord les informations de vent, puis, une fois développées, celles de navigation.</p>
+      <ul class="proj-list fade-up">
+        <li>Liaison série configurée sur un module <strong>CM PtP</strong> (ET200SP) — RS422 full duplex 4 fils, 4800 bauds, 8N1, mode Freeport avec trame reconnue entre <code>$</code> et CR LF</li>
+        <li>Bloc <strong>FB_Trames</strong>, générique et réutilisable, développé pour reconstruire les chaînes de caractères à partir du flux d'octets brut (<code>Receive_P2P</code>) — paramétrable par nombre de trames attendues, sans connaître leur contenu ; repris tel quel entre l'anémomètre (4 trames) et la navigation (6 trames)</li>
+        <li>Décodage anémomètre : trames <strong>MWV</strong> (angle/vitesse du vent) et <strong>XDR</strong> (température), extraites par repérage des virgules</li>
+        <li>Décodage navigation, développé directement à bord une fois les trames réelles connues : bloc <strong>FB_Decode_NAV</strong> traitant six phrases (<strong>HDT, ROT, VBW, MWD, MWV, VTG</strong>) pour alimenter cap, vitesses et vent vrai (HDG, STW, COG, SOG, TWS, TWA) dans la structure NauticalData.Ship</li>
+        <li>Défaut de trames manquantes diagnostiqué méthodiquement : compteur de réception et signal NDR ont permis d'écarter une erreur de programme, avant d'identifier la vraie cause — le paramètre <em>Message Timeout</em> du CM PtP, remonté de 500 ms à <strong>1000 ms</strong> pour une réception stable</li>
+        <li>Validation progressive sous <strong>PLCSIM Advanced</strong> puis en ligne à bord avec Ewen Jegou et Tom Pogu, jusqu'à intégration dans la partie 95.Communication du programme master (95.12 - NMEA_NAV)</li>
+      </ul>
+
+      <div class="proj-section-title fade-up">🪞 Prolongement : jumeau numérique</div>
+      <p class="proj-text fade-up">Après le départ du navire, plutôt que de clore le projet, l'équipe du Département Marine — à l'initiative de Guillaume Brancata — m'a confié un prolongement : construire une plateforme capable de reproduire au bureau une partie du comportement d'A36, pour préparer les mises en service, présenter la supervision au client et rejouer un défaut constaté en mer sans dépendre de la disponibilité du navire.</p>
+      <ul class="proj-list fade-up">
+        <li>Développée sur la maquette <strong>B36</strong> complète installée à Montoir-de-Bretagne (le matériel du banc NTP initial, depuis intégré dans un environnement plus complet), en binôme avec <strong>Lena Furic</strong> — elle développait la supervision de simulation pendant que je portais les adaptations du programme automate</li>
+        <li>Bit de commutation <strong>Sim_Comut</strong> et bloc de données <strong>DBI_Simulation</strong> centralisant les variables simulables (anémomètres, giration, défauts), organisées par fonction</li>
+        <li>Fonction principale <strong>FC_Jumeau_numérique</strong> [FC53] et FB dédiés (<strong>Anemo_Sim, Giration_Sim, Fault_ATR1_Sim, Fault_ATR2_Sim, Fault_MastHouse_Sim</strong>), regroupés dans un dossier dédié du programme pour ne pas mélanger essais et fonctionnement réel</li>
+        <li>Chaîne testée de bout en bout — supervision de simulation → DBI_Simulation → blocs de simulation → programme A36 → supervision réelle A36 : une valeur modifiée côté simulation (ex. direction de vent, position de giration) se retrouve correctement affichée côté supervision réelle</li>
+        <li>Principe validé sur la maquette complète à Montoir ; limites assumées (pas de simulation physique/mécanique complète des gréements) et posées comme base d'évolution pour de futurs projets du Département Marine</li>
+      </ul>
 
       <div class="result-box fade-up">
         <div class="result-box-title">✅ Résultats obtenus</div>
         <ul class="proj-list" style="margin-bottom:0">
-          <li>Synchronisation horaire <strong>validée</strong> entre les deux automates redondants et le serveur NTP simulé</li>
-          <li>Basculements primaire/secondaire <strong>transparents</strong> — aucune interruption de la diffusion de l'heure</li>
-          <li>Chaîne complète serveur NTP → automates redondants → PC supervision <strong>opérationnelle</strong></li>
-          <li>Solution <strong>intégrée sur le système A36 réel</strong> à bord du navire avant les essais à quai et en mer</li>
+          <li>Synchronisation <strong>NTP</strong> validée et opérationnelle malgré les basculements primaire/secondaire, jusqu'à la supervision (automates et PC Windows)</li>
+          <li>Chaîne <strong>NMEA0183</strong> complète, du flux série brut aux variables exploitables (cap, vitesses, vent), validée à bord ; bloc FB_Trames conçu pour être réutilisable sur un futur équipement série</li>
+          <li>Principe du <strong>jumeau numérique</strong> validé sur la maquette B36 — une première base réutilisable pour les futurs projets du Département Marine</li>
+          <li>Ensemble intégré au master A36 à bord de l'Orient Express Corinthian avant son départ des Chantiers de l'Atlantique le 2 mai 2026</li>
         </ul>
       </div>
 
       <div class="proj-section-title fade-up">📚 Compétences BUT GEII mobilisées</div>
       <ul class="proj-list fade-up">
-        <li><strong>Concevoir</strong> — analyse du besoin, architecture réseau, organisation logicielle</li>
-        <li><strong>Intégrer</strong> — insertion dans un programme collaboratif multi-automaticiens, gestion de versions OneDrive</li>
-        <li><strong>Vérifier</strong> — tests progressifs sur banc représentatif, validation basculements et supervision</li>
-        <li><strong>Maintenir</strong> — code modulaire lisible, structuration facilitant les évolutions futures</li>
+        <li><strong>Concevoir</strong> — architecture NTP adaptée à la redondance, traitement générique réutilisable entre deux équipements série différents (FB_Trames), puis architecture de test qui ne modifie pas le programme réel (jumeau numérique)</li>
+        <li><strong>Vérifier</strong> — bancs de test représentatifs avant toute intervention sur le navire, basculements provoqués volontairement, diagnostic méthodique par élimination des hypothèses (ex. Message Timeout du CM PtP)</li>
+        <li><strong>Maintenir</strong> — code commenté, blocs génériques documentés pour être repris par un autre automaticien, recherche systématique de la cause racine plutôt que du correctif rapide</li>
+        <li><strong>Intégrer</strong> — insertion dans un programme collaboratif (Ewen Jegou, Tom Pogu, Guillaume Brancata, Lena Furic), gestion des versions par archives, tests de non-régression avant chaque intégration au master</li>
       </ul>
 
     </div>
@@ -229,7 +278,9 @@
           <span class="badge">CPU 1512SP-1 PN</span>
           <span class="badge">NTP / LSNTP_Server</span>
           <span class="badge">RH_GetPrimaryID</span>
-          <span class="badge">PROFINET</span>
+          <span class="badge">ET200SP · CM PtP</span>
+          <span class="badge">NMEA0183</span>
+          <span class="badge">PLCSIM Advanced</span>
           <span class="badge">SCALANCE XC216</span>
         </div>
       </div>
@@ -238,9 +289,10 @@
         <div class="sidebar-stack">
           <span class="badge badge-accent">Redondance automates</span>
           <span class="badge badge-accent">Synchronisation NTP</span>
+          <span class="badge badge-accent">Communications série NMEA0183</span>
+          <span class="badge badge-accent">Diagnostic &amp; dépannage</span>
           <span class="badge badge-accent">Architecture réseau</span>
-          <span class="badge badge-accent">TIA Portal avancé</span>
-          <span class="badge badge-accent">Tests validation</span>
+          <span class="badge badge-accent">Jumeau numérique</span>
           <span class="badge badge-accent">Travail collaboratif</span>
           <span class="badge badge-accent">Milieu naval</span>
         </div>
@@ -248,6 +300,7 @@
       <div class="sidebar-card fade-up">
         <div class="sidebar-card-title">Documents</div>
         <div style="display:flex;flex-direction:column;gap:.5rem;">
+          <a href="CARVALHO_Leo_Rapport-final.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="width:100%;justify-content:space-between;font-size:.78rem;">📄 Rapport final BUT3 <span>↓</span></a>
           <a href="CARVALHO_Leo_Rapport-mi-parcours.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="width:100%;justify-content:space-between;font-size:.78rem;">📄 Rapport mi-parcours <span>↓</span></a>
         </div>
       </div>
@@ -271,7 +324,7 @@
         <img src="a36_1.jpg" alt="Orient Express Corinthian" width="640" height="500" loading="lazy">
         <div class="gallery-item-hint"><span>🔍 Agrandir</span></div>
       </div>
-      <div class="gallery-item fade-up" onclick="openLightbox('a36_2.png','Banc B36')">
+      <div class="gallery-item fade-up" onclick="openLightbox('a36_2.png','Banc B36 — tests NTP puis jumeau numérique')">
         <img src="a36_2.png" alt="Banc B36" width="355" height="372" loading="lazy">
         <div class="gallery-item-hint"><span>🔍 Agrandir</span></div>
       </div>
