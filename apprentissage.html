@@ -146,10 +146,18 @@
 .cal-card-year { font-size: .8rem; color: var(--muted); }
 .cal-img { width: 100%; display: block; }
 
+/* Soutenance / Présentation */
+.soutenance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.soutenance-card { background: var(--bg3); border-radius: 12px; padding: 1.4rem; display: flex; flex-direction: column; }
+.soutenance-card-icon { font-size: 1.6rem; margin-bottom: .5rem; }
+.soutenance-card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: .95rem; margin-bottom: .3rem; }
+.soutenance-card-desc { font-size: .82rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; flex-grow: 1; }
+
 @media (max-width: 900px) {
   .spie-grid { grid-template-columns: 1fr; }
   .modules-grid { grid-template-columns: 1fr 1fr; }
   .cal-grid { grid-template-columns: 1fr; }
+  .soutenance-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) { .modules-grid { grid-template-columns: 1fr; } }
 </style>
@@ -347,6 +355,42 @@
         </div>
         <img class="cal-img" src="https://static.wixstatic.com/media/d6252f_171dab7bd62948e089f5d97c9e64c4bf~mv2.jpg/v1/fill/w_378,h_283,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/GEII_CALENDRIER%20PROVISOIRE_BUT%20GEII_3_Ann%C3%A9e%202025-2026_1_page-0001.jpg" alt="Calendrier 2025-2026" width="378" height="283" loading="lazy">
         <div class="cal-expand-hint">🔍 Cliquer pour agrandir</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOUTENANCE / PRÉSENTATION -->
+  <section class="formation-section" id="soutenance">
+    <div class="section-eyebrow fade-up">Validation BUT3 · Août 2026</div>
+    <h2 class="section-title fade-up">Soutenance <span>& Présentation</span></h2>
+
+    <div class="formation-detail fade-up">
+      <div class="formation-header">
+        <div>
+          <div class="formation-title">Diaporama de soutenance &amp; portfolio de compétences</div>
+          <div class="formation-sub">Livrables de fin de BUT3 · IUT de Nantes</div>
+        </div>
+      </div>
+      <div class="formation-body">
+        <p class="formation-desc">
+          En complément de mon <a href="projet-a36.html" style="color:var(--accent);font-weight:600;">rapport final</a>, la validation de mon BUT3 s'appuie sur un diaporama de présentation devant le jury et sur mon portfolio de compétences — le document de suivi du référentiel AII (Concevoir, Vérifier, Maintenir, Intégrer) demandé par l'IUT, partagé via Uncloud, l'espace de stockage collaboratif de l'université.
+        </p>
+        <div class="soutenance-grid">
+          <div class="soutenance-card">
+            <div class="soutenance-card-icon">📊</div>
+            <div class="soutenance-card-title">Diaporama de soutenance</div>
+            <div class="soutenance-card-desc">Support de présentation du projet A36 devant le jury de BUT3.</div>
+            <!-- Léo : une fois le PDF exporté sous le nom CARVALHO_Leo_Diaporama-final.pdf et déposé dans le repo à côté des autres PDF, remplace le <span> juste en dessous par :
+            <a href="CARVALHO_Leo_Diaporama-final.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:.8rem;width:100%;justify-content:center;">📄 Télécharger le diaporama</a> -->
+            <span class="btn btn-outline" style="font-size:.8rem;width:100%;justify-content:center;opacity:.55;cursor:default;pointer-events:none;">📄 Bientôt disponible</span>
+          </div>
+          <div class="soutenance-card">
+            <div class="soutenance-card-icon">🗂️</div>
+            <div class="soutenance-card-title">Portfolio de compétences</div>
+            <div class="soutenance-card-desc">Suivi des compétences AII (Concevoir · Vérifier · Maintenir · Intégrer), au format Excel.</div>
+            <a href="https://uncloud.univ-nantes.fr/index.php/s/KKmiWCP8gWsdR6N" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:.8rem;width:100%;justify-content:center;">🔗 Consulter sur Uncloud</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
