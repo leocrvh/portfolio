@@ -71,8 +71,9 @@
 .proj-text{font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:.9rem;}
 .proj-text strong{color:var(--text);}
 .proj-list{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1rem;}
-.proj-list li{display:flex;gap:.55rem;font-size:.88rem;color:var(--muted);line-height:1.55;}
-.proj-list li::before{content:'▸';color:var(--accent);flex-shrink:0;margin-top:.05rem;}
+.proj-list li{display:block;position:relative;padding-left:1.2rem;list-style:none;font-size:.88rem;color:var(--muted);line-height:1.6;}
+.proj-list li::before{content:'▸';color:var(--accent);position:absolute;left:0;top:0;}
+.proj-list code,.proj-text code{background:var(--bg3);padding:.1em .4em;border-radius:4px;font-size:.85em;color:var(--accent2);}
 .result-box{background:linear-gradient(135deg,rgba(193,123,63,.08),rgba(212,149,106,.03));border:1px solid rgba(193,123,63,.28);border-radius:12px;padding:1.4rem;margin:1.5rem 0;}
 .result-box-title{font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;color:var(--accent);margin-bottom:.7rem;}
 /* Sidebar */
@@ -135,7 +136,7 @@
   </div>
   <div class="mobile-menu-footer">
     <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
-    <a href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer">📄 CV</a>
+    <a class="doc-locked" href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer">📄 CV</a>
   </div>
 </div>
 
@@ -267,7 +268,7 @@
   <span>© 2026 Léo Carvalho · Apprenti Automaticien · BUT GEII</span>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    <a href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer">CV PDF</a>
+    <a class="doc-locked" href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer">CV PDF</a>
   </div>
 </footer>
 

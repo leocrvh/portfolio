@@ -131,3 +131,99 @@ document.addEventListener('click', function(e) {
   document.body.classList.add('page-leaving');
   setTimeout(function() { window.location.href = href; }, 220);
 });
+
+// ── Document access gate ─────────────────────────────
+(function() {
+  var CODE_HASH = '021bf5f80949d1dab752e91d662be9f262aa1fbd21a9befc657977b16f4050b9';
+  var UNLOCK_KEY = 'lc-docs-unlocked';
+  var overlay = null, pendingHref = null, pendingTarget = null;
+
+  function sha256(text) {
+    var enc = new TextEncoder().encode(text);
+    return crypto.subtle.digest('SHA-256', enc).then(function(buf) {
+      return Array.prototype.map.call(new Uint8Array(buf), function(b) {
+        return b.toString(16).padStart(2, '0');
+      }).join('');
+    });
+  }
+
+  function isUnlocked() {
+    try { return sessionStorage.getItem(UNLOCK_KEY) === '1'; } catch (err) { return false; }
+  }
+
+  function buildOverlay() {
+    var el = document.createElement('div');
+    el.className = 'doc-gate-overlay';
+    el.innerHTML =
+      '<div class="doc-gate-box">' +
+        '<button type="button" class="doc-gate-close" aria-label="Fermer">✕</button>' +
+        '<div class="doc-gate-icon">🔒</div>' +
+        '<div class="doc-gate-title">Document protégé</div>' +
+        '<p class="doc-gate-sub">Entre le code d\'accès pour continuer.</p>' +
+        '<input type="password" inputmode="numeric" autocomplete="off" class="doc-gate-input" placeholder="••••••">' +
+        '<div class="doc-gate-error">Code incorrect, réessaie.</div>' +
+        '<button type="button" class="doc-gate-submit btn btn-primary">Déverrouiller</button>' +
+      '</div>';
+    document.body.appendChild(el);
+    return el;
+  }
+
+  function openGate(href, target) {
+    pendingHref = href;
+    pendingTarget = target;
+    if (!overlay) overlay = buildOverlay();
+    overlay.querySelector('.doc-gate-error').classList.remove('show');
+    var input = overlay.querySelector('.doc-gate-input');
+    input.value = '';
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() { input.focus(); }, 60);
+  }
+
+  function closeGate() {
+    if (!overlay) return;
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    pendingHref = null;
+  }
+
+  function trySubmit() {
+    var input = overlay.querySelector('.doc-gate-input');
+    var errorEl = overlay.querySelector('.doc-gate-error');
+    var box = overlay.querySelector('.doc-gate-box');
+    sha256(input.value.trim()).then(function(hash) {
+      if (hash === CODE_HASH) {
+        try { sessionStorage.setItem(UNLOCK_KEY, '1'); } catch (err) {}
+        var href = pendingHref, target = pendingTarget;
+        closeGate();
+        if (target === '_blank') window.open(href, '_blank', 'noopener,noreferrer');
+        else window.location.href = href;
+      } else {
+        errorEl.classList.add('show');
+        box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake');
+        input.value = '';
+        input.focus();
+      }
+    });
+  }
+
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a.doc-locked');
+    if (!link) return;
+    if (isUnlocked()) return;
+    e.preventDefault();
+    openGate(link.getAttribute('href'), link.getAttribute('target'));
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!overlay || !overlay.classList.contains('open')) return;
+    if (e.target.classList.contains('doc-gate-submit')) trySubmit();
+    if (e.target.classList.contains('doc-gate-close') || e.target === overlay) closeGate();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (!overlay || !overlay.classList.contains('open')) return;
+    if (e.key === 'Escape') closeGate();
+    if (e.key === 'Enter' && document.activeElement === overlay.querySelector('.doc-gate-input')) trySubmit();
+  });
+})();

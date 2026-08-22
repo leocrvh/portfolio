@@ -338,6 +338,65 @@ footer {
 .footer-links { display: flex; gap: 1.5rem; }
 .footer-links a:hover { color: var(--accent); }
 
+/* ─── DOCUMENT ACCESS GATE ───────────────────────────── */
+.doc-gate-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 300;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(3px);
+  align-items: center; justify-content: center;
+  padding: 1.2rem;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.doc-gate-overlay.open { display: flex; opacity: 1; }
+.doc-gate-box {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 1.8rem;
+  max-width: 340px; width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 64px rgba(0,0,0,.35);
+  transform: translateY(10px);
+  transition: transform .25s ease;
+}
+.doc-gate-overlay.open .doc-gate-box { transform: translateY(0); }
+.doc-gate-box.shake { animation: doc-gate-shake .4s ease; }
+@keyframes doc-gate-shake {
+  0%,100% { transform: translateX(0); }
+  20%,60% { transform: translateX(-6px); }
+  40%,80% { transform: translateX(6px); }
+}
+.doc-gate-close {
+  position: absolute; top: .8rem; right: .8rem;
+  width: 30px; height: 30px; border-radius: 50%;
+  border: none; background: var(--bg3); color: var(--muted);
+  font-size: .85rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--trans);
+}
+.doc-gate-close:hover { background: var(--border); color: var(--text); }
+.doc-gate-icon { font-size: 1.8rem; margin-bottom: .6rem; }
+.doc-gate-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; margin-bottom: .4rem; }
+.doc-gate-sub { font-size: .85rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.3rem; }
+.doc-gate-input {
+  width: 100%; box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem; letter-spacing: .3em; text-align: center;
+  padding: .75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg3); color: var(--text);
+  margin-bottom: .6rem;
+  transition: var(--trans);
+}
+.doc-gate-input:focus { outline: none; border-color: var(--accent); }
+.doc-gate-error { display: none; font-size: .78rem; color: #B5453D; margin-bottom: .8rem; }
+.doc-gate-error.show { display: block; }
+.doc-gate-submit { width: 100%; justify-content: center; }
+
 /* ─── RESPONSIVE ─────────────────────────────────────── */
 @media (max-width: 900px) {
   .nav-links { display: none; }

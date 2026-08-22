@@ -185,6 +185,28 @@
 }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
 
+/* Upcoming timeline items (à venir, confirmé mais pas encore commencé) */
+.tl-item--upcoming .tl-dot {
+  width: 16px; height: 16px;
+  left: 167px; top: 18px;
+  background: var(--bg);
+  border: 3px solid var(--accent2);
+}
+.tl-item--upcoming .tl-date { color: var(--accent2); font-weight: 600; }
+.tl-item--upcoming .tl-body {
+  border-left: 3px solid var(--accent2);
+  padding-left: 1.2rem;
+  margin-bottom: .5rem;
+}
+.tl-item--upcoming .tl-title { font-size: 1.05rem; color: var(--text); }
+.tl-item--upcoming .tl-badge {
+  display: inline-flex; align-items: center; gap: .35rem;
+  background: rgba(212,149,106,.14); border: 1px solid rgba(212,149,106,.4);
+  border-radius: 999px; padding: .2rem .7rem;
+  font-size: .72rem; font-weight: 600; color: var(--accent2);
+  margin-bottom: .6rem;
+}
+
 /* Interests */
 .interests-section { padding: clamp(3rem,6vh,5rem) clamp(1.2rem,6vw,6rem); background: var(--bg2); }
 .interests-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
@@ -242,7 +264,7 @@
   </div>
   <div class="mobile-menu-footer">
     <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
-    <a href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer">📄 CV</a>
+    <a class="doc-locked" href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer">📄 CV</a>
   </div>
 </div>
 
@@ -275,7 +297,7 @@
         <span class="badge badge-accent">CAO</span>
       </div>
       <div class="profil-ctas">
-        <a href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Télécharger CV ↓</a>
+        <a href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary doc-locked">Télécharger CV ↓</a>
         <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn →</a>
       </div>
     </div>
@@ -360,6 +382,17 @@
     <div class="section-eyebrow fade-up">Formation & Expériences</div>
     <h2 class="section-title fade-up">Mon <span>Parcours</span></h2>
     <div class="timeline">
+
+      <div class="tl-item tl-item--upcoming fade-up">
+        <div class="tl-date">Oct 2026<br>→ 2029</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <div class="tl-badge">À venir</div>
+          <div class="tl-title">Apprenti Ingénieur d'Affaires</div>
+          <div class="tl-org">SPIE Industrie · Brest, France</div>
+          <div class="tl-desc">Poursuite de l'alternance chez SPIE Industrie dans le cadre du cursus Ingénieur Généraliste CESI (3 ans) — évolution du poste d'automaticien vers celui d'ingénieur d'affaires.</div>
+        </div>
+      </div>
 
       <div class="tl-item tl-item--active fade-up">
         <div class="tl-date">Sep 2023<br>→ Août 2026</div>
@@ -485,9 +518,9 @@
         <p style="font-size:.88rem;color:var(--muted);line-height:1.75;">Mon BUT GEII en alternance m'a permis d'acquérir une <strong style="color:var(--text)">expertise terrain concrète</strong> : programmation d'automates industriels, mise en service sur sites clients (Airbus, Neoline), rédaction de DOE. Une base rare pour entrer en école d'ingénieur.</p>
       </div>
       <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;border-top:3px solid var(--accent2);">
-        <div style="font-size:1.5rem;margin-bottom:.8rem">🔍</div>
-        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.6rem;">Recherche d'alternance</div>
-        <p style="font-size:.88rem;color:var(--muted);line-height:1.75;">Je suis à la recherche d'une entreprise partenaire pour mon <strong style="color:var(--text)">contrat d'apprentissage à partir d'octobre 2026</strong>. Contactez-moi pour discuter d'une collaboration sur des projets en automatisme, électricité ou ingénierie industrielle.</p>
+        <div style="font-size:1.5rem;margin-bottom:.8rem">🤝</div>
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.6rem;">Alternance confirmée</div>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.75;">Je poursuis mon alternance chez <strong style="color:var(--text)">SPIE Industrie</strong>, sur l'agence de <strong style="color:var(--text)">Brest</strong>, avec une évolution vers un poste d'<strong style="color:var(--text)">apprenti ingénieur d'affaires</strong> à partir d'octobre 2026.</p>
       </div>
       <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;border-top:3px solid var(--accent);">
         <div style="font-size:1.5rem;margin-bottom:.8rem">📈</div>
@@ -545,7 +578,7 @@
   <span>© 2026 Léo Carvalho · Apprenti Automaticien · Futur Ingénieur CESI</span>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/léo-carvalho29/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    <a href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer">CV PDF</a>
+    <a class="doc-locked" href="CARVALHO-Leo-CV.pdf" target="_blank" rel="noopener noreferrer">CV PDF</a>
   </div>
 </footer>
 <script src="main.js"></script>
